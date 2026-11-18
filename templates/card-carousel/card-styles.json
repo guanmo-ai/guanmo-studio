@@ -1,0 +1,62 @@
+{
+  "titanium": {
+    "name": "石墨钛银",
+    "material": "metal",
+    "base": "#292a2d",
+    "shade": "#0b0c0f",
+    "light": "#8d8982",
+    "edge": "#d3c1a5",
+    "ink": "#f4f1eb",
+    "accent": "#d3c1a5",
+    "roughness": 0.38,
+    "metalness": 0.58
+  },
+  "dusk": {
+    "name": "暮紫冷银",
+    "material": "glass",
+    "base": "#24212e",
+    "shade": "#090a10",
+    "light": "#8a7b9c",
+    "edge": "#b1bdeb",
+    "ink": "#f4f0f8",
+    "accent": "#b1bdeb",
+    "roughness": 0.18,
+    "metalness": 0
+  },
+  "sand": {
+    "name": "砂金暗场",
+    "material": "matte",
+    "base": "#4a3d30",
+    "shade": "#191410",
+    "light": "#8d7254",
+    "edge": "#d2b18a",
+    "ink": "#f2e6d4",
+    "accent": "#d2b18a",
+    "roughness": 0.68,
+    "metalness": 0.06
+  },
+  "amber": {
+    "name": "琥珀暗蓝",
+    "material": "metal",
+    "base": "#283044",
+    "shade": "#13121a",
+    "light": "#6e6162",
+    "edge": "#d6a05f",
+    "ink": "#f3e4cf",
+    "accent": "#d6a05f",
+    "roughness": 0.34,
+    "metalness": 0.4
+  },
+  "berry": {
+    "name": "奶油莓红",
+    "material": "matte",
+    "base": "#eedddc",
+    "shade": "#c29aa5",
+    "light": "#f9f1e6",
+    "edge": "#c29aa5",
+    "ink": "#4b2539",
+    "accent": "#8f3550",
+    "roughness": 0.62,
+    "metalness": 0.02
+  }
+}

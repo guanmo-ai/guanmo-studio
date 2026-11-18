@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>卡片转盘 · 卡片样式 · Guanmo Studio</title><link rel="stylesheet" href="./styles.css"><script type="module" src="./app.js"></script></head>
+<body>
+<header class="topbar"><a class="brand" href="../">◉ <span>Guanmo Studio</span></a><nav aria-label="主导航"><a href="../#templates">模板</a><a href="../#atmospheres">背景</a></nav></header>
+<main>
+ <div class="heading"><h1>卡片样式</h1><button type="button" id="open-library" class="library-button" aria-haspopup="dialog">色卡库</button></div>
+ <div class="workspace">
+  <section class="preview-column" aria-label="样式预览">
+   <div class="preview-top"><div class="view-switch" role="group" aria-label="预览视图"><button data-view="front" aria-pressed="true">正面</button><button data-view="back" aria-pressed="false">背面</button><button data-view="material" aria-pressed="false">材质</button><button data-view="scene" aria-pressed="false">混排</button></div><div class="preview-buttons"><button id="add-preview" disabled>＋ 加入</button><button id="fullscreen" class="text-button" aria-label="放大预览">放大 ↗</button></div></div>
+   <div class="viewport" id="viewport"><iframe id="scene" title="真实视频卡片预览" src="../../build/card-style-preview/?render=1&amp;still=1"></iframe><iframe id="study-reference" title="原有研究色卡材质样板" src="../palettes/?embed=1" hidden></iframe><canvas id="flat-card" width="1280" height="720" hidden aria-label="卡片近景"></canvas><div class="loading" id="loading"><span class="spinner"></span><p>正在准备卡片与字体…</p></div></div>
+   <div class="scene-toolbar"><div class="frame-choices" role="group" aria-label="视频画面位置"><button data-time="0.7">开场</button><button data-time="2.75" aria-pressed="true">卡片轮转</button><button data-time="7.6">展开内容</button><button data-time="14.9">片尾</button></div><span id="inspection-motion" hidden>移动鼠标预览</span><span id="time-readout">02.75 / 15s</span></div>
+   <div class="selection-caption"><div><h2 id="look-name">瓷白墨色 · 海报式</h2><p id="look-description" hidden>暖白与深墨，干净克制</p></div><div class="preview-action"><div class="palette-readout" id="palette-readout" aria-label="当前配色"></div></div></div>
+  </section>
+  <aside class="controls" aria-label="样式选择">
+   <section class="control-section used-styles"><div class="section-title"><h2><span>已选样式</span></h2></div><div class="mixed-heading"><span id="selected-count">已加入0种</span><div class="mix-actions"><button id="clear-selection">清空</button><button id="reshuffle">重新分配 ↻</button></div></div><div id="selected-styles" class="selected-styles" aria-label="已选样式和分配数量"></div><p id="distribution-note" class="control-note" hidden>加入后均分</p></section>
+   <div class="control-scroll">
+   <section class="control-section"><div class="section-title"><h2><span>色卡</span></h2><span id="palette-count">—</span></div><input id="palette-search" class="palette-search" type="search" aria-label="搜索色卡" placeholder="搜索"><div id="palette-groups" class="palette-groups" role="group" aria-label="色卡分组"></div><div id="palettes" class="palette-grid"></div></section>
+   <section class="control-section"><div class="section-title"><h2><span>版式</span></h2></div><div id="layouts" class="layout-grid"></div><p id="layout-note" class="control-note" hidden></p></section>
+   <section class="control-section"><div class="section-title"><h2><span>卡背</span></h2></div><div id="backs" class="back-options"></div></section>
+   <section class="control-section"><div class="section-title"><h2><span>材质与光位</span></h2></div><div id="materials" class="back-options" role="group" aria-label="卡片材质"><button data-material="auto">随色卡</button><button data-material="matte">哑光</button><button data-material="metal">金属</button><button data-material="glass">玻璃</button></div><label class="light-control" for="light">统一主光位置 <output id="light-value">28%</output></label><input id="light" type="range" min="0" max="100" value="28" aria-label="主光位置"></section>
+   </div>
+   <div class="save-area"><button id="save" class="save-button" disabled>保存 <span>↗</span></button><div class="selection-tools"><button id="export" class="export-button" disabled>导出</button><button id="restore-saved" class="export-button" disabled>恢复</button></div><p id="save-status" role="status" aria-live="polite"></p><details class="production-help"><summary>制作视频</summary><p>在仓库终端执行以下命令，生成快速关键帧。</p><code>npm run update -- studio-demo --saved-style</code><p>检查后加 <code>--draft</code> 看连续草稿，加 <code>--final</code> 导出高清。结果写入 <code>studio-demo-selected</code> 对应的工程与视频。</p></details></div>
+  </aside>
+ </div>
+</main>
+<footer><span>GUANMO / 观默</span><a href="../">首页 ↗</a></footer>
+<dialog id="library-dialog" class="library-dialog" aria-labelledby="library-title">
+ <div class="library-header">
+  <h2 id="library-title">色卡库</h2>
+  <form method="dialog"><button type="submit" class="library-close" aria-label="关闭色卡库" autofocus>×</button></form>
+ </div>
+ <iframe id="library-frame" title="色卡与材质研究"></iframe>
+</dialog>
+</body></html>

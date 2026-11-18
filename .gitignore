@@ -1,0 +1,15 @@
+node_modules/
+build/
+renders/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.local/
+# 本地候选与恢复材料，正式示例仅保留当前配置和素材。
+examples/*/reviews/
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo

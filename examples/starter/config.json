@@ -1,0 +1,136 @@
+{
+  "brand": {
+    "wordmark": "Your Project",
+    "tagline": "从这里开始"
+  },
+  "theme": {
+    "accent": "#B88367",
+    "stage": "warm",
+    "cardLook": "original"
+  },
+  "audio": {
+    "music": {
+      "enabled": false
+    },
+    "sfx": {
+      "enabled": false
+    }
+  },
+  "hook": {
+    "kicker": "GUANMO STUDIO · STARTER",
+    "title": [
+      "把想法",
+      "变成短片"
+    ],
+    "sub": "替换文字，先看效果"
+  },
+  "count": {
+    "big": "7 张卡片 · 1 个主角",
+    "sub": "此处为示例文字，请替换成项目事实"
+  },
+  "featured": [
+    "item-1",
+    "item-2",
+    "item-3",
+    "item-4",
+    "item-5",
+    "item-6"
+  ],
+  "hero": "item-7",
+  "cards": [
+    {
+      "id": "item-1",
+      "title": "你的内容",
+      "sub": "Your content",
+      "color": "#B88367",
+      "tag": "STARTER"
+    },
+    {
+      "id": "item-2",
+      "title": "一个亮点",
+      "sub": "A highlight",
+      "color": "#6C7894",
+      "tag": "STARTER"
+    },
+    {
+      "id": "item-3",
+      "title": "真实素材",
+      "sub": "Real assets",
+      "color": "#B7A386",
+      "tag": "STARTER"
+    },
+    {
+      "id": "item-4",
+      "title": "清楚表达",
+      "sub": "Clear copy",
+      "color": "#92738A",
+      "tag": "STARTER"
+    },
+    {
+      "id": "item-5",
+      "title": "选择样式",
+      "sub": "Choose a style",
+      "color": "#82729B",
+      "tag": "STARTER"
+    },
+    {
+      "id": "item-6",
+      "title": "查看预览",
+      "sub": "Review the result",
+      "color": "#C19869",
+      "tag": "STARTER"
+    },
+    {
+      "id": "item-7",
+      "title": "展开主角",
+      "sub": "Your main story",
+      "color": "#748696",
+      "tag": "STARTER"
+    }
+  ],
+  "kit": {
+    "head": "展开一个具体内容",
+    "path": "examples/starter/config.json",
+    "under": [
+      "示例内容",
+      "替换为你的项目"
+    ],
+    "tiles": {
+      "title": "先替换这两项",
+      "items": [
+        {
+          "big": "01",
+          "small": "内容",
+          "label": "替换文字"
+        },
+        {
+          "big": "02",
+          "small": "素材",
+          "label": "添加自己的图片"
+        }
+      ]
+    },
+    "rows": [
+      {
+        "title": "制作步骤",
+        "kind": "chips",
+        "items": [
+          "替换配置",
+          "检查关键帧",
+          "导出视频"
+        ]
+      }
+    ],
+    "typing": {
+      "title": "让 AI 协助",
+      "sub": "从配置开始",
+      "text": "读取 config.json，替换为我的项目内容。先生成关键帧，检查后再导出。"
+    }
+  },
+  "payoff": "让内容登场",
+  "end": {
+    "title": "Your Project",
+    "sub": "写下你的项目说明",
+    "url": "example.com/your-project"
+  }
+}

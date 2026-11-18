@@ -1,0 +1,175 @@
+{
+  "graphite": {
+    "name": "石墨银",
+    "theme": {
+      "accent": "#9aa9bf",
+      "highlight": "#cbd7e8",
+      "seal": "#8493ab",
+      "cursor": "#d7bd9d"
+    },
+    "stage": {
+      "mode": "studio",
+      "bg": "#0d1015",
+      "kitFog": "#161b23",
+      "backdrop": [
+        "#303744",
+        "#171c25",
+        "#080a0e"
+      ],
+      "glow": [
+        "160,179,207",
+        "154,132,111"
+      ],
+      "dust": "210,218,230",
+      "scrim": "9, 12, 17"
+    },
+    "surface": {
+      "palette": [
+        "#3e4858",
+        "#56535a",
+        "#333f54",
+        "#625950",
+        "#4a465b",
+        "#4b5663"
+      ],
+      "edge": "#6d7787",
+      "key": "#dce6f5",
+      "fill": "#c9aa89",
+      "roughness": 0.62,
+      "metalness": 0.36,
+      "panel": "#14181f",
+      "panelBar": "#232934",
+      "mono": "#cbd4e2"
+    }
+  },
+  "midnight": {
+    "name": "深靛蓝",
+    "theme": {
+      "accent": "#849bd4",
+      "highlight": "#b9cbf1",
+      "seal": "#8397c9",
+      "cursor": "#d5b1a4"
+    },
+    "stage": {
+      "mode": "studio",
+      "bg": "#0b0d19",
+      "kitFog": "#141b31",
+      "backdrop": [
+        "#28334f",
+        "#141a2e",
+        "#070912"
+      ],
+      "glow": [
+        "135,159,213",
+        "146,122,166"
+      ],
+      "dust": "196,210,239",
+      "scrim": "8, 10, 20"
+    },
+    "surface": {
+      "palette": [
+        "#344668",
+        "#4a4565",
+        "#3c5170",
+        "#5a4e62",
+        "#3c405e",
+        "#4d5a73"
+      ],
+      "edge": "#69799d",
+      "key": "#cedbff",
+      "fill": "#b6a2c6",
+      "roughness": 0.62,
+      "metalness": 0.36,
+      "panel": "#121625",
+      "panelBar": "#242b40",
+      "mono": "#c2d0ed"
+    }
+  },
+  "copper": {
+    "name": "烟铜色",
+    "theme": {
+      "accent": "#b5967d",
+      "highlight": "#e1c4a6",
+      "seal": "#ae8b72",
+      "cursor": "#c2cbdc"
+    },
+    "stage": {
+      "mode": "studio",
+      "bg": "#120f10",
+      "kitFog": "#251d1b",
+      "backdrop": [
+        "#44352e",
+        "#211b1b",
+        "#0b090b"
+      ],
+      "glow": [
+        "207,164,129",
+        "141,149,178"
+      ],
+      "dust": "228,205,182",
+      "scrim": "15, 11, 12"
+    },
+    "surface": {
+      "palette": [
+        "#72594a",
+        "#564c51",
+        "#775f50",
+        "#424656",
+        "#5e4543",
+        "#60554b"
+      ],
+      "edge": "#968171",
+      "key": "#f0d2b3",
+      "fill": "#adbcd7",
+      "roughness": 0.62,
+      "metalness": 0.36,
+      "panel": "#1b1617",
+      "panelBar": "#302725",
+      "mono": "#ddc4a8"
+    }
+  },
+  "glass": {
+    "name": "暖光玻璃",
+    "theme": {
+      "accent": "#c8b6a4",
+      "highlight": "#ddc5b0",
+      "seal": "#bba38e",
+      "cursor": "#b9cafa"
+    },
+    "stage": {
+      "mode": "glass",
+      "bg": "#18110e",
+      "kitFog": "#281f1c",
+      "backdrop": [
+        "#392b25",
+        "#201714",
+        "#09080b"
+      ],
+      "glow": [
+        "241,197,153",
+        "155,177,228"
+      ],
+      "dust": "232,218,200",
+      "scrim": "15, 10, 9"
+    },
+    "surface": {
+      "glass": true,
+      "palette": [
+        "#43414d",
+        "#50443e",
+        "#393e51",
+        "#60524b",
+        "#484354",
+        "#414a58"
+      ],
+      "edge": "#c6c4d2",
+      "key": "#f1dac1",
+      "fill": "#bbc8ec",
+      "roughness": 0.12,
+      "metalness": 0,
+      "panel": "#18191f",
+      "panelBar": "#2c2b32",
+      "mono": "#d8d3cf"
+    }
+  }
+}

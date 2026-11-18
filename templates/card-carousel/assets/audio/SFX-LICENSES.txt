@@ -1,0 +1,29 @@
+CC0 1.0 — selected sound sources
+
+whoosh/swish__swosh-13.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+whoosh/swish__swosh-07.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+longwhoosh/swish__swosh-38.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+ui_blip/kint__pluck_002.ogg | Interface Sounds | Kenney (kenney.nl) | https://kenney.nl/assets/interface-sounds | CC0 1.0
+whoosh/swish__swosh-22.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+longwhoosh/swish__swosh-35.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+boom/kimp__impactPunch_heavy_002.ogg | Impact Sounds | Kenney (kenney.nl) | https://kenney.nl/assets/impact-sounds | CC0 1.0
+ui_blip/kint__pluck_001.ogg | Interface Sounds | Kenney (kenney.nl) | https://kenney.nl/assets/interface-sounds | CC0 1.0
+type/key__keypress-001.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-004.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-006.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-013.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-017.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-030.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-007.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-003.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-019.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-010.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-028.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-015.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-002.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-005.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+type/key__keypress-012.ogg | Keyboard Soundpack #1 [Typing and Single Keystrokes] | unicaegames | https://opengameart.org/content/keyboard-soundpack-1-typing-and-single-keystrokes | CC0 1.0
+whoosh/swish__swosh-03.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+longwhoosh/swish__swosh-23.ogg | Swish - bamboo stick weapon swhoshes | qubodup (Iwan Gabovitch) | https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes | CC0 1.0
+boom/kimp__impactSoft_heavy_003.ogg | Impact Sounds | Kenney (kenney.nl) | https://kenney.nl/assets/impact-sounds | CC0 1.0
+hit/kimp__impactPlate_heavy_001.ogg | Impact Sounds | Kenney (kenney.nl) | https://kenney.nl/assets/impact-sounds | CC0 1.0

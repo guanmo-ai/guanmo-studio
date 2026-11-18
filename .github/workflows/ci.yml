@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: ${{ matrix.os }} / Node ${{ matrix.node }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    env:
+      STUDIO_GL: software
+      PYTHONUTF8: '1'
+      PYTHONIOENCODING: utf-8
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04, node: '22', python: '3.10' }
+          - { os: macos-15, node: '24', python: '3.13' }
+          - { os: windows-2025, node: '22', python: '3.12' }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: npm run release:check
+      - run: npm ci --registry=https://registry.npmjs.org
+      - name: Linux运行环境
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          npm run setup -- --with-deps
+      - name: macOS运行环境
+        if: runner.os == 'macOS'
+        run: |
+          brew install ffmpeg
+          npm run setup
+      - name: Windows运行环境
+        if: runner.os == 'Windows'
+        run: |
+          choco install ffmpeg --yes --no-progress
+          npm run setup
+      - run: npm run doctor -- --render --probe
+      - run: npm run check
+      - run: npm test
+      - run: npm run build -- starter
+      - run: npm run build -- styled-starter
+      - run: npm run build -- studio-demo
+      - name: 三系统浏览器与完整草稿冒烟
+        run: npm run test:smoke -- --video
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: browser-and-render-${{ matrix.os }}
+          path: renders/open-source-smoke/
+          if-no-files-found: ignore
+          retention-days: 7

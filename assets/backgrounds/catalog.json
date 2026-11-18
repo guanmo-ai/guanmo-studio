@@ -1,0 +1,55 @@
+{
+  "backgrounds": [
+    {
+      "id": "studio-amber",
+      "name": "琥珀侧光",
+      "en": "AMBER SIDELIGHT",
+      "description": "暗棕舞台右侧的一弧暖光，为画面中央留白",
+      "category": "light",
+      "label": "光与气氛",
+      "accent": "#f8ab77",
+      "tags": [
+        "暖调",
+        "弧光"
+      ],
+      "copyAlign": "left",
+      "image": "assets/backgrounds/studio-amber.png",
+      "tone": "dark",
+      "status": "available"
+    },
+    {
+      "id": "studio-indigo",
+      "name": "深蓝边界",
+      "en": "INDIGO EDGE",
+      "description": "冷蓝边光从底部升起，留出开阔暗场",
+      "category": "light",
+      "label": "光与气氛",
+      "accent": "#abccff",
+      "tags": [
+        "冷调",
+        "侧光"
+      ],
+      "copyAlign": "left",
+      "image": "assets/backgrounds/studio-indigo.png",
+      "tone": "dark",
+      "status": "available"
+    },
+    {
+      "id": "studio-rose",
+      "name": "暮玫瑰",
+      "en": "DUSK ROSE",
+      "description": "暗梅红底色上的一层玫瑰色斜光",
+      "category": "light",
+      "label": "光与气氛",
+      "accent": "#f5afc6",
+      "tags": [
+        "玫瑰",
+        "斜光"
+      ],
+      "copyAlign": "left",
+      "image": "assets/backgrounds/studio-rose.png",
+      "tone": "dark",
+      "status": "available"
+    }
+  ]
+}

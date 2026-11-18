@@ -1,0 +1,22 @@
+{
+  "templates": [
+    {
+      "id": "card-carousel",
+      "name": "卡片转盘",
+      "en": "CARD CAROUSEL",
+      "description": "从一叠卡片出发，展开、旋转，再聚焦一个主角。让丰富的内容，在十五秒内有序登场。",
+      "duration": 15,
+      "resolution": "1920 × 1080",
+      "fps": 60,
+      "poster": "examples/studio-demo/poster.jpg",
+      "examples": [
+        {
+          "name": "Guanmo Studio · 卡片转盘",
+          "video": "examples/studio-demo/video.mp4",
+          "poster": "examples/studio-demo/poster.jpg"
+        }
+      ],
+      "prompt": "templates/card-carousel/prompt.md"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+name: 错误报告
+description: 报告可复现的安装、配置、界面或渲染问题
+body:
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 提供命令和最小配置，移除私有图片、凭据与个人路径。
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 预期与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境与日志
+      description: 包含仓库版本、系统与架构、npm run doctor -- --render --probe --json 的输出和相关报错；画面问题可附截图。请移除个人路径。
+    validations:
+      required: true

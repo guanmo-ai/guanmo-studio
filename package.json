@@ -1,0 +1,40 @@
+{
+  "name": "guanmo-studio",
+  "version": "0.1.0",
+  "description": "通过 JSON 配置复用三维卡片动画、选择视觉样式并在本地导出视频",
+  "scripts": {
+    "card-studio": "node scripts/studio.mjs --cards",
+    "update": "node scripts/update.mjs",
+    "studio": "node scripts/studio.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "render": "node scripts/render.mjs",
+    "sfx": "node scripts/sfx.mjs",
+    "test": "node scripts/test.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "check": "node scripts/check.mjs",
+    "test:smoke": "node scripts/smoke.mjs",
+    "release:check": "node scripts/release-check.mjs",
+    "setup": "node scripts/setup.mjs",
+    "container": "node scripts/container.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guanmo-ai/guanmo-studio.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/guanmo-ai/guanmo-studio/issues"
+  },
+  "homepage": "https://github.com/guanmo-ai/guanmo-studio#readme",
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "playwright": "1.65.1",
+    "three": "0.187.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

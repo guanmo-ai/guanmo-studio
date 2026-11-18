@@ -1,0 +1,12 @@
+.masthead .nav a[aria-current=page] { color: var(--text); }
+.page .intro { padding-block: 30px 20px; }
+.intro > div { display: flex; align-items: baseline; gap: 14px; }
+.intro .library-summary { margin: 0; }
+#lab { scroll-margin-top: 16px; }
+.preview-grid .preview-figure { position: relative; }
+.preview-grid .preview-figure .ref-colors { height: 12px; }
+.preview-figure .ref-colors button { flex: 1; min-width: 0; padding: 0; border: 0; cursor: copy; }
+.preview-figure .ref-colors button:focus-visible, .preview-figure .ref-colors button:hover { outline: 1px solid #fff; outline-offset: -2px; }
+.preview-title button::after { content: ''; position: absolute; inset: 0 0 28px; border-radius: 16px; }
+.preview-title button:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 3px; }
+.preview-title button:hover::after { box-shadow: inset 0 0 0 1px #ffffff30; }

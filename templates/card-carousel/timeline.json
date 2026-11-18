@@ -1,0 +1,12 @@
+{
+  "duration": 15,
+  "fps": 60,
+  "segments": [
+    { "id": "01-hook", "name": "开场与展开", "start": 0, "end": 2 },
+    { "id": "02-carousel", "name": "卡片轮转", "start": 2, "end": 5 },
+    { "id": "03-hero", "name": "转向主角", "start": 5, "end": 6 },
+    { "id": "04-details", "name": "主角拆解", "start": 6, "end": 10.2 },
+    { "id": "05-closing", "name": "收束", "start": 10.2, "end": 13.5 },
+    { "id": "06-end", "name": "片尾", "start": 13.5, "end": 15 }
+  ]
+}

@@ -1,0 +1,1161 @@
+{
+  "palettes": [
+    {
+      "id": "study-apple-jet-mirror",
+      "name": "玄黑镜银",
+      "source": "Apple · Watch Series 10 Jet Black 官方产品图",
+      "category": "官方材质研究",
+      "contain": true,
+      "url": "https://www.apple.com/newsroom/2024/09/introducing-apple-watch-series-10/",
+      "colors": [
+        "#090A0C",
+        "#202124",
+        "#74777D",
+        "#C9CDD4",
+        "#F0F0EC"
+      ],
+      "material": "metal",
+      "backdrop": "cove",
+      "group": "new",
+      "observation": "亮黑表壳与较哑的黑色表带并置，表壳上窄而明亮的反射带说明其光滑表面；原图白底与黑色主体形成强对比。",
+      "takeaway": "原创处理：重新绘制矩形卡片上的反射分界，以顶光围合建立自己的暗色静物空间。",
+      "finish": "polished",
+      "layout": "solo",
+      "family": "中性镜面",
+      "lightPosition": 36,
+      "difference": "黑亮漆面 + 边界更清晰的宽灰白反射",
+      "description": "大面使用更集中的灰白反射，保留深黑区域。相比石墨钛银，变化落在反射的清晰度和形状。",
+      "originality": "原创处理：重新绘制矩形卡片上的反射分界，以顶光围合建立自己的暗色静物空间。",
+      "studyId": "apple-jet-mirror",
+      "origin": "study",
+      "note": "大面使用更集中的灰白反射，保留深黑区域。相比石墨钛银，变化落在反射的清晰度和形状。",
+      "papers": [
+        "#202124"
+      ],
+      "light": "#2a2b2f",
+      "ink": "#F0F0EC",
+      "accent": "#C9CDD4",
+      "edge": "#74777D",
+      "stageColor": "#090A0C",
+      "swatches": [
+        "#090A0C",
+        "#202124",
+        "#74777D",
+        "#C9CDD4",
+        "#F0F0EC"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-brands-pura80-machined",
+      "name": "烟金刻光",
+      "source": "HUAWEI · Pura 80 Ultra 鎏光黑官网产品图",
+      "category": "官方材质研究",
+      "contain": true,
+      "url": "https://consumer.huawei.com/cn/phones/pura80-ultra/",
+      "colors": [
+        "#080809",
+        "#242323",
+        "#8D887D",
+        "#C8AE79",
+        "#EEE7DA"
+      ],
+      "material": "metal",
+      "backdrop": "aperture",
+      "group": "new",
+      "observation": "实际图像以黑与银灰为主，大面积纹理具有明确方向；金色只在非常窄的镜头圈里，镜片少量冷蓝。黑色不是平涂，掠射光让沟槽与斜切边依次出现。",
+      "takeaway": "原创处理：将密集纹理重组为三道宽缓浅槽，位置移到卡片短边，背景使用自绘窄窗光。",
+      "finish": "grooved",
+      "layout": "offset",
+      "family": "定向金属",
+      "lightPosition": 72,
+      "difference": "安静石墨面 + 短边三道浅槽的掠射光",
+      "description": "大面保持安静，只有右下短边显出三道低频浅槽。低角度侧光解释局部结构，暖金控制在细小区域。",
+      "originality": "原创处理：将密集纹理重组为三道宽缓浅槽，位置移到卡片短边，背景使用自绘窄窗光。",
+      "studyId": "brands-pura80-machined",
+      "origin": "study",
+      "note": "大面保持安静，只有右下短边显出三道低频浅槽。低角度侧光解释局部结构，暖金控制在细小区域。",
+      "papers": [
+        "#242323"
+      ],
+      "light": "#312f2e",
+      "ink": "#EEE7DA",
+      "accent": "#C8AE79",
+      "edge": "#8D887D",
+      "stageColor": "#080809",
+      "swatches": [
+        "#080809",
+        "#242323",
+        "#8D887D",
+        "#C8AE79",
+        "#EEE7DA"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-prism-violet",
+      "name": "棱紫钛蓝",
+      "source": "Bang & Olufsen · Beolab 90 Mirage",
+      "category": "高级音响 · 官网材质图",
+      "contain": true,
+      "url": "https://www.bang-olufsen.com/en/si/story/atelier-editions-beolab-90-anniversary-collection",
+      "colors": [
+        "#0D101C",
+        "#2B2E51",
+        "#8B86AE",
+        "#B18CA9",
+        "#EEEAF4"
+      ],
+      "material": "metal",
+      "backdrop": "wash",
+      "group": "new",
+      "observation": "所看产品表面从紫色过渡到蓝色，边缘还出现局部玫色反射。官网说明使用手工渐变阳极氧化表面；参考本身较鲜明，背景为浅色。",
+      "takeaway": "原创处理：压低原作饱和度，将多面产品重组为平直卡片；双色分配、倒角和斜向光场重新设计。",
+      "finish": "iridescent",
+      "layout": "stack",
+      "family": "双色缎面",
+      "secondary": "#4F7697",
+      "lightPosition": 30,
+      "lightAngle": 128,
+      "difference": "灰紫与钢蓝分属不同受光面",
+      "description": "灰紫与钢蓝在宽而柔的金属反射里转换，玫色只留少量。这是一组双色金属试验，静态页用于判断方向。",
+      "originality": "原创处理：压低原作饱和度，将多面产品重组为平直卡片；双色分配、倒角和斜向光场重新设计。",
+      "studyId": "prism-violet",
+      "origin": "study",
+      "note": "灰紫与钢蓝在宽而柔的金属反射里转换，玫色只留少量。这是一组双色金属试验，静态页用于判断方向。",
+      "papers": [
+        "#2B2E51"
+      ],
+      "light": "#37395c",
+      "ink": "#EEEAF4",
+      "accent": "#B18CA9",
+      "edge": "#8B86AE",
+      "stageColor": "#0D101C",
+      "swatches": [
+        "#0D101C",
+        "#2B2E51",
+        "#8B86AE",
+        "#B18CA9",
+        "#EEEAF4"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-apple-prism-ink",
+      "name": "棱彩墨镜",
+      "source": "Apple · iPad Pro M4 发布主图",
+      "category": "官方材质研究",
+      "contain": true,
+      "url": "https://www.apple.com/newsroom/2024/05/apple-unveils-stunning-new-ipad-pro-with-m4-chip-and-apple-pencil-pro/",
+      "colors": [
+        "#08090C",
+        "#18191F",
+        "#777B86",
+        "#C9B9DE",
+        "#F3F0F5"
+      ],
+      "material": "glass",
+      "backdrop": "aperture",
+      "group": "new",
+      "observation": "黑背景与黑色屏幕相接，银白曲面反射显示形体；彩色只在少数很细的高光分界处出现。原图包含多种色相。",
+      "takeaway": "原创处理：自绘短斜反射，改用紫灰与浅铜两色；主体采用单张文字卡，背景留一束窄窗侧光。",
+      "finish": "prism",
+      "layout": "solo",
+      "family": "亮面与色散",
+      "secondary": "#D8B68B",
+      "lightPosition": 32,
+      "difference": "中性黑亮面里，一段短而柔的双色反射",
+      "description": "卡片保持接近中性黑，让淡紫与浅铜只出现在内部的一小段反射。彩光的位置、面积与轮廓光方案不同。",
+      "originality": "原创处理：自绘短斜反射，改用紫灰与浅铜两色；主体采用单张文字卡，背景留一束窄窗侧光。",
+      "studyId": "apple-prism-ink",
+      "origin": "study",
+      "note": "卡片保持接近中性黑，让淡紫与浅铜只出现在内部的一小段反射。彩光的位置、面积与轮廓光方案不同。",
+      "papers": [
+        "#18191F"
+      ],
+      "light": "#23252b",
+      "ink": "#F3F0F5",
+      "accent": "#C9B9DE",
+      "edge": "#777B86",
+      "stageColor": "#08090C",
+      "swatches": [
+        "#08090C",
+        "#18191F",
+        "#777B86",
+        "#C9B9DE",
+        "#F3F0F5"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-brands-x6-cloud",
+      "name": "云灰石英",
+      "source": "HUAWEI · Mate X6 Nebula Gray 官网产品图",
+      "category": "官方材质研究",
+      "contain": true,
+      "url": "https://consumer.huawei.com/en/phones/mate-x6/",
+      "colors": [
+        "#0A0C11",
+        "#444954",
+        "#A4A8B2",
+        "#C5B99F",
+        "#F0F0EE"
+      ],
+      "material": "glass",
+      "backdrop": "split",
+      "group": "new",
+      "observation": "实际图像是近黑太空背景、灰白行星轮廓、灰色纤维云纹机身和少量暖金属边。云纹在灰色内部变化，远景与产品共享冷灰主调。官网将这一配色的真实背板说明为纤维材质，不是石材。",
+      "takeaway": "原创处理：独立绘制大尺度连续云带，以单卡偏转替代原图场景，保留干净、无随机颗粒的表面。",
+      "finish": "cloud",
+      "layout": "solo",
+      "family": "云层复合面",
+      "secondary": "#AD9F8C",
+      "lightPosition": 25,
+      "difference": "烟灰卡面内部，两三条连续柔软云带",
+      "description": "主要层次进入卡面内部，以连续宽云带表现复合材料的深度；背景只留很轻的冷暖反照。石英是本次材料提案。",
+      "originality": "原创处理：独立绘制大尺度连续云带，以单卡偏转替代原图场景，保留干净、无随机颗粒的表面。",
+      "studyId": "brands-x6-cloud",
+      "origin": "study",
+      "note": "主要层次进入卡面内部，以连续宽云带表现复合材料的深度；背景只留很轻的冷暖反照。石英是本次材料提案。",
+      "papers": [
+        "#444954"
+      ],
+      "light": "#50545f",
+      "ink": "#F0F0EE",
+      "accent": "#C5B99F",
+      "edge": "#A4A8B2",
+      "stageColor": "#0A0C11",
+      "swatches": [
+        "#0A0C11",
+        "#444954",
+        "#A4A8B2",
+        "#C5B99F",
+        "#F0F0EE"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-walnut-silver",
+      "name": "胡桃冷银",
+      "source": "Bang & Olufsen · Beolab 90 Monarch",
+      "category": "高级音响 · 官网材质图",
+      "contain": true,
+      "url": "https://www.bang-olufsen.com/en/si/story/atelier-editions-beolab-90-anniversary-collection",
+      "colors": [
+        "#100E0F",
+        "#352721",
+        "#919CA8",
+        "#C1A17A",
+        "#EFE8DE"
+      ],
+      "material": "matte",
+      "backdrop": "split",
+      "group": "new",
+      "observation": "所看官网图是浅背景，产品上部接近冷白，下部暖棕木面吸光，边缘保留窄亮线；木材与光滑面有明确分工。",
+      "takeaway": "原创处理：用平整深棕卡面与薄银侧面重建材质分工，暖黑空间由自绘双温光场构成。",
+      "finish": "velvet",
+      "layout": "offset",
+      "family": "暖棕哑光",
+      "secondary": "#8FA4BE",
+      "lightPosition": 22,
+      "difference": "胡桃棕吸光大面 + 偏冷的银灰薄边",
+      "description": "让暖色落在吸光大面，细边却偏冷。以大面和边缘的冷暖分工建立实体感，保持表面光滑干净。",
+      "originality": "原创处理：用平整深棕卡面与薄银侧面重建材质分工，暖黑空间由自绘双温光场构成。",
+      "studyId": "walnut-silver",
+      "origin": "study",
+      "note": "让暖色落在吸光大面，细边却偏冷。以大面和边缘的冷暖分工建立实体感，保持表面光滑干净。",
+      "papers": [
+        "#352721"
+      ],
+      "light": "#403531",
+      "ink": "#EFE8DE",
+      "accent": "#C1A17A",
+      "edge": "#919CA8",
+      "stageColor": "#100E0F",
+      "swatches": [
+        "#100E0F",
+        "#352721",
+        "#919CA8",
+        "#C1A17A",
+        "#EFE8DE"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-apple-smoke-glass",
+      "name": "烟镜蓝灰",
+      "source": "Apple · Vision Pro 玻璃特写",
+      "category": "官方材质研究",
+      "contain": true,
+      "url": "https://www.apple.com/newsroom/2023/06/introducing-apple-vision-pro/",
+      "colors": [
+        "#090D13",
+        "#202A36",
+        "#718097",
+        "#B8C5D9",
+        "#EDF1F7"
+      ],
+      "material": "glass",
+      "backdrop": "cove",
+      "group": "new",
+      "observation": "正面主体是大面积近黑玻璃，蓝灰宽反射集中在上缘和外侧，银色框与玻璃分层；原图在白底上呈现产品。",
+      "takeaway": "原创处理：用平直文字卡与前后叠层重建玻璃关系；将白底产品特写自主转译成低位暗场。",
+      "finish": "smoke",
+      "layout": "stack",
+      "family": "烟色玻璃",
+      "lightPosition": 24,
+      "difference": "低透明灰蓝玻璃 + 很宽的冷白反射",
+      "description": "比深海冰铂更灰、更不透明。玻璃感来自深色表面上的宽反射，以及后方卡片隐约形成的层次。",
+      "originality": "原创处理：用平直文字卡与前后叠层重建玻璃关系；将白底产品特写自主转译成低位暗场。",
+      "studyId": "apple-smoke-glass",
+      "origin": "study",
+      "note": "比深海冰铂更灰、更不透明。玻璃感来自深色表面上的宽反射，以及后方卡片隐约形成的层次。",
+      "papers": [
+        "#202A36"
+      ],
+      "light": "#2a3442",
+      "ink": "#EDF1F7",
+      "accent": "#B8C5D9",
+      "edge": "#718097",
+      "stageColor": "#090D13",
+      "swatches": [
+        "#090D13",
+        "#202A36",
+        "#718097",
+        "#B8C5D9",
+        "#EDF1F7"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-brands-xiaomi15-two-material",
+      "name": "银黑拼材",
+      "source": "Xiaomi · Xiaomi 15 Ultra 官网经典相机设计特写",
+      "category": "官方材质研究",
+      "contain": true,
+      "url": "https://www.mi.com/global/product/xiaomi-15-ultra/",
+      "colors": [
+        "#090B0D",
+        "#17181B",
+        "#C2C4C6",
+        "#92839F",
+        "#F0EEEB"
+      ],
+      "material": "matte",
+      "backdrop": "ambient",
+      "group": "new",
+      "observation": "实际图像把亮银色硬面、吸光黑色软面、黑玻璃与少量紫灰镜片反射放在同一物体上，背景几乎纯黑。材料之间有明显界面；官方说明 Silver Chrome 使用玻璃纤维与 PU 皮革组合。",
+      "takeaway": "原创处理：把材质分区重排为右下角偏置嵌片，使用自己的比例和斜切边，主体内容与卡组构图独立设计。",
+      "finish": "inlay",
+      "layout": "stack",
+      "family": "粗糙度分区",
+      "lightPosition": 25,
+      "difference": "吸光黑面 + 右下角一小块金属嵌片",
+      "description": "同一张卡里，让吸光面与亮银嵌片有明确分工。反光只在小块硬面里发生，卡片主体仍是深黑。",
+      "originality": "原创处理：把材质分区重排为右下角偏置嵌片，使用自己的比例和斜切边，主体内容与卡组构图独立设计。",
+      "studyId": "brands-xiaomi15-two-material",
+      "origin": "study",
+      "note": "同一张卡里，让吸光面与亮银嵌片有明确分工。反光只在小块硬面里发生，卡片主体仍是深黑。",
+      "papers": [
+        "#17181B"
+      ],
+      "light": "#2c2d30",
+      "ink": "#F0EEEB",
+      "accent": "#92839F",
+      "edge": "#C2C4C6",
+      "stageColor": "#090B0D",
+      "swatches": [
+        "#090B0D",
+        "#17181B",
+        "#C2C4C6",
+        "#92839F",
+        "#F0EEEB"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-ember-graphite",
+      "name": "熔橙钨黑",
+      "source": "Luke Halls Studio · McLaren W1 发布视觉",
+      "category": "汽车发布视觉 · 创作团队案例",
+      "contain": true,
+      "url": "https://lukehalls.com/case-studies/mclaren-w1/",
+      "colors": [
+        "#100C0D",
+        "#29242A",
+        "#6D6164",
+        "#DB6C3B",
+        "#F5E8DC"
+      ],
+      "material": "metal",
+      "backdrop": "split",
+      "group": "new",
+      "observation": "创作团队案例图中，橙红产品与深黑下部对照，白色窄高光强调结构；现场另有红橙通道透视。官方案例明确由 Luke Halls Studio 制作 W1 发布活动视觉。",
+      "takeaway": "原创处理：将暖反射移到独立卡片的斜向区域，以错层卡组与双温空场重新组织画面。",
+      "finish": "ember",
+      "layout": "offset",
+      "family": "暖色反照",
+      "secondary": "#DB6C3B",
+      "lightPosition": 68,
+      "difference": "钨黑主体上，一条有力度的红橙反射",
+      "description": "在钨黑大面上试一段更有力度的红橙反照，冷白细边另行分开。适合有节奏感的镜头，与琥珀暗蓝形成较强对照。",
+      "originality": "原创处理：将暖反射移到独立卡片的斜向区域，以错层卡组与双温空场重新组织画面。",
+      "studyId": "ember-graphite",
+      "origin": "study",
+      "note": "在钨黑大面上试一段更有力度的红橙反照，冷白细边另行分开。适合有节奏感的镜头，与琥珀暗蓝形成较强对照。",
+      "papers": [
+        "#29242A"
+      ],
+      "light": "#312b31",
+      "ink": "#F5E8DC",
+      "accent": "#DB6C3B",
+      "edge": "#6D6164",
+      "stageColor": "#100C0D",
+      "swatches": [
+        "#100C0D",
+        "#29242A",
+        "#6D6164",
+        "#DB6C3B",
+        "#F5E8DC"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-wine",
+      "name": "酒红香槟",
+      "source": "HUAWEI · Mate XT 官网产品图",
+      "category": "产品视觉 · 当次官网",
+      "contain": true,
+      "url": "https://consumer.huawei.com/en/phones/mate-xt-ultimate-design/",
+      "colors": [
+        "#100D11",
+        "#4B242D",
+        "#A08067",
+        "#D5B48D",
+        "#F5E4D6"
+      ],
+      "material": "matte",
+      "backdrop": "ambient",
+      "description": "酒红大面吸光，细香槟边接光。比琥珀暗蓝更温润，比暮紫冷银更偏红；背景用暖黑或极暗紫褐。",
+      "observation": "官网图中，深红哑光平面与细金属框并置。大面与窄框对光的反应不同。",
+      "takeaway": "迁移：保留干净的哑光红面，反光交给细金属边。这里转译为光滑卡面，不复制皮纹。",
+      "difference": "吸光的酒红大面 + 香槟窄边",
+      "group": "round2",
+      "studyId": "wine",
+      "origin": "study",
+      "note": "酒红大面吸光，细香槟边接光。比琥珀暗蓝更温润，比暮紫冷银更偏红；背景用暖黑或极暗紫褐。",
+      "papers": [
+        "#4B242D"
+      ],
+      "light": "#552f34",
+      "ink": "#F5E4D6",
+      "accent": "#D5B48D",
+      "edge": "#A08067",
+      "stageColor": "#100D11",
+      "swatches": [
+        "#100D11",
+        "#4B242D",
+        "#A08067",
+        "#D5B48D",
+        "#F5E4D6"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-ice",
+      "name": "深海冰铂",
+      "source": "GMUNK · TRON: Legacy / Board Room",
+      "category": "电影界面 · 2010",
+      "contain": false,
+      "url": "https://gmunk.com/TRON-Legacy",
+      "colors": [
+        "#080D18",
+        "#182B45",
+        "#58769B",
+        "#B1D2F3",
+        "#EDF5FF"
+      ],
+      "material": "glass",
+      "backdrop": "wash",
+      "description": "以墨蓝代替中性石墨，亮部只保留蓝白。比暮紫冷银更冷、更清晰，背景采用深蓝斜向光场。",
+      "observation": "所示会议室界面以深黑蓝承托冷蓝白线条；亮线细、暗面大，背景不与前景争夺亮度。",
+      "takeaway": "迁移：提取深蓝与冰白的明暗关系。样板减少原界面的密集线条，保留卡片阅读空间。",
+      "difference": "全冷色系统，墨蓝 + 冰白",
+      "group": "round2",
+      "studyId": "ice",
+      "origin": "study",
+      "note": "以墨蓝代替中性石墨，亮部只保留蓝白。比暮紫冷银更冷、更清晰，背景采用深蓝斜向光场。",
+      "papers": [
+        "#182B45"
+      ],
+      "light": "#20344f",
+      "ink": "#EDF5FF",
+      "accent": "#B1D2F3",
+      "edge": "#58769B",
+      "stageColor": "#080D18",
+      "swatches": [
+        "#080D18",
+        "#182B45",
+        "#58769B",
+        "#B1D2F3",
+        "#EDF5FF"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-warm",
+      "name": "暖钛柔光",
+      "source": "Apple · iPhone 16 Pro 发布图",
+      "category": "发布视觉 · 2024",
+      "contain": true,
+      "url": "https://www.apple.com/newsroom/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/",
+      "colors": [
+        "#100D0C",
+        "#49392F",
+        "#A18873",
+        "#D8C2AB",
+        "#F2E7D8"
+      ],
+      "material": "metal",
+      "backdrop": "ambient",
+      "description": "让卡面本身进入暖灰棕中间调，再给一侧宽而柔的香槟反射。比石墨钛银更暖，几乎不靠蓝橙对撞。",
+      "observation": "发布图中，暖钛金属同时有宽柔反射和窄亮边；铜橙色主要集中在屏幕细弧里。",
+      "takeaway": "迁移：用暖棕中间色和宽柔反射建立体积，配干净暖黑背景。",
+      "difference": "暖灰棕中间调 + 宽柔反射",
+      "group": "round2",
+      "studyId": "warm",
+      "origin": "study",
+      "note": "让卡面本身进入暖灰棕中间调，再给一侧宽而柔的香槟反射。比石墨钛银更暖，几乎不靠蓝橙对撞。",
+      "papers": [
+        "#49392F"
+      ],
+      "light": "#544237",
+      "ink": "#F2E7D8",
+      "accent": "#D8C2AB",
+      "edge": "#A18873",
+      "stageColor": "#100D0C",
+      "swatches": [
+        "#100D0C",
+        "#49392F",
+        "#A18873",
+        "#D8C2AB",
+        "#F2E7D8"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-rose",
+      "name": "灰玫暮光",
+      "source": "Xiaomi · The Next Pinnacle",
+      "category": "发布海报 · 2025",
+      "contain": true,
+      "url": "https://www.mi.com/global/event/2025/xiaomi-launch-march-2025",
+      "colors": [
+        "#110D12",
+        "#3E2C38",
+        "#856574",
+        "#CCA3A0",
+        "#F2DDD0"
+      ],
+      "material": "matte",
+      "backdrop": "horizon",
+      "description": "把灰玫暖光放在远处，卡片保持暗色前景。比暮紫冷银更柔和，适合低位地平线和暮色空气层。",
+      "observation": "原海报以黑色摄影模组作前景，上方灰粉天体与侧后日出形成前后距离；天空比本样板亮。",
+      "takeaway": "迁移：这是压暗后的背景实验。降低天空亮度，移去强星芒，留下低位玫瑰灰反照。",
+      "difference": "暖色放进远景空气层",
+      "group": "round2",
+      "studyId": "rose",
+      "origin": "study",
+      "note": "把灰玫暖光放在远处，卡片保持暗色前景。比暮紫冷银更柔和，适合低位地平线和暮色空气层。",
+      "papers": [
+        "#3E2C38"
+      ],
+      "light": "#47333f",
+      "ink": "#F2DDD0",
+      "accent": "#CCA3A0",
+      "edge": "#856574",
+      "stageColor": "#110D12",
+      "swatches": [
+        "#110D12",
+        "#3E2C38",
+        "#856574",
+        "#CCA3A0",
+        "#F2DDD0"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-berry",
+      "name": "黑莓烟紫",
+      "source": "GMUNK · Maestro Dobel Diamante",
+      "category": "广告视觉 · 2023",
+      "contain": false,
+      "url": "https://gmunk.com/Maestro-Dobel-Diamante",
+      "colors": [
+        "#0D0A14",
+        "#38213F",
+        "#865C8D",
+        "#C3A0CE",
+        "#F0E4F1"
+      ],
+      "material": "glass",
+      "backdrop": "wash",
+      "description": "黑中带较明确的莓紫，保留暗蓝阴影和烟色反射。比暮紫冷银更偏红紫，颜色主要出现在局部受光面。",
+      "observation": "所示广告帧的大部分空间处于黑暗，紫色与暗红光集中在局部平面，另一侧保留冷蓝暗部。",
+      "takeaway": "迁移：将空间里的局部紫色反射转成烟色卡片。降低原帧彩光强度，让暗面占主导。",
+      "difference": "更偏红的莓紫 + 烟色反射",
+      "group": "round2",
+      "studyId": "berry",
+      "origin": "study",
+      "note": "黑中带较明确的莓紫，保留暗蓝阴影和烟色反射。比暮紫冷银更偏红紫，颜色主要出现在局部受光面。",
+      "papers": [
+        "#38213F"
+      ],
+      "light": "#412848",
+      "ink": "#F0E4F1",
+      "accent": "#C3A0CE",
+      "edge": "#865C8D",
+      "stageColor": "#0D0A14",
+      "swatches": [
+        "#0D0A14",
+        "#38213F",
+        "#865C8D",
+        "#C3A0CE",
+        "#F0E4F1"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-blade",
+      "name": "琥珀暗蓝",
+      "source": "《银翼杀手 2049》· 拉斯维加斯",
+      "category": "电影场景 · 2017",
+      "contain": false,
+      "url": "https://territorystudio.com/project/blade-runner-2049/",
+      "colors": [
+        "#13121A",
+        "#283044",
+        "#6E6162",
+        "#D6A05F",
+        "#F3E4CF"
+      ],
+      "material": "metal",
+      "backdrop": "horizon",
+      "description": "此场景以琥珀光为主。样板在暗部引入少量蓝灰作研究转译，让冷暗卡面接住一侧暖光。",
+      "observation": "拉斯维加斯场景被琥珀光包围，前景设备和人物保持深色。Territory 说明当地设计呼应旧日拉斯维加斯的温暖与华丽。",
+      "takeaway": "迁移：暖光只落一侧，暗部保留层次；同一镜头里让一个色温占主导。",
+      "group": "liked",
+      "studyId": "blade",
+      "origin": "study",
+      "note": "此场景以琥珀光为主。样板在暗部引入少量蓝灰作研究转译，让冷暗卡面接住一侧暖光。",
+      "papers": [
+        "#283044"
+      ],
+      "light": "#303648",
+      "ink": "#F3E4CF",
+      "accent": "#D6A05F",
+      "edge": "#6E6162",
+      "stageColor": "#13121A",
+      "swatches": [
+        "#13121A",
+        "#283044",
+        "#6E6162",
+        "#D6A05F",
+        "#F3E4CF"
+      ],
+      "backStyle": "amber"
+    },
+    {
+      "id": "study-wwdc",
+      "name": "暮紫冷银",
+      "source": "Apple · WWDC24",
+      "category": "活动主视觉 · 2024",
+      "contain": true,
+      "url": "https://www.apple.com/newsroom/2024/05/apples-worldwide-developers-conference-to-kick-off-june-10-with-keynote-address/",
+      "colors": [
+        "#090A10",
+        "#24212E",
+        "#8A7B9C",
+        "#B1BDEB",
+        "#F4F0F8"
+      ],
+      "material": "glass",
+      "backdrop": "horizon",
+      "description": "大面积近黑与暗紫，冷色高光集中在轮廓。参考原图另有少量暖色；此处转译为便于卡片阅读的冷银色板。",
+      "observation": "彩光主要沿形体边缘出现，中央大面积保留黑色，底部白字清晰。多种颜色由同一轮廓组织。",
+      "takeaway": "迁移：把彩色收进一条边缘光，卡面仍保持稳定和安静。",
+      "group": "liked",
+      "studyId": "wwdc",
+      "origin": "study",
+      "note": "大面积近黑与暗紫，冷色高光集中在轮廓。参考原图另有少量暖色；此处转译为便于卡片阅读的冷银色板。",
+      "papers": [
+        "#24212E"
+      ],
+      "light": "#302c3b",
+      "ink": "#F4F0F8",
+      "accent": "#B1BDEB",
+      "edge": "#8A7B9C",
+      "stageColor": "#090A10",
+      "swatches": [
+        "#090A10",
+        "#24212E",
+        "#8A7B9C",
+        "#B1BDEB",
+        "#F4F0F8"
+      ],
+      "backStyle": "dusk"
+    },
+    {
+      "id": "study-titanium",
+      "name": "石墨钛银",
+      "source": "Apple · iPhone 15 Pro",
+      "category": "发布视觉 · 2023",
+      "contain": true,
+      "url": "https://www.apple.com/newsroom/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/",
+      "colors": [
+        "#0B0C0F",
+        "#292A2D",
+        "#8D8982",
+        "#D3C1A5",
+        "#F4F1EB"
+      ],
+      "material": "metal",
+      "backdrop": "ambient",
+      "description": "中性暗场承托微暖银边。高光沿倒角和侧面展开，卡片可用深灰面、薄银边与很少的香槟色。",
+      "observation": "图中金属的亮度跨度很大，亮区沿曲面和侧面延伸；机身大部分仍在暗部。",
+      "takeaway": "迁移：用细边和宽反射表现材质；先控制光的位置，再调银色。",
+      "group": "liked",
+      "studyId": "titanium",
+      "origin": "study",
+      "note": "中性暗场承托微暖银边。高光沿倒角和侧面展开，卡片可用深灰面、薄银边与很少的香槟色。",
+      "papers": [
+        "#292A2D"
+      ],
+      "light": "#353537",
+      "ink": "#F4F1EB",
+      "accent": "#D3C1A5",
+      "edge": "#8D8982",
+      "stageColor": "#0B0C0F",
+      "swatches": [
+        "#0B0C0F",
+        "#292A2D",
+        "#8D8982",
+        "#D3C1A5",
+        "#F4F1EB"
+      ],
+      "backStyle": "titanium"
+    },
+    {
+      "id": "study-bloom",
+      "name": "瓷白钴蓝",
+      "source": "Microsoft · Windows 11 Bloom",
+      "category": "产品视觉 · 2021",
+      "contain": false,
+      "url": "https://blogs.windows.com/windowsexperience/2021/10/06/windows-11-blossoms-with-bloom-a-new-symbol-for-a-new-operating-system/",
+      "colors": [
+        "#E9EEF7",
+        "#F7F9FD",
+        "#BBCBE5",
+        "#245BDF",
+        "#16223B"
+      ],
+      "material": "matte",
+      "backdrop": "ambient",
+      "description": "浅冷灰与瓷白承托电光蓝。以大面积留白和柔和阴影建立空间，蓝色集中在主角或一个强调点。",
+      "observation": "Bloom 用同一蓝色内部的亮暗与褶皱形成体积。微软明确提到背景留白及其与上层半透明材质的配合。",
+      "takeaway": "迁移：浅色也能有质感。让蓝色成为主角，白卡保留很轻的灰蓝阴影。",
+      "group": "other",
+      "studyId": "bloom",
+      "origin": "study",
+      "note": "浅冷灰与瓷白承托电光蓝。以大面积留白和柔和阴影建立空间，蓝色集中在主角或一个强调点。",
+      "papers": [
+        "#F7F9FD"
+      ],
+      "light": "#f0f3fa",
+      "ink": "#16223B",
+      "accent": "#245BDF",
+      "edge": "#BBCBE5",
+      "stageColor": "#E9EEF7",
+      "swatches": [
+        "#E9EEF7",
+        "#F7F9FD",
+        "#BBCBE5",
+        "#245BDF",
+        "#16223B"
+      ],
+      "backStyle": null
+    },
+    {
+      "id": "study-dune",
+      "name": "砂金暗场",
+      "source": "《沙丘》· 反射光与建筑",
+      "category": "电影场景 · 2021",
+      "contain": false,
+      "url": "https://theasc.com/article/dune-fear-is-the-mind-killer/",
+      "colors": [
+        "#191410",
+        "#4A3D30",
+        "#8D7254",
+        "#D2B18A",
+        "#F2E6D4"
+      ],
+      "material": "matte",
+      "backdrop": "wash",
+      "description": "深棕、灰砂与浅金保持相近色相。卡片靠柔和的受光面、暗侧面与轮廓分离，适合厚重但安静的画面。",
+      "observation": "所示建筑由方向明确的反射光建立尺度。摄影师谈到在沙色内部保留细微色差，而非只做单色画面。",
+      "takeaway": "迁移：学同色系的层次与光的形状。试验卡面保持干净，采用哑光表面。",
+      "group": "other",
+      "studyId": "dune",
+      "origin": "study",
+      "note": "深棕、灰砂与浅金保持相近色相。卡片靠柔和的受光面、暗侧面与轮廓分离，适合厚重但安静的画面。",
+      "papers": [
+        "#4A3D30"
+      ],
+      "light": "#524334",
+      "ink": "#F2E6D4",
+      "accent": "#D2B18A",
+      "edge": "#8D7254",
+      "stageColor": "#191410",
+      "swatches": [
+        "#191410",
+        "#4A3D30",
+        "#8D7254",
+        "#D2B18A",
+        "#F2E6D4"
+      ],
+      "backStyle": "sand"
+    },
+    {
+      "id": "study-budapest",
+      "name": "奶油莓红",
+      "source": "《布达佩斯大饭店》· Mendl’s",
+      "category": "电影场景 · 2014",
+      "contain": false,
+      "url": "https://www.searchlightpictures.com/thegrandbudapesthotel",
+      "colors": [
+        "#EEDDDC",
+        "#F9F1E6",
+        "#C29AA5",
+        "#8F3550",
+        "#4B2539"
+      ],
+      "material": "matte",
+      "backdrop": "ambient",
+      "description": "粉、奶油白与莓红适合做精致纸卡。颜色偏浅时，用深莓色文字和统一的排版保持重量感。",
+      "observation": "所示 Mendl’s 画面让粉色包装反复出现，蓝紫丝带与深色细节穿插其间，颜色、道具与构图相互呼应。",
+      "takeaway": "迁移：学配色比例、包装结构与文字秩序。干净的哑光纸卡也能很精致。",
+      "group": "other",
+      "studyId": "budapest",
+      "origin": "study",
+      "note": "粉、奶油白与莓红适合做精致纸卡。颜色偏浅时，用深莓色文字和统一的排版保持重量感。",
+      "papers": [
+        "#F9F1E6"
+      ],
+      "light": "#f2e7de",
+      "ink": "#4B2539",
+      "accent": "#8F3550",
+      "edge": "#C29AA5",
+      "stageColor": "#EEDDDC",
+      "swatches": [
+        "#EEDDDC",
+        "#F9F1E6",
+        "#C29AA5",
+        "#8F3550",
+        "#4B2539"
+      ],
+      "backStyle": "berry"
+    },
+    {
+      "id": "look-graphite",
+      "origin": "look",
+      "group": "template",
+      "name": "石墨银",
+      "note": "项目已有整套配色",
+      "source": "Guanmo Studio · graphite",
+      "papers": [
+        "#3e4858",
+        "#56535a",
+        "#333f54",
+        "#625950",
+        "#4a465b",
+        "#4b5663"
+      ],
+      "light": "#444e5e",
+      "ink": "#f4f1eb",
+      "accent": "#cbd7e8",
+      "edge": "#6d7787",
+      "material": "metal",
+      "swatches": [
+        "#3e4858",
+        "#56535a",
+        "#333f54",
+        "#625950",
+        "#4a465b",
+        "#4b5663"
+      ],
+      "roughness": 0.62,
+      "metalness": 0.36
+    },
+    {
+      "id": "look-midnight",
+      "origin": "look",
+      "group": "template",
+      "name": "深靛蓝",
+      "note": "项目已有整套配色",
+      "source": "Guanmo Studio · midnight",
+      "papers": [
+        "#344668",
+        "#4a4565",
+        "#3c5170",
+        "#5a4e62",
+        "#3c405e",
+        "#4d5a73"
+      ],
+      "light": "#3a4c6e",
+      "ink": "#f4f1eb",
+      "accent": "#b9cbf1",
+      "edge": "#69799d",
+      "material": "metal",
+      "swatches": [
+        "#344668",
+        "#4a4565",
+        "#3c5170",
+        "#5a4e62",
+        "#3c405e",
+        "#4d5a73"
+      ],
+      "roughness": 0.62,
+      "metalness": 0.36
+    },
+    {
+      "id": "look-copper",
+      "origin": "look",
+      "group": "template",
+      "name": "烟铜色",
+      "note": "项目已有整套配色",
+      "source": "Guanmo Studio · copper",
+      "papers": [
+        "#72594a",
+        "#564c51",
+        "#775f50",
+        "#424656",
+        "#5e4543",
+        "#60554b"
+      ],
+      "light": "#765e4f",
+      "ink": "#f4f1eb",
+      "accent": "#e1c4a6",
+      "edge": "#968171",
+      "material": "metal",
+      "swatches": [
+        "#72594a",
+        "#564c51",
+        "#775f50",
+        "#424656",
+        "#5e4543",
+        "#60554b"
+      ],
+      "roughness": 0.62,
+      "metalness": 0.36
+    },
+    {
+      "id": "look-glass",
+      "origin": "look",
+      "group": "template",
+      "name": "暖光玻璃",
+      "note": "项目已有整套配色",
+      "source": "Guanmo Studio · glass",
+      "papers": [
+        "#43414d",
+        "#50443e",
+        "#393e51",
+        "#60524b",
+        "#484354",
+        "#414a58"
+      ],
+      "light": "#53515d",
+      "ink": "#f4f1eb",
+      "accent": "#ddc5b0",
+      "edge": "#c6c4d2",
+      "material": "glass",
+      "swatches": [
+        "#43414d",
+        "#50443e",
+        "#393e51",
+        "#60524b",
+        "#484354",
+        "#414a58"
+      ],
+      "roughness": 0.12,
+      "metalness": 0
+    },
+    {
+      "id": "porcelain",
+      "name": "瓷白墨色",
+      "note": "暖白与深墨，干净克制",
+      "papers": [
+        "#f4f1eb",
+        "#eee9e0",
+        "#e5ded3",
+        "#f9f1e6"
+      ],
+      "light": "#fbf8f2",
+      "ink": "#302a27",
+      "accent": "#8d7765",
+      "group": "light",
+      "material": "matte",
+      "origin": "light"
+    },
+    {
+      "id": "champagne",
+      "name": "香槟砂金",
+      "note": "奶油、砂金与暖棕",
+      "papers": [
+        "#f2e6d4",
+        "#e4d5bd",
+        "#d3c1a5",
+        "#f4ede0"
+      ],
+      "light": "#faf3e7",
+      "ink": "#4a382c",
+      "accent": "#9b7751",
+      "group": "light",
+      "material": "matte",
+      "origin": "light"
+    },
+    {
+      "id": "berry",
+      "name": "奶油莓红",
+      "note": "奶油白承托深莓色",
+      "papers": [
+        "#f9f1e6",
+        "#eedddc",
+        "#e6ced0",
+        "#f3e6df"
+      ],
+      "light": "#fff8ef",
+      "ink": "#4b2539",
+      "accent": "#8f3550",
+      "group": "light",
+      "material": "matte",
+      "origin": "light"
+    },
+    {
+      "id": "rose",
+      "name": "雾粉玫瑰",
+      "note": "柔粉与灰玫瑰，温和细腻",
+      "papers": [
+        "#efdfe0",
+        "#dfc7cc",
+        "#f5e9e5",
+        "#e5d5d0"
+      ],
+      "light": "#fbf3ef",
+      "ink": "#553c44",
+      "accent": "#9b747d",
+      "group": "light",
+      "material": "matte",
+      "origin": "light"
+    },
+    {
+      "id": "sand",
+      "name": "砂岩奶咖",
+      "note": "米色、燕麦与浅咖啡",
+      "papers": [
+        "#e8dfd0",
+        "#d8cab8",
+        "#f1e9dc",
+        "#e1d2c3"
+      ],
+      "light": "#f6f0e5",
+      "ink": "#514338",
+      "accent": "#937d68",
+      "group": "light",
+      "material": "matte",
+      "origin": "light"
+    },
+    {
+      "id": "terracotta",
+      "name": "杏色陶土",
+      "note": "杏白与陶土，轻而有温度",
+      "papers": [
+        "#f2dfce",
+        "#e7c7b0",
+        "#f6e9dd",
+        "#e8d2c4"
+      ],
+      "light": "#fff3e7",
+      "ink": "#673f30",
+      "accent": "#ad7054",
+      "group": "light",
+      "material": "matte",
+      "origin": "light"
+    }
+  ],
+  "layouts": [
+    {
+      "id": "editorial",
+      "name": "编辑式",
+      "note": "图标、名称、说明，清晰分层"
+    },
+    {
+      "id": "poster",
+      "name": "海报式",
+      "note": "大字居中，让名字成为主角"
+    },
+    {
+      "id": "split",
+      "name": "分栏式",
+      "note": "色块与留白，形成图形节奏"
+    },
+    {
+      "id": "minimal",
+      "name": "极简式",
+      "note": "减少装饰，保留精确的字与线"
+    }
+  ],
+  "backs": [
+    {
+      "id": "number",
+      "name": "大编号"
+    },
+    {
+      "id": "type",
+      "name": "名字排版"
+    },
+    {
+      "id": "minimal",
+      "name": "简洁字标"
+    }
+  ],
+  "groups": [
+    {
+      "id": "all",
+      "name": "全部"
+    },
+    {
+      "id": "new",
+      "name": "本轮新增"
+    },
+    {
+      "id": "liked",
+      "name": "之前喜欢"
+    },
+    {
+      "id": "round2",
+      "name": "上轮延伸"
+    },
+    {
+      "id": "other",
+      "name": "其他研究"
+    },
+    {
+      "id": "template",
+      "name": "模板配色"
+    },
+    {
+      "id": "light",
+      "name": "浅色试配"
+    }
+  ]
+}

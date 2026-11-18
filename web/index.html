@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050506">
+  <meta name="description" content="观默的影像工作室。探索电影感背景与视频模板，为你的想法找到合适的画面。">
+  <title>Guanmo Studio · 影像工作室</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050506'/%3E%3Ccircle cx='16' cy='16' r='10' stroke='%23f5f5f7' fill='none'/%3E%3Cpath d='M12 11v10l9-5z' fill='%23f5f5f7'/%3E%3C/svg%3E">
+  <link rel="preload" as="font" href="./fonts/geist-latin-wght-normal.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="ui-skip" href="#templates">跳到模板库</a>
+  <header class="nav" id="nav">
+    <div class="ui-container nav-inner">
+      <a class="brand" href="./" aria-label="Guanmo Studio 首页">
+        <svg class="brand-mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor"/><path d="M9.5 7.8v8.4l7-4.2z" fill="currentColor"/></svg>
+        <span>Guanmo Studio</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航"><a href="#templates" aria-current="true">模板</a><a href="#atmospheres">背景</a><a href="./palettes/">色卡库</a></nav>
+      <a class="follow-link" href="https://x.com/guanmo_ai" target="_blank" rel="noopener noreferrer">观默 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero ui-container" aria-labelledby="hero-title">
+      <h1 id="hero-title">让内容，动起来。</h1>
+    </section>
+    <section class="templates ui-container" id="templates" aria-labelledby="templates-title">
+      <div class="section-heading"><h2 id="templates-title">模板</h2></div>
+      <div class="template-grid" id="template-grid"></div>
+    </section>
+    <section class="atmospheres ui-container" id="atmospheres" aria-labelledby="background-title">
+      <div class="background-heading">
+        <div class="background-heading-text">
+          <h2 id="background-title">背景库</h2>
+          <p class="gallery-count"><span id="result-count">—</span> 张</p>
+        </div>
+        <label class="search">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.8 4.8" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span class="ui-sr">搜索背景</span><input id="background-search" type="search" placeholder="搜索背景" autocomplete="off"><kbd aria-hidden="true">/</kbd>
+        </label>
+      </div>
+      <div class="filters" id="background-filters" role="group" aria-label="背景分类" hidden></div>
+      <p id="load-error" class="load-error" role="alert" hidden></p>
+      <div class="background-carousel" id="background-carousel" role="region" aria-label="背景轮播" hidden>
+        <div class="background-grid" id="background-grid" aria-busy="true"></div>
+        <div class="carousel-controls" id="carousel-controls">
+          <button type="button" class="carousel-arrow" id="carousel-previous" aria-label="上一张背景">←</button>
+          <span class="carousel-position" id="carousel-position" aria-live="polite"></span>
+          <button type="button" class="carousel-arrow" id="carousel-next" aria-label="下一张背景">→</button>
+        </div>
+      </div>
+      <div class="empty-state" id="empty-state" hidden><h2>暂无结果</h2><button type="button" class="pill-button" id="reset-search">查看全部背景 <span aria-hidden="true">↗</span></button></div>
+      <p id="status" class="ui-sr" role="status" aria-live="polite"></p>
+    </section>
+
+  </main>
+  <footer class="footer ui-container">
+    <div class="footer-repositories"><p>作者的其他仓库</p><div><a href="https://github.com/guanmo-ai/design-style" target="_blank" rel="noopener noreferrer">Design Style ↗</a><a href="https://github.com/guanmo-ai/awesome-ai-motion" target="_blank" rel="noopener noreferrer">Awesome AI Motion ↗</a><a href="https://github.com/guanmo-ai/awesome-agent-mcp" target="_blank" rel="noopener noreferrer">Awesome Agent MCP ↗</a></div></div>
+    <div class="footer-legal"><span>© <span id="year">2026</span> 观默</span><a href="https://x.com/guanmo_ai" target="_blank" rel="noopener noreferrer">@guanmo_ai ↗</a><a href="#main" aria-label="回到顶部">↑</a></div>
+  </footer>
+  <dialog class="preview-dialog" id="preview-dialog" aria-labelledby="preview-title">
+    <div class="dialog-bar"><div><h2 id="preview-title">背景预览</h2></div><button type="button" class="close-button" data-close="preview-dialog" aria-label="关闭预览"><span aria-hidden="true">×</span></button></div>
+    <div class="viewer">
+      <div class="screen pure" id="screen">
+        <img class="screen-image" id="screen-image" alt="" width="1672" height="941">
+        <div class="screen-top ui-sr" aria-hidden="true"><span>GUANMO STUDIO</span><span id="screen-study">LIGHT STUDY</span></div>
+        <div class="screen-copy" id="screen-copy" aria-hidden="true"><h2>让内容，动起来。</h2></div>
+        <div class="screen-bottom"><div class="screen-caption" aria-hidden="true"><p class="ui-sr" id="theme-en"></p><h3 id="theme-name"></h3><p class="ui-sr" id="theme-description"></p></div><div class="screen-controls"><span class="screen-count" id="screen-count"></span><button type="button" class="circle-button" id="previous" aria-label="上一个背景">←</button><button type="button" class="circle-button" id="next" aria-label="下一个背景">→</button></div></div>
+      </div>
+      <div class="viewer-toolbar"><div class="mode-switch" role="group" aria-label="预览方式"><button type="button" data-mode="title" aria-pressed="false">文字</button><button type="button" data-mode="pure" aria-pressed="true">原图</button></div><div class="image-actions"><button type="button" id="view-image">放大 ↗</button><a id="download-image" download>下载 ↓</a></div></div>
+      <div class="theme-rail" id="theme-rail" role="group" aria-label="快速切换背景"></div>
+      <p class="preview-error" id="preview-error" role="alert" hidden></p>
+    </div>
+  </dialog>
+  <dialog class="image-dialog" id="image-dialog" aria-labelledby="image-dialog-title"><div class="dialog-bar"><h2 id="image-dialog-title">背景原图</h2><button type="button" class="close-button" data-close="image-dialog" aria-label="关闭大图">×</button></div><img id="full-image" alt=""><p class="dialog-caption" id="image-dialog-caption"></p></dialog>
+  <dialog class="template-dialog" id="template-dialog" aria-labelledby="template-dialog-title">
+    <div class="dialog-bar">
+      <div><h2 id="template-dialog-title">模板详情</h2><p class="template-specs" id="template-dialog-specs"></p></div>
+      <button type="button" class="close-button" data-close="template-dialog" aria-label="关闭模板详情" autofocus>×</button>
+    </div>
+    <div class="template-detail">
+      <div class="template-film">
+        <div class="mode-switch template-examples" id="template-examples" role="group" aria-label="正式案例" hidden></div>
+        <video id="template-video" controls playsinline preload="metadata"></video>
+        <p class="preview-error" id="template-video-error" role="alert" hidden>视频暂时无法播放，请关闭后重试。</p>
+      </div>
+      <section class="template-prompt-panel" aria-labelledby="template-prompt-title">
+        <div class="template-prompt-header">
+          <h3 id="template-prompt-title">制作提示词</h3>
+          <button type="button" class="template-copy" id="copy-template-prompt" disabled>复制提示词</button>
+        </div>
+        <textarea id="template-prompt" aria-labelledby="template-prompt-title" readonly spellcheck="false"></textarea>
+        <p id="template-prompt-status" role="status" hidden></p>
+      </section>
+    </div>
+  </dialog>
+</body>
+</html>

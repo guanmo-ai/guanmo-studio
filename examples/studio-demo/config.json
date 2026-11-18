@@ -1,0 +1,492 @@
+{
+  "brand": {
+    "wordmark": "Guanmo Studio",
+    "font": "sans",
+    "tagline": "CARD CAROUSEL",
+    "paper": "#2c2027",
+    "ink": "#f7e7d4",
+    "back": "#513343"
+  },
+  "theme": {
+    "stage": "warm",
+    "cardLook": "original",
+    "accent": "#b86f4d",
+    "highlight": "#f4cba8",
+    "seal": "#b9483f",
+    "cursor": "#f5c1ac"
+  },
+  "background": {
+    "preset": "studio-amber",
+    "vignette": 0.17,
+    "particles": false,
+    "glow": false
+  },
+  "audio": {
+    "music": {
+      "enabled": true,
+      "volume": 0.8
+    },
+    "sfx": {
+      "enabled": true,
+      "volume": 1
+    }
+  },
+  "hook": {
+    "kicker": "GUANMO STUDIO / CARD CAROUSEL",
+    "title": [
+      "一副卡片",
+      "一支短片"
+    ],
+    "sub": "把项目的重点放到台前"
+  },
+  "count": {
+    "big": "21 张卡片 · 1 个主角",
+    "sub": "从项目封面，到可重新编辑的成片"
+  },
+  "cards": [
+    {
+      "id": "poster",
+      "no": "01",
+      "title": "项目封面",
+      "sub": "Project Cover",
+      "tag": "STORY",
+      "color": "#daa980",
+      "face": {
+        "palette": "champagne",
+        "layout": "poster",
+        "back": "number",
+        "light": 38,
+        "summary": "为第一眼留一个清楚的标题。",
+        "nameEn": "Project Cover",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "palette",
+      "no": "02",
+      "title": "卡面配色",
+      "sub": "Card Palette",
+      "tag": "STYLE",
+      "color": "#9fabc9",
+      "face": {
+        "palette": "study-ice",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "把主色、文字和强调色作为一组。",
+        "nameEn": "Card Palette",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "stage",
+      "no": "03",
+      "title": "背景舞台",
+      "sub": "Stage Light",
+      "tag": "STAGE",
+      "color": "#b57c9b",
+      "face": {
+        "palette": "study-rose",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "改变光的方向，让主体始终清楚。",
+        "nameEn": "Stage Light",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "choreography",
+      "no": "04",
+      "title": "轮转节拍",
+      "sub": "Carousel Timing",
+      "tag": "TIMING",
+      "color": "#8b97c3",
+      "face": {
+        "palette": "look-midnight",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "六张精选卡依次转向镜头。",
+        "nameEn": "Carousel Timing",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "audio",
+      "no": "05",
+      "title": "配乐音效",
+      "sub": "Music and SFX",
+      "tag": "AUDIO",
+      "color": "#d09870",
+      "face": {
+        "palette": "study-warm",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "配乐与音效各有独立音量。",
+        "nameEn": "Music and SFX",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "export",
+      "no": "06",
+      "title": "本地导出",
+      "sub": "Local Export",
+      "tag": "EXPORT",
+      "color": "#b68ba8",
+      "face": {
+        "palette": "berry",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "先查关键帧，再导出高清成片。",
+        "nameEn": "Local Export",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "orientation",
+      "no": "07",
+      "title": "横版画面",
+      "sub": "Landscape Frame",
+      "tag": "FRAME",
+      "color": "#c9a78e",
+      "face": {
+        "palette": "study-walnut-silver",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "用固定画幅组织标题与画面。",
+        "nameEn": "Landscape Frame",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "card-count",
+      "no": "08",
+      "title": "卡片数量",
+      "sub": "Card Count",
+      "tag": "CARDS",
+      "color": "#b9a8d3",
+      "face": {
+        "palette": "study-berry",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "按内容规模选择合适的卡片数量。",
+        "nameEn": "Card Count",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "headline",
+      "no": "09",
+      "title": "标题排版",
+      "sub": "Headline Type",
+      "tag": "TYPE",
+      "color": "#e2b995",
+      "face": {
+        "palette": "porcelain",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "用简短标题讲清每张卡的重点。",
+        "nameEn": "Headline Type",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "image",
+      "no": "10",
+      "title": "原图卡面",
+      "sub": "Image Card",
+      "tag": "IMAGE",
+      "color": "#9aabce",
+      "face": {
+        "palette": "look-midnight",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "为卡片指定自己的图片与裁切方式。",
+        "nameEn": "Image Card",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "back",
+      "no": "11",
+      "title": "反面样式",
+      "sub": "Card Back",
+      "tag": "BACK",
+      "color": "#c58d99",
+      "face": {
+        "palette": "study-rose",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "为翻转后的卡片设定另一面。",
+        "nameEn": "Card Back",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "materials",
+      "no": "12",
+      "title": "卡片材质",
+      "sub": "Card Material",
+      "tag": "STYLE",
+      "color": "#c6a58b",
+      "face": {
+        "palette": "study-warm",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "用光位区分哑光、金属与玻璃。",
+        "nameEn": "Card Material",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "preview",
+      "no": "13",
+      "title": "连续预览",
+      "sub": "Draft Preview",
+      "tag": "PREVIEW",
+      "color": "#a6b7d7",
+      "face": {
+        "palette": "study-ice",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "用草稿检查画面变化和音画节奏。",
+        "nameEn": "Draft Preview",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "plates",
+      "no": "14",
+      "title": "关键画面",
+      "sub": "Proof Frame",
+      "tag": "PROOF",
+      "color": "#d3a6bb",
+      "face": {
+        "palette": "study-berry",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "从实际渲染帧检查画面和文字。",
+        "nameEn": "Proof Frame",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "cuts",
+      "no": "15",
+      "title": "画面分段",
+      "sub": "Edit Segments",
+      "tag": "EDIT",
+      "color": "#dbb189",
+      "face": {
+        "palette": "champagne",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "按模板段落导出六段无声画面。",
+        "nameEn": "Edit Segments",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "tracks",
+      "no": "16",
+      "title": "独立音轨",
+      "sub": "Separate Tracks",
+      "tag": "EDIT",
+      "color": "#9baacc",
+      "face": {
+        "palette": "look-midnight",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "剪辑时可单独安放配乐与音效。",
+        "nameEn": "Separate Tracks",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "source",
+      "no": "17",
+      "title": "源配置",
+      "sub": "Source Config",
+      "tag": "CONFIG",
+      "color": "#c79caa",
+      "face": {
+        "palette": "study-rose",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "配置和素材可以一起搬移、重建。",
+        "nameEn": "Source Config",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "wordmark",
+      "no": "18",
+      "title": "品牌字标",
+      "sub": "Wordmark",
+      "tag": "BRAND",
+      "color": "#dfb69b",
+      "face": {
+        "palette": "study-warm",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "让开场字标与结尾名称保持一致。",
+        "nameEn": "Wordmark",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "motion-kit",
+      "no": "19",
+      "title": "短片结构",
+      "sub": "Motion Kit",
+      "tag": "MOTION",
+      "color": "#e8b38f",
+      "face": {
+        "palette": "champagne",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "开场引入、精选轮转、主角展开，再用片尾收束。",
+        "nameEn": "Motion Kit",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "ending",
+      "no": "20",
+      "title": "片尾链接",
+      "sub": "End Card",
+      "tag": "ENDING",
+      "color": "#9caed6",
+      "face": {
+        "palette": "study-ice",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "给想继续了解的人留一个地址。",
+        "nameEn": "End Card",
+        "kicker": "GUANMO STUDIO"
+      }
+    },
+    {
+      "id": "review",
+      "no": "21",
+      "title": "交付校验",
+      "sub": "Delivery Check",
+      "tag": "REVIEW",
+      "color": "#d2a1b6",
+      "face": {
+        "palette": "berry",
+        "layout": "editorial",
+        "back": "number",
+        "light": 38,
+        "summary": "导出后核对画幅、时长和声轨。",
+        "nameEn": "Delivery Check",
+        "kicker": "GUANMO STUDIO"
+      }
+    }
+  ],
+  "featured": [
+    "poster",
+    "palette",
+    "stage",
+    "choreography",
+    "audio",
+    "export"
+  ],
+  "hero": "motion-kit",
+  "kit": {
+    "head": "展开一张主角卡",
+    "path": "examples/studio-demo/config.json",
+    "under": [
+      "短片结构",
+      "15 秒横版卡片转盘"
+    ],
+    "tiles": {
+      "title": "同一套编排",
+      "sub": "从第一张卡，到画面与分轨",
+      "items": [
+        {
+          "big": "15s",
+          "small": "成片时长"
+        },
+        {
+          "big": "60",
+          "small": "每秒帧数"
+        },
+        {
+          "big": "21",
+          "small": "本片卡数"
+        },
+        {
+          "big": "6",
+          "small": "剪辑段落"
+        }
+      ]
+    },
+    "rows": [
+      {
+        "kind": "dots",
+        "title": "程序卡面",
+        "sub": "示例色卡",
+        "items": [
+          "#e6c2a4",
+          "#c38a7d",
+          "#a184ae",
+          "#8098ca",
+          "#eaf0f7"
+        ]
+      },
+      {
+        "kind": "chips",
+        "numbered": false,
+        "title": "替换自己的内容",
+        "items": [
+          "标题",
+          "卡片",
+          "背景",
+          "声音"
+        ]
+      },
+      {
+        "kind": "mono",
+        "title": "剪辑素材",
+        "items": [
+          "clips/",
+          "audio/",
+          "project/"
+        ]
+      }
+    ],
+    "typing": {
+      "title": "本地制作",
+      "sub": "终端",
+      "text": "npm run update -- studio-demo --draft\nnpm run update -- studio-demo --final"
+    }
+  },
+  "payoff": "内容登场",
+  "end": {
+    "title": "Guanmo Studio",
+    "sub": "可复用的项目宣传片模板",
+    "url": "github.com/guanmo-ai/guanmo-studio",
+    "credit": "观默",
+    "handle": "@guanmo_ai",
+    "seal": "观默"
+  }
+}

@@ -1,0 +1,16 @@
+.git
+node_modules
+.venv
+.local
+build
+renders
+__pycache__
+**/__pycache__
+**/*.pyc
+.env
+.env.*
+*.log
+.DS_Store
+examples/*/reviews
+.codex
+.claude

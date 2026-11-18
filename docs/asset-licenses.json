@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "policy": "代码和原创素材采用 MIT。第三方素材遵循自己的许可。新增随包媒体需填写逐项来源和授权记录。",
+  "groups": [
+    {
+      "id": "render-fonts",
+      "paths": [
+        "assets/fonts/Geist.otf",
+        "assets/fonts/InstrumentSerif-Italic.otf",
+        "assets/fonts/InstrumentSerif-Regular.otf",
+        "assets/fonts/JetBrainsMono.otf",
+        "assets/fonts/NotoSansSC.otf"
+      ],
+      "license": "OFL-1.1",
+      "status": "documented",
+      "evidence": "assets/fonts/licenses/",
+      "note": "渲染字体与各自的 SIL Open Font License 和版权声明一并保留。"
+    },
+    {
+      "id": "web-fonts",
+      "paths": [
+        "web/fonts/geist-latin-wght-normal.woff2",
+        "web/fonts/geist-mono-latin-wght-normal.woff2"
+      ],
+      "license": "OFL-1.1",
+      "status": "documented",
+      "evidence": "web/fonts/geist-OFL.txt",
+      "note": "Geist 与 Geist Mono，后者另有 web/fonts/geist-mono-OFL.txt。"
+    },
+    {
+      "id": "sound-effects",
+      "paths": [
+        "templates/card-carousel/assets/audio/sfx.wav"
+      ],
+      "license": "CC0-1.0",
+      "status": "documented",
+      "evidence": "templates/card-carousel/assets/audio/SFX-LICENSES.txt",
+      "note": "Design Style 原片使用的独立动作音效轨，逐项记录 CC0 样本。"
+    },
+    {
+      "id": "synth-sound-effects",
+      "paths": [
+        "templates/card-carousel/assets/audio/sfx-synth.wav"
+      ],
+      "license": "MIT",
+      "status": "documented",
+      "evidence": "docs/sound-effects.md",
+      "note": "由仓库音效生成器和默认时间表合成。"
+    },
+    {
+      "id": "bundled-music",
+      "paths": [
+        "templates/card-carousel/assets/audio/music.wav"
+      ],
+      "license": "MIT",
+      "status": "documented",
+      "evidence": "templates/card-carousel/assets/audio/MUSIC.md",
+      "note": "由 templates/card-carousel/scripts/generate_music.py 全合成，可逐字节重建。"
+    },
+    {
+      "id": "studio-backgrounds",
+      "paths": [
+        "assets/backgrounds/studio-amber.png",
+        "assets/backgrounds/studio-indigo.png",
+        "assets/backgrounds/studio-rose.png",
+        "assets/backgrounds/previews/studio-amber.webp",
+        "assets/backgrounds/previews/studio-indigo.webp",
+        "assets/backgrounds/previews/studio-rose.webp"
+      ],
+      "license": "MIT",
+      "status": "documented",
+      "evidence": "scripts/generate-demo-backgrounds.py",
+      "note": "原创程序背景及预览，由随包脚本生成。"
+    },
+    {
+      "id": "studio-demo-media",
+      "paths": [
+        "examples/studio-demo/poster.jpg",
+        "examples/studio-demo/video.mp4"
+      ],
+      "license": "MIT",
+      "status": "documented",
+      "evidence": "examples/studio-demo/SOURCE.md",
+      "note": "原创程序卡面、文案与动画。随附配乐、音效和字体保留各自许可。"
+    }
+  ],
+  "sha256": {
+    "templates/card-carousel/assets/audio/music.wav": "9ea6424d6aa4f254023ccb221805dfa50f57c6a860ad9c4c9ce3984e72355efa",
+    "templates/card-carousel/assets/audio/sfx.wav": "e450c673ec21a72b17941da57ed544acfcd142a0667243f702f025f1374110ad",
+    "templates/card-carousel/assets/audio/sfx-synth.wav": "f07a69148dab4f897ba39c0e8d437c6b11d66d7e78d9eff05756fd122527f535",
+    "assets/backgrounds/studio-amber.png": "9d4c0deb0bf251bbe5c4438351d9f1e204bbf4ac05bc1e3e10a62d4518bc466f",
+    "assets/backgrounds/studio-indigo.png": "36b5b1dd6480339d97a528a8f3bd0c85159ee23af8dce52b2e8fde424ef135f3",
+    "assets/backgrounds/studio-rose.png": "adf1ba990d38471080992871f8039519fb01baaa3accfa5356eae2a7f40d8cf3",
+    "assets/backgrounds/previews/studio-amber.webp": "321cd3a519350e4f9bfc8388af5b0be468fedd9f371307a35ba78ef1e259e1af",
+    "assets/backgrounds/previews/studio-indigo.webp": "f951e0ddf5ccc5c7e42de0434928df7e2141ea8e0baf39a48f36cb1f5a57d21b",
+    "assets/backgrounds/previews/studio-rose.webp": "f7ebe3aa6ad6caec83e3574aacf2d0c23550cc909d054611ea99967b7427cffb",
+    "examples/studio-demo/poster.jpg": "1f222d6e3de1673861aa106c5079e80eb78adc3a6e42d433cc57fd1359f3dce8"
+  }
+}

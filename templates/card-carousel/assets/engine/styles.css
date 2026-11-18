@@ -1,0 +1,56 @@
+#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: #15110f; }
+#gl { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; display: block; }
+/* --hl 高亮色、--seal 印章色、--paper 纸色、--scrim 暗角色（r, g, b）由 hud.js 从 film.json 写入 */
+#hud { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none;
+  --hl: #ffb59f; --seal: #c8372d; --seal-ink: #fffdf8; --seal-ring: rgba(255, 253, 248, 0.85); --paper: #fffdf8; --scrim: 14, 11, 10;
+  font-family: "Noto Sans SC", "Geist", sans-serif; color: #fffdf8; }
+
+.blk { position: absolute; }
+.scrim { position: absolute; opacity: 0; }
+.scrim-tl { left: 0; top: 0; width: 1420px; height: 400px;
+  background: radial-gradient(ellipse 80% 95% at 20% 8%, rgba(var(--scrim), 0.97) 0%, rgba(var(--scrim), 0.93) 46%, rgba(var(--scrim), 0.5) 74%, rgba(var(--scrim), 0) 100%); }
+.ln { display: block; overflow: hidden; white-space: nowrap; visibility: hidden; }
+.ln > span { display: inline-block; will-change: transform; }
+
+/* 通用字级 */
+.mega { font-size: 176px; font-weight: 900; line-height: 1.14; letter-spacing: -2px; }
+.kicker { font-family: "JetBrains Mono", "Noto Sans SC", monospace; font-size: 32px; font-weight: 600;
+  letter-spacing: 5px; color: var(--hl); line-height: 1.5; margin-bottom: 10px; }
+.sub { font-size: 40px; font-weight: 500; line-height: 1.5; color: rgba(255, 253, 248, 0.86); }
+.big { font-size: 78px; font-weight: 800; line-height: 1.22; }
+.big b { font-family: "Geist", "Noto Sans SC", sans-serif; font-weight: 800; color: var(--hl); }
+.big i { font-style: normal; font-weight: 400; color: rgba(255, 253, 248, 0.5); padding: 0 6px; }
+.head { font-size: 54px; font-weight: 800; line-height: 1.25; }
+.path { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 600; color: var(--hl); line-height: 1.5; }
+
+/* 0–1 s 开场标题：左半边 */
+.blk-hook { left: 108px; top: 318px; }
+.blk-hook .sub { margin-top: 18px; font-size: 35px; }
+
+/* 2–5 s 旋转木马：左上 */
+.blk-count { left: 104px; top: 62px; }
+
+/* 6–10 s 拆开一张牌：顶部一行 */
+.blk-kit { left: 100px; top: 36px; }
+.blk-kitpath { right: 120px; top: 50px; }
+
+/* 11–12.7 s 收束 */
+.blk-open { left: 108px; bottom: 84px; }
+.blk-open .mega { font-size: 150px; }
+
+/* 13.5–15 s 片尾：右半边 */
+.blk-end { left: 936px; top: 318px; }
+.title { font-size: 96px; font-weight: 900; line-height: 1.25; letter-spacing: -1px; }
+.blk-end .sub { font-size: 38px; margin-top: 10px; color: rgba(255, 253, 248, 0.8); }
+.url { margin-top: 40px; line-height: 1.6; padding: 4px 0; }
+.pill { display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 34px; font-weight: 600;
+  color: #15110f; background: var(--paper); border-radius: 999px; padding: 12px 34px; }
+.credit { margin-top: 64px; font-size: 40px; font-weight: 800; line-height: 1.5; }
+.credit em { font-style: normal; font-family: "Geist", sans-serif; font-weight: 500; color: rgba(255, 253, 248, 0.7); margin-left: 12px; }
+#hud.image-background .credit { text-shadow: 0 2px 4px #000, 0 0 14px #000; }
+
+/* 署名印章：位置由 hud.js 按署名那一行的实际宽度摆 */
+.seal { position: absolute; left: 1312px; top: 690px; width: 50px; height: 70px; border-radius: 8px;
+  background: var(--seal); color: var(--seal-ink); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 900; line-height: 1.12; visibility: hidden; transform-origin: 50% 50%;
+  box-shadow: 0 0 0 3px var(--seal) inset, 0 0 0 5px var(--seal-ring) inset; }

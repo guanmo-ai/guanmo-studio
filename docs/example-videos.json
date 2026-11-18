@@ -1,0 +1,25 @@
+{
+  "template": "card-carousel",
+  "templateNumber": "001",
+  "approvedExamples": [
+    {
+      "example": "studio-demo",
+      "name": "Guanmo Studio · 卡片转盘",
+      "file": "examples/studio-demo/video.mp4",
+      "poster": "examples/studio-demo/poster.jpg",
+      "config": "examples/studio-demo/config.json",
+      "source": "template-render",
+      "sha256": "4734808ffc8618983502e5e64afcd839e78d7136302cc15423aacb5b251e96db",
+      "bytes": 8703613,
+      "width": 1920,
+      "height": 1080,
+      "fps": "60/1",
+      "duration": "15.000000",
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "soundEffects": "bundled-cc0",
+      "background": "studio-amber",
+      "cardLook": "original"
+    }
+  ]
+}

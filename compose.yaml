@@ -1,0 +1,15 @@
+services:
+  studio:
+    build:
+      context: .
+      args:
+        PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST: ${PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST:-}
+    image: guanmo-studio:local
+    init: true
+    user: "${STUDIO_UID:-1000}:${STUDIO_GID:-1000}"
+    shm_size: 1gb
+    volumes:
+      - ./examples:/app/examples:ro
+      - ./renders:/app/renders
+    # 批量构建/渲染入口，不开放宿主端口。
+    command: ["npm", "run", "doctor", "--", "--render", "--probe"]
