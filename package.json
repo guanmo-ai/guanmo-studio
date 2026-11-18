@@ -1,7 +1,7 @@
 {
   "name": "guanmo-studio",
   "version": "0.1.0",
-  "description": "通过 JSON 配置复用三维卡片动画、选择视觉样式并在本地导出视频",
+  "description": "选一个视频模板，放进你的内容，在本地创作属于自己的短片",
   "scripts": {
     "card-studio": "node scripts/studio.mjs --cards",
     "update": "node scripts/update.mjs",

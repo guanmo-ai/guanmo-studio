@@ -1,6 +1,8 @@
 # Guanmo Studio
 
-**Edit one JSON file and turn your project into a 15-second 3D card carousel video.** Everything runs locally and exports a 1920×1080 / 60fps MP4. Free and open source: no account and no paid model required. AI coding agents can produce videos for you with the bundled prompt.
+**Choose a video template, bring your own content, and create a short film that is truly yours.**
+
+The first template is Card Carousel: a deck of cards fans out, spins, and settles on one hero, telling the story of your work, product, or idea in fifteen seconds. Picking styles, previewing, and exporting a 1080p / 60fps film all happen on your own computer. Free and open source, with no account and no paid model required, or hand it to an AI agent and let it do the work.
 
 [**Live demo**](https://guanmo-ai.github.io/guanmo-studio/) · [中文文档](README.md) · [Configuration](templates/card-carousel/references/config.md) · [AI prompt](templates/card-carousel/prompt.md) · [Licenses and assets](THIRD_PARTY_NOTICES.md)
 
@@ -12,7 +14,7 @@
 
 You need **Node.js 22+**, **Python 3.10+**, and **FFmpeg**. See the [platform guide](docs/platform-support.md) if any are missing.
 
-**1. Get the code** with **Use this template** above, or clone it:
+**1. Get the code:**
 
 ```bash
 git clone https://github.com/guanmo-ai/guanmo-studio.git
@@ -35,7 +37,7 @@ npm run update -- studio-demo --final
 
 The video is written to `renders/studio-demo.mp4`. Use `--draft` instead of `--final` for a quick 960×540 preview, and add `--edit-pack` to export six segments plus separate music and effects tracks to `renders/studio-demo-edit/`.
 
-## Use your own content
+## Create your own video
 
 Copy the styled starter (styled cards, music, and effects) under a new project name:
 

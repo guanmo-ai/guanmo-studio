@@ -1,6 +1,8 @@
 # Guanmo Studio
 
-**改一份 JSON，就能把你的项目做成一支 15 秒的三维卡片转盘短片。** 整个流程在本地运行，输出 1920×1080 / 60fps 的 MP4。免费开源，不需要登录，也不调用付费模型。AI 可以按随附的提示词直接替你制作。
+**选一个喜欢的视频模板，放进你的内容，创作一支属于自己的短片。**
+
+第一个模板是「卡片转盘」：一叠卡片展开、旋转，再聚焦一个主角，十五秒里把你的作品、产品或故事有序地讲出来。从选样式、预览到导出 1080p / 60fps 成片，全部在你的电脑上完成。免费开源，不需要登录，也不调用付费模型；也可以把它交给 AI，让它替你完成。
 
 [**在线体验**](https://guanmo-ai.github.io/guanmo-studio/) · [English](README.en.md) · [配置说明](templates/card-carousel/references/config.md) · [AI 制作提示词](templates/card-carousel/prompt.md) · [素材许可](THIRD_PARTY_NOTICES.md)
 
@@ -8,11 +10,11 @@
 
 <sub>上图是本仓库自带的样片，点击可查看 1080p 原片。下面三步就能在你的电脑上原样做出来。</sub>
 
-## 三步复刻这个模板
+## 三步做出这支样片
 
 需要 **Node.js 22+**、**Python 3.10+** 和 **FFmpeg**。还没安装的话，先看 [各系统安装方法](docs/platform-support.md)。
 
-**1. 获取代码**：点页面上方的 **Use this template** 创建自己的仓库，或者直接克隆：
+**1. 获取代码**：
 
 ```bash
 git clone https://github.com/guanmo-ai/guanmo-studio.git
@@ -37,7 +39,7 @@ npm run update -- studio-demo --final
 
 成片保存在 `renders/studio-demo.mp4`，和上面的样片一致。想先快速看一遍，把 `--final` 换成 `--draft`（960×540 草稿）；再加 `--edit-pack` 可额外导出六段画面、配乐和音效分轨，放在 `renders/studio-demo-edit/`。
 
-## 换成你自己的内容
+## 创作你自己的视频
 
 复制带样式和配乐的起点配置，起一个新的项目名：
 
@@ -84,7 +86,7 @@ npm run update -- my-project --final    # 高清成片
 
 | 平台 | 当前状态 | 使用方式 |
 | --- | --- | --- |
-| **macOS** | **已实测通过**（Apple Silicon）：构建、网页工作台和完整视频导出均通过检查 | 推荐原生安装，按上方「三步复刻」操作 |
+| **macOS** | **已实测通过**（Apple Silicon）：构建、网页工作台和完整视频导出均通过检查 | 推荐原生安装，按上方「三步做出这支样片」操作 |
 | **Windows** | **CI 已通过**（Windows Server 2025，软件渲染）：诊断、测试、网页交互和完整草稿导出；真实显卡与控制台 Ctrl+C 待手动验证 | 安装 Node.js、Python 和 FFmpeg 后，在 PowerShell 执行下方安装命令；先通过 `npm run doctor -- --render --probe` 再制作 |
 | **Linux** | **CI 已通过**（Ubuntu 24.04 / x86_64，软件渲染）：诊断、测试、网页交互和完整草稿导出 | 批量导出推荐 Docker；原生安装需补齐浏览器系统依赖，使用 `npm run setup -- --with-deps` |
 
@@ -150,7 +152,7 @@ npm run update -- studio-demo --saved-style --final
 
 ## 制作细节
 
-上方「换成你自己的内容」用的是一键入口 `npm run update`。需要分步控制时，可以分别构建和渲染。起点推荐 `examples/styled-starter/`（带样式卡面、配乐和音效）；想要纯文字、默认无声的版本用 `examples/starter/`。图片、图标与音轨路径相对于配置文件：
+上方「创作你自己的视频」用的是一键入口 `npm run update`。需要分步控制时，可以分别构建和渲染。起点推荐 `examples/styled-starter/`（带样式卡面、配乐和音效）；想要纯文字、默认无声的版本用 `examples/starter/`。图片、图标与音轨路径相对于配置文件：
 
 ```bash
 npm run build -- examples/my-project/config.json --out build/my-project
