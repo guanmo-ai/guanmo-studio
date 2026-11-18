@@ -15,6 +15,7 @@
     "check": "node scripts/check.mjs",
     "test:smoke": "node scripts/smoke.mjs",
     "release:check": "node scripts/release-check.mjs",
+    "site": "node scripts/site.mjs",
     "setup": "node scripts/setup.mjs",
     "container": "node scripts/container.mjs"
   },

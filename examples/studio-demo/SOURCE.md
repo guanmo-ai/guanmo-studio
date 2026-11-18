@@ -8,4 +8,4 @@
 npm run update -- studio-demo --final
 ```
 
-配置引用 `studio-amber` 背景。布局选择和音轨音量保存在同目录的 `config.json`。封面从演示成片取帧。
+配置引用 `studio-amber` 背景。布局选择和音轨音量保存在同目录的 `config.json`。封面从演示成片取帧；`preview.webp` 是 README 使用的动态预览，由演示成片缩放转码（960×540、15fps、无音轨）。

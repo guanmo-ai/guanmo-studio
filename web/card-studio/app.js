@@ -4,6 +4,8 @@ import { distributeCards } from '../../templates/card-carousel/assets/engine/car
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const storageKey = `guanmo-card-studio-${CARD_STUDIO_PROJECT}-v1`;
+// 只有本机工作室提供保存接口；GitHub Pages 等在线托管为只读预览。
+const localStudio = ['127.0.0.1', 'localhost', '[::1]'].includes(location.hostname);
 const demoConfig = new URL(`../../examples/${CARD_STUDIO_PROJECT}/config.json`, import.meta.url);
 const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)');
 let hoverFrame=0,hoverStamp=0;
@@ -113,7 +115,7 @@ async function init(){
   if(responses.some(r=>!r.ok))throw new Error('样式或卡片内容加载失败');
   [catalog,source]=await Promise.all(responses.map(r=>r.json()));
   let previous,selectionWarning='';try{previous=JSON.parse(localStorage.getItem(storageKey));}catch{}
-  try{const r=await fetch('/api/card-style-selection');const result=await r.json();if(r.ok){selectionWarning=result.warning||'';const saved=result.selection;if(valid(saved)){savedSelection=saved;if(!valid(previous))previous=saved;}}else selectionWarning='暂时无法读取本机保存的样式，当前可继续预览，重新保存前请检查本地文件权限。';}catch{selectionWarning='暂时无法读取本机保存的样式，请检查工作室连接后刷新。';}
+  if(localStudio)try{const r=await fetch('/api/card-style-selection');const result=await r.json();if(r.ok){selectionWarning=result.warning||'';const saved=result.selection;if(valid(saved)){savedSelection=saved;if(!valid(previous))previous=saved;}}else selectionWarning='暂时无法读取本机保存的样式，当前可继续预览，重新保存前请检查本地文件权限。';}catch{selectionWarning='暂时无法读取本机保存的样式，请检查工作室连接后刷新。';}
   if(valid(previous)){state={...state,...validateSelection(previous,catalog,{allowEmpty:true}),previewPalette:previous.previewPalette||previous.palette};if(previous.version!==2){state.material='auto';state.version=2;}}
   const sampleCard = source.cards[0];
   const fontLoads = [
@@ -146,6 +148,7 @@ async function init(){
   };
   $('#save').onclick=async()=>{
     if(saving||!selected().length)return;
+    if(!localStudio){status('在线版只能预览：克隆仓库后运行 npm run card-studio 才能保存到本机，也可以点「导出」下载这套样式。');return;}
     const payload=validateSelection(state,catalog),button=$('#save');
     saving=true;button.disabled=true;button.setAttribute('aria-busy','true');$('#restore-saved').disabled=true;status('正在保存到本机…');
     try{
@@ -166,6 +169,7 @@ async function init(){
   $('#viewport').addEventListener('pointerleave',()=>setHover());
   window.__cardStudio={getSelection:()=>({...state}),ready:true};
   if(selectionWarning)status(selectionWarning,true);
+  else if(!localStudio)status('在线预览版 · 保存样式和导出视频请在本地运行');
 }
 const libraryDialog = $('#library-dialog');
 const libraryFrame = $('#library-frame');

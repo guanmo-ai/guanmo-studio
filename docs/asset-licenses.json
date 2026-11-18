@@ -76,6 +76,7 @@
       "id": "studio-demo-media",
       "paths": [
         "examples/studio-demo/poster.jpg",
+        "examples/studio-demo/preview.webp",
         "examples/studio-demo/video.mp4"
       ],
       "license": "MIT",
@@ -94,6 +95,7 @@
     "assets/backgrounds/previews/studio-amber.webp": "321cd3a519350e4f9bfc8388af5b0be468fedd9f371307a35ba78ef1e259e1af",
     "assets/backgrounds/previews/studio-indigo.webp": "f951e0ddf5ccc5c7e42de0434928df7e2141ea8e0baf39a48f36cb1f5a57d21b",
     "assets/backgrounds/previews/studio-rose.webp": "f7ebe3aa6ad6caec83e3574aacf2d0c23550cc909d054611ea99967b7427cffb",
-    "examples/studio-demo/poster.jpg": "1f222d6e3de1673861aa106c5079e80eb78adc3a6e42d433cc57fd1359f3dce8"
+    "examples/studio-demo/poster.jpg": "1f222d6e3de1673861aa106c5079e80eb78adc3a6e42d433cc57fd1359f3dce8",
+    "examples/studio-demo/preview.webp": "e7bb2f33bcf29fc74a71c8e5eaa487811a98c6080f66b230d1b6ec2d7fab5870"
   }
 }

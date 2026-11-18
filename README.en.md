@@ -1,24 +1,82 @@
 # Guanmo Studio
 
-Configurable 3D card videos, a local style workbench, and frame-by-frame rendering for creators and AI agents.
+**Edit one JSON file and turn your project into a 15-second 3D card carousel video.** Everything runs locally and exports a 1920×1080 / 60fps MP4. Free and open source: no account and no paid model required. AI coding agents can produce videos for you with the bundled prompt.
 
-[中文文档](README.md) · [Contributing](CONTRIBUTING.md) · [Licenses and assets](THIRD_PARTY_NOTICES.md)
+[**Live demo**](https://guanmo-ai.github.io/guanmo-studio/) · [中文文档](README.md) · [Configuration](templates/card-carousel/references/config.md) · [AI prompt](templates/card-carousel/prompt.md) · [Licenses and assets](THIRD_PARTY_NOTICES.md)
 
-[![Card Carousel](examples/studio-demo/poster.jpg)](examples/studio-demo/video.mp4)
+[![Card Carousel showcase: cards fan out, spin, and focus on one hero card](examples/studio-demo/preview.webp)](examples/studio-demo/video.mp4)
 
-**Preview release, v0.1.** One animation template, Card Carousel: 15 seconds, 1920×1080 at 60fps, with 7–31 image or text cards. Six featured cards lead into one expanded hero. Drafts render at 960×540 and 30fps. Backgrounds and palettes are options within the same template.
+<sub>This showcase ships with the repository. Click for the 1080p original; the three steps below reproduce it on your machine.</sub>
+
+## Reproduce it in three steps
+
+You need **Node.js 22+**, **Python 3.10+**, and **FFmpeg**. See the [platform guide](docs/platform-support.md) if any are missing.
+
+**1. Get the code** with **Use this template** above, or clone it:
+
+```bash
+git clone https://github.com/guanmo-ai/guanmo-studio.git
+cd guanmo-studio
+```
+
+**2. Install** (once; downloads the matching browser):
+
+```bash
+npm ci
+npm run setup
+npm run doctor -- --render --probe
+```
+
+**3. Export the showcase:**
+
+```bash
+npm run update -- studio-demo --final
+```
+
+The video is written to `renders/studio-demo.mp4`. Use `--draft` instead of `--final` for a quick 960×540 preview, and add `--edit-pack` to export six segments plus separate music and effects tracks to `renders/studio-demo-edit/`.
+
+## Use your own content
+
+Copy the styled starter (styled cards, music, and effects) under a new project name:
+
+```bash
+cp -r examples/styled-starter examples/my-project
+```
+
+<sub>Windows PowerShell: `Copy-Item -Recurse examples/styled-starter examples/my-project`</sub>
+
+Edit `examples/my-project/config.json`:
+
+| Field | Purpose |
+| --- | --- |
+| `brand.wordmark` / `brand.tagline` | Project name and one-line pitch |
+| `cards` | 7–31 cards, each with `title` and `sub`; use `front: "image"` with `image` for picture cards |
+| `featured` / `hero` | The six featured cards and the hero card that expands |
+| `background.preset` | Background ID; browse them in the [live demo](https://guanmo-ai.github.io/guanmo-studio/) |
+
+Then check and render:
+
+```bash
+npm run update -- my-project            # quick proof frames
+npm run update -- my-project --draft    # continuous 15-second draft
+npm run update -- my-project --final    # high-quality video
+```
+
+**Let AI do it:** give the [production prompt](templates/card-carousel/prompt.md) and your project link to Claude Code, Codex, or another coding agent. It follows the [template guide](templates/card-carousel/SKILL.md) to pick content, edit the configuration, check frames, and export.
+
+**Preview release, v0.1.** One animation template, Card Carousel: 15 seconds, 1920×1080 at 60fps, with 7–31 image or text cards. Six featured cards lead into one expanded hero. Drafts render at 960×540 and 30fps. Backgrounds and palettes are options within the same template. Portrait video, other durations, a timeline editor, and multi-user hosting are not implemented.
 
 ## Platform support
 
 | Platform | Current status | Recommended approach |
 | --- | --- | --- |
-| **macOS** | **Verified on Apple Silicon**: builds, web workbench, and complete video exports | Follow the native quick start below |
+| **macOS** | **Verified on Apple Silicon**: builds, web workbench, and complete video exports | Follow the three steps above |
 | **Windows** | **CI passing** (Windows Server 2025, software rendering): doctor, tests, browser interaction, and full draft export; real GPUs and console Ctrl+C still need manual testing | Install Node.js, Python, and FFmpeg, then run the setup commands in PowerShell; pass the rendering doctor probe before creating videos |
 | **Linux** | **CI passing** (Ubuntu 24.04 / x86_64, software rendering): doctor, tests, browser interaction, and full draft export | Prefer Docker for batch exports; native installation requires browser system libraries via `npm run setup -- --with-deps` |
 
 For GPU or WebGL problems during exports on Windows/Linux, use `STUDIO_GL=software` for CPU rendering. Software rendering is much slower (roughly 0.6 s per frame for a 960×540 draft), so time a draft before a final export. See the [platform guide](docs/platform-support.md) for PowerShell syntax, system dependencies, and Docker commands. The container provides batch exports; use a native installation for the web workbench. Docker on a Windows host has not been separately tested.
 
-## Quick start
+## Installation details
 
 Clone the repository or extract the source archive for this version, then open a terminal in the project directory. Requirements: Node.js 22+, Python 3.10+, and FFmpeg including ffprobe. `npm run setup` downloads the matching Chromium. No account or paid model is required.
 
@@ -59,22 +117,9 @@ npm run render -- build/my-project --out renders/my-project.mp4 --edit-pack
 
 Inspect proof images and a continuous draft before final rendering. The editing pack contains flattened video segments, enabled audio tracks, a timeline, and portable source configuration; changing composited text requires rebuilding.
 
-## Reproduce the showcase
-
-After setup, run these commands with the bundled Studio Demo configuration and assets.
-
-```bash
-npm run update -- studio-demo --draft
-npm run update -- studio-demo --final --edit-pack
-```
-
-The draft and final video are `renders/studio-demo.draft.mp4` and `renders/studio-demo.mp4`. The editing pack in `renders/studio-demo-edit/` includes six video segments, separate music and effects tracks, and portable source files. Copy the configuration to a new project to adapt the template to your own content. [Demo configuration](examples/studio-demo/config.json) · [AI production prompt](templates/card-carousel/prompt.md)
-
 ## Style workbench
 
 `npm run studio` opens the background gallery. `npm run card-studio` opens the 30-palette card workbench. Clicking a palette previews it; adding it is a separate action. Multiple palettes are distributed evenly with a saved random seed. Saving writes a local selection file without changing official examples or rendering a video. Run `npm run update -- studio-demo --saved-style` to build proof frames with that selection; add `--draft` or `--final` for video output. This uses a separate project directory. The workbench can restore the saved selection without writing the file, and reports edits made while a save is in progress as unsaved changes.
-
-The current template supports landscape output with a fixed sequence. Portrait video, other durations, a timeline editor, and multi-user hosting are not implemented.
 
 ## Showcase
 

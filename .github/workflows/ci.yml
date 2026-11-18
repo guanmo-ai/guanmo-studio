@@ -65,6 +65,7 @@ jobs:
       - run: npm run build -- starter
       - run: npm run build -- styled-starter
       - run: npm run build -- studio-demo
+      - run: npm run site
       - name: 三系统浏览器与完整草稿冒烟
         run: npm run test:smoke -- --video
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
