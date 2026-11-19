@@ -16,10 +16,7 @@
     "cursor": "#f5c1ac"
   },
   "background": {
-    "preset": "studio-amber",
-    "vignette": 0.17,
-    "particles": false,
-    "glow": false
+    "particles": false
   },
   "audio": {
     "music": {

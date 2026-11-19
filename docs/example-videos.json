@@ -9,8 +9,8 @@
       "poster": "examples/studio-demo/poster.jpg",
       "config": "examples/studio-demo/config.json",
       "source": "template-render",
-      "sha256": "4734808ffc8618983502e5e64afcd839e78d7136302cc15423aacb5b251e96db",
-      "bytes": 8703613,
+      "sha256": "b64c8041053d3dabe56fc3ff197d5f12d173b02007f7df02aa922b54c938e3c5",
+      "bytes": 9673859,
       "width": 1920,
       "height": 1080,
       "fps": "60/1",
@@ -18,7 +18,7 @@
       "videoCodec": "h264",
       "audioCodec": "aac",
       "soundEffects": "bundled-cc0",
-      "background": "studio-amber",
+      "background": "warm",
       "cardLook": "original"
     }
   ]
