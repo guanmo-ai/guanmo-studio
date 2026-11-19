@@ -1,4 +1,3 @@
-import { activeThemes } from '../web/catalog.js';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
 import path from 'node:path';
@@ -40,16 +39,35 @@ try {
     activePage = page;
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
-    await page.goto(server.url + 'web/');
-    await page.locator('#background-grid .background-card').first().waitFor();
-    const backgroundCatalog = JSON.parse(await readFile(path.join(repository, 'assets/backgrounds/catalog.json'), 'utf8'));
-    assert.equal(await page.locator('#background-grid .background-card').count(), activeThemes(backgroundCatalog.backgrounds).length);
-    await page.locator('.template-trigger').first().click();
+    await page.route('**/api/studio-cases', route => route.fulfill({ json: [{
+      templateId: 'card-carousel',
+      name: '本机预览案例',
+      video: 'examples/studio-demo/video.mp4?case=local',
+      poster: 'examples/studio-demo/poster.jpg?case=local',
+    }] }));
+    await page.goto(server.url + 'web/?preview=1#atmospheres');
+    const trigger = page.getByRole('button', { name: '查看卡片转盘详情' });
+    await trigger.waitFor();
+    assert.equal(await trigger.locator('img').getAttribute('src'), server.url + 'examples/studio-demo/poster.jpg?case=local');
+    assert.deepEqual(await page.getByRole('navigation', { name: '主导航' }).getByRole('link').allTextContents(), ['模板']);
+    assert.equal(await page.locator('#atmospheres').isVisible(), false);
+    assert.equal(await page.locator('#preview-dialog').isVisible(), false);
+    const caseSelector = page.getByRole('group', { name: '选择案例' });
+    assert.equal(await caseSelector.isVisible(), false);
+    await trigger.click();
+    const caseChoice = caseSelector.getByRole('button', { name: '本机预览案例' });
+    assert.equal(await caseChoice.getAttribute('aria-pressed'), 'true');
+    const video = page.locator('#template-video');
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/studio-demo/video.mp4?case=local');
+    const officialCase = caseSelector.getByRole('button', { name: 'Guanmo Studio · 卡片转盘' });
+    await officialCase.click();
+    assert.equal(await officialCase.getAttribute('aria-pressed'), 'true');
+    assert.equal(await caseChoice.getAttribute('aria-pressed'), 'false');
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/studio-demo/video.mp4');
     await page.waitForFunction(() => {
       const video = document.querySelector('#template-video');
       return video.readyState >= 2 || video.error;
     }, undefined, { timeout: 15000 });
-    const video = page.locator('#template-video');
     const example = await video.evaluate(element => ({
       src: new URL(element.currentSrc).pathname,
       width: element.videoWidth, height: element.videoHeight, duration: element.duration,
@@ -64,10 +82,11 @@ try {
     await page.waitForFunction(() => document.querySelector('#template-video').currentTime > 0.25, undefined, { timeout: 10000 });
     await page.locator('#copy-template-prompt:enabled').waitFor();
     await page.locator('[data-close="template-dialog"]').click();
-    await page.screenshot({ path: path.join(evidence, 'gallery-desktop.png') });
+    assert.equal(await caseSelector.isVisible(), false);
+    await page.screenshot({ path: path.join(evidence, 'showcase-desktop.png') });
     await page.setViewportSize({ width: 390, height: 844 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '首页手机布局溢出');
-    await page.screenshot({ path: path.join(evidence, 'gallery-mobile.png') });
+    await page.screenshot({ path: path.join(evidence, 'showcase-mobile.png') });
     await page.setViewportSize({ width: 1440, height: 1000 });
     // 为本轮创建独立预览目录，正式工作台正在使用的构建与选择保持原样。
     await page.route('**/build/card-style-preview/**', route => route.continue({ url: route.request().url().replace('/build/card-style-preview/', `/build/smoke-${stamp}/cards/`) }));
@@ -213,7 +232,7 @@ try {
         await rm(preserved,{force:true});await rm(preservedChecks,{recursive:true,force:true});
       }
     }
-    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ at: new Date().toISOString(), node: process.version, platform: process.platform, arch: process.arch, skipped: values.video && process.platform === 'win32' ? ['POSIX SIGINT signal test; Windows native console Ctrl+C requires manual verification'] : [], checks: ['gallery-desktop', 'gallery-mobile', 'bundled-demo-playback', '30-palettes', 'preview-before-add', 'corrupt-storage-recovery', 'corrupt-saved-file-recovery', 'control-text-contrast', 'balanced-mix', 'isolated-save', 'save-edit-race', 'restore-saved-without-write', 'cards-mobile', 'starter-proof', 'missing-player-fails-fast', ...(values.video ? ['silent-15s-draft', 'proof-preserves-video-evidence', 'failed-encoder-keeps-previous', 'failed-render-keeps-evidence', 'abort-keeps-all-outputs', ...(process.platform === 'win32' ? [] : ['sigint-keeps-all-outputs'])] : [])], errors }, null, 2) + '\n');
+    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ at: new Date().toISOString(), node: process.version, platform: process.platform, arch: process.arch, skipped: values.video && process.platform === 'win32' ? ['POSIX SIGINT signal test; Windows native console Ctrl+C requires manual verification'] : [], checks: ['showcase-desktop', 'showcase-mobile', 'case-selection', 'bundled-demo-playback', '30-palettes', 'preview-before-add', 'corrupt-storage-recovery', 'corrupt-saved-file-recovery', 'control-text-contrast', 'balanced-mix', 'isolated-save', 'save-edit-race', 'restore-saved-without-write', 'cards-mobile', 'starter-proof', 'missing-player-fails-fast', ...(values.video ? ['silent-15s-draft', 'proof-preserves-video-evidence', 'failed-encoder-keeps-previous', 'failed-render-keeps-evidence', 'abort-keeps-all-outputs', ...(process.platform === 'win32' ? [] : ['sigint-keeps-all-outputs'])] : [])], errors }, null, 2) + '\n');
     console.log(`浏览器与渲染冒烟检查通过：${evidence}`);
   }
 } catch (error) {

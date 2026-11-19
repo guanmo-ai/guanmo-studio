@@ -3,6 +3,7 @@ import { activeThemes, filterThemes, initialThemeId } from './catalog.js';
 const root = new URL('../', import.meta.url);
 const asset = path => new URL(path, root).href;
 const $ = selector => document.querySelector(selector);
+const backgroundGallery = $('#atmospheres');
 const status = $('#status');
 const backgroundFilters = $('#background-filters');
 const dialogs = [...document.querySelectorAll('dialog')];
@@ -23,10 +24,25 @@ let templatePromptRequest;
 let themes = [], current = 0, requestVersion = 0, activeFilter = 'all';
 const thumbnail = theme => asset(`assets/backgrounds/previews/${theme.id}.webp`);
 
-async function readCatalog(path) {
+async function readCatalog(path, label) {
   const response = await fetch(asset(path));
-  if (!response.ok) throw new Error(`风格库加载失败（${response.status}）`);
+  if (!response.ok) throw new Error(`${label}加载失败（${response.status}）`);
   return response.json();
+}
+
+async function readLocalCases() {
+  if (!['127.0.0.1', 'localhost'].includes(location.hostname)) return [];
+  try {
+    const response = await fetch('/api/studio-cases');
+    if (!response.ok) return [];
+    const cases = await response.json();
+    return Array.isArray(cases) ? cases.filter(example =>
+      typeof example?.templateId === 'string' && typeof example.name === 'string' &&
+      typeof example.video === 'string' && typeof example.poster === 'string'
+    ) : [];
+  } catch {
+    return [];
+  }
 }
 
 function node(tag, className, text) {
@@ -246,19 +262,21 @@ function templateSpecs(template) {
   return `${template.duration} 秒 · ${template.resolution} · ${template.fps} fps`;
 }
 
-async function showTemplate(template) {
+async function showTemplate(template, examples) {
   $('#template-dialog-title').textContent = template.name;
-  const exampleButtons = template.examples.map((example, index) => {
+  const exampleButtons = examples.map((example, index) => {
     const button = node('button', '', example.name);
     button.type = 'button';
     button.addEventListener('click', () => selectExample(index));
     return button;
   });
   function selectExample(index) {
-    const example = template.examples[index];
+    if (exampleButtons[index].getAttribute('aria-pressed') === 'true') return;
+    const example = examples[index];
     exampleButtons.forEach((button, position) => button.setAttribute('aria-pressed', String(position === index)));
     $('#template-dialog-specs').textContent = `${example.name} · ${templateSpecs(template)}`;
     $('#template-video-error').hidden = true;
+    templateVideo.setAttribute('aria-label', example.name);
     templateVideo.poster = asset(example.poster);
     templateVideo.src = asset(example.video);
   }
@@ -303,9 +321,10 @@ templateCopy.addEventListener('click', async () => {
   templatePromptStatus.hidden = false;
 });
 
-function renderTemplates(templates) {
+function renderTemplates(templates, localCases) {
   const grid = $('#template-grid');
   templates.forEach((template, index) => {
+    const localExamples = localCases.filter(example => example.templateId === template.id);
     const card = node('article', 'template-card');
     const trigger = node('button', 'template-trigger');
     trigger.type = 'button';
@@ -313,7 +332,7 @@ function renderTemplates(templates) {
     trigger.setAttribute('aria-haspopup', 'dialog');
     const media = node('span', 'template-media');
     const poster = node('img');
-    poster.src = asset(template.poster); poster.alt = '';
+    poster.src = asset(localExamples[0]?.poster ?? template.poster); poster.alt = '';
     poster.width = 1920; poster.height = 1080; poster.loading = index < 3 ? 'eager' : 'lazy';
     media.append(poster);
     const content = node('span', 'template-content');
@@ -323,7 +342,7 @@ function renderTemplates(templates) {
     expand.setAttribute('aria-hidden', 'true');
     content.append(info, expand);
     trigger.append(media, content);
-    trigger.addEventListener('click', () => showTemplate(template));
+    trigger.addEventListener('click', () => showTemplate(template, [...localExamples, ...template.examples]));
     card.append(trigger);
     grid.append(card);
   });
@@ -352,6 +371,7 @@ $('#reset-search').addEventListener('click', () => {
   $('#background-search').focus();
 });
 document.addEventListener('keydown', event => {
+  if (backgroundGallery.hidden) return;
   const editing = event.target instanceof Element && event.target.matches('input, textarea, [contenteditable=true]');
   if (event.key === '/' && !editing && !dialogs.some(dialog => dialog.open)) {
     event.preventDefault(); $('#background-search').focus();
@@ -381,36 +401,37 @@ templateDialog.addEventListener('close', () => {
 });
 templateVideo.addEventListener('error', () => { if (templateDialog.open) $('#template-video-error').hidden = false; });
 $('#year').textContent = String(new Date().getFullYear());
-const navigationObserver = new IntersectionObserver(() => {
-  const target = $('#atmospheres').getBoundingClientRect().top < innerHeight * .5 ? '#atmospheres' : '#templates';
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === target) link.setAttribute('aria-current', 'true');
-    else link.removeAttribute('aria-current');
-  });
-}, { rootMargin: '-52px 0px -50% 0px' });
 
 try {
-  const [backgroundCatalog, templateCatalog] = await Promise.all([readCatalog('assets/backgrounds/catalog.json'), readCatalog('templates/catalog.json')]);
-  themes = activeThemes(backgroundCatalog.backgrounds);
-  if (!themes.length) throw new Error('风格库中暂时没有背景');
-  let saved = null;
-  try { saved = localStorage.getItem('guanmo-background-v2'); } catch { /* 不依赖本地存储。 */ }
-  const params = new URL(location.href).searchParams;
-  const sharedTheme = params.get('style');
-  const requested = sharedTheme || saved;
-  const target = initialThemeId(backgroundCatalog.backgrounds, requested);
-  const index = themes.findIndex(theme => theme.id === target);
-  current = Math.max(0, index);
-  renderThemes(sharedTheme ? target : '');
-  renderTemplates(templateCatalog.templates);
-  navigationObserver.observe($('#atmospheres'));
-  if (['#atmospheres', '#templates'].includes(location.hash)) {
-    $(location.hash).scrollIntoView({ behavior: 'instant', block: 'start' });
-  }
-  // The gallery opens immediately; full-size images load only when a preview is requested.
-  if (params.get('preview') === '1') await selectTheme(current, true);
+  const [templateCatalog, localCases] = await Promise.all([
+    readCatalog('templates/catalog.json', '模板'),
+    readLocalCases(),
+  ]);
+  renderTemplates(templateCatalog.templates, localCases);
+  if (location.hash === '#templates') $('#templates').scrollIntoView({ behavior: 'instant', block: 'start' });
 } catch (error) {
-  $('#background-grid').setAttribute('aria-busy', 'false');
-  $('#load-error').hidden = false;
-  $('#load-error').textContent = `${error.message}。请刷新页面重试。`;
+  $('#template-load-error').hidden = false;
+  $('#template-load-error').textContent = `${error.message}。请刷新页面重试。`;
+}
+
+if (!backgroundGallery.hidden) {
+  try {
+    const backgroundCatalog = await readCatalog('assets/backgrounds/catalog.json', '背景库');
+    themes = activeThemes(backgroundCatalog.backgrounds);
+    if (!themes.length) throw new Error('风格库中暂时没有背景');
+    let saved = null;
+    try { saved = localStorage.getItem('guanmo-background-v2'); } catch { /* 不依赖本地存储。 */ }
+    const params = new URL(location.href).searchParams;
+    const sharedTheme = params.get('style');
+    const target = initialThemeId(backgroundCatalog.backgrounds, sharedTheme || saved);
+    const index = themes.findIndex(theme => theme.id === target);
+    current = Math.max(0, index);
+    renderThemes(sharedTheme ? target : '');
+    if (location.hash === '#atmospheres') backgroundGallery.scrollIntoView({ behavior: 'instant', block: 'start' });
+    if (params.get('preview') === '1') await selectTheme(current, true);
+  } catch (error) {
+    track.setAttribute('aria-busy', 'false');
+    $('#load-error').hidden = false;
+    $('#load-error').textContent = `${error.message}。请刷新页面重试。`;
+  }
 }

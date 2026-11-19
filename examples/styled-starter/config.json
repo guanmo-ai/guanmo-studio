@@ -12,14 +12,17 @@
     "stage": "warm",
     "cardLook": "original"
   },
+  "background": {
+    "particles": false
+  },
   "audio": {
     "music": {
       "enabled": true,
-      "volume": 0.82
+      "volume": 0.9
     },
     "sfx": {
       "enabled": true,
-      "volume": 0.65
+      "volume": 1
     }
   },
   "hook": {
@@ -208,8 +211,5 @@
     "title": "Your Project",
     "sub": "写下你的项目说明",
     "url": "example.com/your-project"
-  },
-  "background": {
-    "titleScrimHeight": 280
   }
 }

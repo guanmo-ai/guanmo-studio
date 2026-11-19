@@ -158,6 +158,7 @@ test('可编辑配置搬移后能重新构建，不依赖原素材路径', async
     await writeFile(path.join(temp, 'fixture.png'), samplePng);
     await writeFile(originalConfig, JSON.stringify(fixture));
     await buildFilm(originalConfig, first);
+    const originalMusic = await readFile(path.join(first, 'audio/music.wav'));
     const { rename } = await import('node:fs/promises');
     const moved = path.join(temp, 'moved'); await rename(path.join(first, 'source'), moved);
     await rm(first, { recursive: true });
@@ -167,6 +168,7 @@ test('可编辑配置搬移后能重新构建，不依赖原素材路径', async
     assert.equal(config.background.image, 'assets/background.png');
     assert.equal(config.audio.music.path, 'assets/music.wav');
     const second = path.join(temp, 'second'); await buildFilm(path.join(moved, 'config.json'), second);
+    assert.deepEqual(await readFile(path.join(second, 'audio/music.wav')), originalMusic);
     const film = JSON.parse(await readFile(path.join(second, 'film.json'), 'utf8'));
     assert.equal(film.theme.stage.bg, '#15110f'); assert.equal(film.theme.surface, undefined);
     assert.equal(film.cards.filter(card => card.img).length, 1);

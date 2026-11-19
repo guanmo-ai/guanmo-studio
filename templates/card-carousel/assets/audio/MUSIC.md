@@ -4,4 +4,4 @@
 
 配乐及其生成脚本采用与项目一致的 [MIT 许可](../../../../LICENSE)。可随模板出片和分发，复用时保留该许可与来源。运行 `python3 templates/card-carousel/scripts/generate_music.py` 可重建 WAV。
 
-Studio Demo 和 Styled Starter 使用这条默认配乐。配乐与 CC0 动作音效在源配置和剪辑包中各有独立音轨。
+本地构建时，项目通过 `audio.music.path` 指定配乐。省略该字段时使用 `.local/card-carousel/default-music.wav`，没有设置本地默认曲时使用随包的 `music.wav`。配乐与 CC0 动作音效在源配置和剪辑包中各有独立音轨。

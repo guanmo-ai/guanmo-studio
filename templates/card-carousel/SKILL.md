@@ -13,13 +13,13 @@ description: 使用三维卡片转盘模板制作或修改15秒仓库宣传视�
 
 ## 当前卡面的起点
 
-复用网页当前程序卡面时，从 `examples/styled-starter/config.json` 建立独立项目。它保留 `face` 卡背样式，默认使用模板的原创合成配乐和 CC0 音效；普通 `starter` 则保留原入门卡片。`face.brand` 省略时由构建器使用当前 `brand.wordmark`，`face.kicker` 改为新项目的标语。新的项目使用未占用的目录，避免不同任务共用同名源文件和成片。
+复用网页当前程序卡面时，从 `examples/styled-starter/config.json` 建立独立项目。它保留 `face` 卡背样式，并启用默认配乐和 CC0 音效。`face.brand` 省略时由构建器使用当前 `brand.wordmark`，`face.kicker` 改为新项目的标语。新的项目使用未占用的目录，避免不同任务共用同名源文件和成片。
 
 ## 执行
 
 1. 阅读目标仓库，找到可并列展示的内容、六张精选牌和一个可展开的主角。名称、数量、功能和许可表述都要有原文支持。
 2. 复制示例到 examples/<项目名>/，替换config.json与assets/。图片路径相对于配置所在目录。先找项目的原图、封面或截图。有图的卡使用 `front: "image"` 和 `image`，保留 `face` 作为样式卡背。只有缺少合适的图片时才用文字卡。保留作者和素材出处，公开缩略图不等于可任意再分发的素材。
-   背景通过 `background.preset`（注册表 ID）或 `background.image`（本地图片）独立替换。音轨通过 `audio.music` / `audio.sfx` 的 `path` 和 `volume` 替换。沿用已有配置不等于沿用示例内容事实。普通素材替换不必改 `assets/engine/`。
+   默认沿用 GIF Factory 参考片的暖棕背景，`theme.stage` 为 `warm`，`background.particles` 为 `false`。用户指定其他背景时，通过 `background.preset`（注册表 ID）或 `background.image`（本地图片）替换。音轨通过 `audio.music` / `audio.sfx` 的 `path` 和 `volume` 替换。
    需要抽象舞台与有受光变化的卡背时，使用 `theme.look`：`glass`（暖光玻璃）、`graphite`（石墨银）、`midnight`（深靛蓝）、`copper`（烟铜色）。整套配色定义在 `looks.json`；正面原图不重新染色。`glass` 有透明玻璃结构与背景折射，拆解时背景弧面避让内容。删除背景的 `preset` / `image` 字段才能回到抽象舞台。检查实际转动中的反光，避免过曝或看不清卡背文字。
    单张卡背用 `cards[].backStyle` 选择 `titanium`（石墨钛银）、`dusk`（暮紫冷银）、`sand`（砂金暗场）、`amber`（琥珀暗蓝）、`berry`（奶油莓红）。定义见 `card-styles.json`，可混用；风格跟随卡片，不影响服务正面。浅色卡背使用预设深色字。
 3. 普通替换优先从仓库根目录执行快速入口：
@@ -52,9 +52,9 @@ description: 使用三维卡片转盘模板制作或修改15秒仓库宣传视�
 
 0—2秒开场与展开，2—5秒卡片轮转，5—6秒飞转到主角，6—10.2秒展开内容，10.2—13.5秒漩涡收牌，13.5—15秒片尾，14秒盖章。
 
-配乐和音效可直接在本地渲染。用户提供 BGM 时，把音频放在项目的 `assets/`，通过 `audio.music.path` 引用。默认合成配乐为 120 BPM，见 [配乐来源](assets/audio/MUSIC.md)。音轨从 0 秒开始，短于 15 秒补静音，长于 15 秒裁切。
+用户指定 BGM 时，将音轨放在项目的 `assets/` 并通过 `audio.music.path` 引用。省略该字段时，构建命令自动使用 `.local/card-carousel/default-music.wav`。未配置本地默认曲时使用随包的 120 BPM 合成曲，并在交付时注明。音轨从 0 秒开始，短于 15 秒补静音，长于 15 秒裁切。 [配乐来源](assets/audio/MUSIC.md)
 
-Styled Starter 默认使用 Design Style 原片的音效轨。用实际草稿核对轮转、落卡、展开、收牌和片尾落章等声点，确认相符再沿用整轨。镜头或动作节拍有变时，截取仍然适合的声音，移到实际动作的时间点，去掉无法对齐的声点。没有能可靠对齐的声音时，将 `audio.sfx.enabled` 设为 `false`，配乐照常保留。改完重出草稿核对。 [拆分、重排与自定义音效](../../docs/sound-effects.md)
+Styled Starter 默认使用 Design Style 原片的音效轨。复用原片两条音轨时，从配乐增益 `0.9` 和音效增益 `1` 开始试听。用实际草稿核对轮转、落卡、展开、收牌和片尾落章等声点，确认相符再沿用整轨。镜头或动作节拍有变时，截取仍然适合的声音，移到实际动作的时间点，去掉无法对齐的声点。没有能可靠对齐的声音时，将 `audio.sfx.enabled` 设为 `false`，配乐照常保留。改完重出草稿核对。 [拆分、重排与自定义音效](../../docs/sound-effects.md)
 
 ## 文字与画面
 

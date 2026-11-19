@@ -6,7 +6,7 @@
 
 ## 背景：`background`
 
-背景独立于文字、卡片和镜头。用注册表 `assets/backgrounds/catalog.json` 中的 ID，或配置旁边的自备图片；`preset` 与 `image` 二选一。示例：
+背景独立于文字、卡片和镜头。Styled Starter 的默认背景沿用 GIF Factory 参考片的暖棕舞台、地面光和暗角，关闭浮尘。需要更换时，使用注册表 `assets/backgrounds/catalog.json` 中的 ID 或自备图片。`preset` 与 `image` 二选一。
 
 ```json
 "background": {
@@ -33,7 +33,7 @@
 }
 ```
 
-把自带 BGM 放在项目的 `assets/`，如上填写 `audio.music.path`，再运行 `npm run update -- <项目名> --draft` 试听。路径相对配置目录，支持 WAV、MP3、M4A、AAC、OGG 和 FLAC。启用配乐并省略 `path` 时使用模板的 [原创合成配乐](../assets/audio/MUSIC.md)。音量为 0—1，配乐默认 0.9，音效默认 1。两条音轨从 0 秒开始，导出时补静音或裁到 15 秒。换音乐后需要听音检查节拍，镜头按模板时间表播放。
+把自带 BGM 放在项目的 `assets/`，如上填写 `audio.music.path`，再运行 `npm run update -- <项目名> --draft` 试听。路径相对配置目录，支持 WAV、MP3、M4A、AAC、OGG 和 FLAC。启用配乐并省略 `path` 时，本地构建命令优先使用仓库根目录下的 `.local/card-carousel/default-music.wav`，该文件缺失时使用 [随包合成配乐](../assets/audio/MUSIC.md)。音量为 0—1，配乐默认 0.9，音效默认 1。两条音轨从 0 秒开始，导出时补静音或裁到 15 秒。换音乐后需要听音检查节拍，镜头按模板时间表播放。
 
 每条音轨也支持 `enabled`（默认 `true`）。设为 `false` 时不读取、不复制也不混入该文件；两条都关闭可导出无声 MP4。`volume: 0` 仅静音，仍复制文件，不能用来排除不准备分发的素材。Styled Starter 默认启用配乐和 [Design Style 原片音效轨](../assets/audio/sfx.wav)。改动镜头节拍时，按 [音效对齐说明](../../../docs/sound-effects.md) 核对整轨、重新对齐或仅关闭音效。基础 `starter` 默认无声。
 

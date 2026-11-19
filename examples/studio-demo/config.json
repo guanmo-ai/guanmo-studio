@@ -24,6 +24,7 @@
   "audio": {
     "music": {
       "enabled": true,
+      "path": "../../templates/card-carousel/assets/audio/music.wav",
       "volume": 0.8
     },
     "sfx": {

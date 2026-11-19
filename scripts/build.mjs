@@ -10,10 +10,11 @@ import { canonicalPath, containsPath } from './paths.mjs';
 import { parseCli } from './cli.mjs';
 
 export const repository = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const localMusic = path.join(repository, '.local/card-carousel/default-music.wav');
 const readConfig = async file => JSON.parse((await readFile(file, 'utf8')).replace(/^\uFEFF/, ''));
 
 // 保留真正可再次编辑的原配置和原素材，导出包不依赖本机绝对路径。
-async function snapshotSource(config, out, targetDirectory) {
+async function snapshotSource(config, out, targetDirectory, defaultMusic) {
   const cfg = await readConfig(config);
   const root = path.dirname(config), source = path.join(out, 'source');
   await mkdir(path.join(source, 'assets'), { recursive: true });
@@ -43,7 +44,7 @@ async function snapshotSource(config, out, targetDirectory) {
     if (cfg.audio?.[name]?.enabled === false) continue;
     cfg.audio ||= {};
     cfg.audio[name] ||= {};
-    cfg.audio[name].path ||= path.join(repository, 'templates/card-carousel/assets/audio', `${name}.wav`);
+    cfg.audio[name].path ||= (name === 'music' && defaultMusic) || path.join(repository, 'templates/card-carousel/assets/audio', `${name}.wav`);
     await copyField(cfg.audio[name], 'path', name);
   }
   await writeFile(path.join(source, 'config.json'), JSON.stringify(cfg, null, 2) + '\n');
@@ -55,7 +56,9 @@ async function assembleFilm(input, output, targetDirectory) {
   const name = path.basename(path.dirname(config));
   const out = path.resolve(output || path.join(repository, 'build', name));
   const builder = path.join(repository, 'templates/card-carousel/scripts/build_film.py');
-  const result = runPython([builder, config, '--out', out, '--root', path.dirname(config), '--standalone'], { cwd: repository });
+  const defaultMusic = existsSync(localMusic) ? localMusic : undefined;
+  const musicArgs = defaultMusic ? ['--default-music', defaultMusic] : [];
+  const result = runPython([builder, config, '--out', out, '--root', path.dirname(config), '--standalone', ...musicArgs], { cwd: repository });
   if (result.status !== 0) throw new Error(result.error ? `无法运行 Python：${result.error.message}。请运行 npm run doctor` : result.stdout + result.stderr);
   console.log(result.stdout.trim());
   await mkdir(path.join(out, 'fonts'), { recursive: true });
@@ -83,7 +86,7 @@ async function assembleFilm(input, output, targetDirectory) {
   const film = JSON.parse(await readFile(path.join(out, 'film.json'), 'utf8'));
   const timeline = JSON.parse(await readFile(path.join(repository, 'templates/card-carousel/timeline.json'), 'utf8'));
   await writeFile(path.join(out, 'studio.json'), JSON.stringify({ template: 'card-carousel', title: cfg.brand.wordmark, width: 1920, height: 1080, ...timeline, audio: film.audio }, null, 2) + '\n');
-  await snapshotSource(config, out, targetDirectory);
+  await snapshotSource(config, out, targetDirectory, defaultMusic);
   await writeNotices(out);
   console.log(`独立工程已构建：${out}`);
   return out;

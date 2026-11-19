@@ -205,6 +205,7 @@ def main():
     ap.add_argument('config'); ap.add_argument('--out', required=True); ap.add_argument('--root')
     ap.add_argument('--music'); ap.add_argument('--sfx'); ap.add_argument('--fonts'); ap.add_argument('--runtime', default='hyperframes-0.8.217-electron-v1')
     ap.add_argument('--standalone', action='store_true', help='独立播放器模式，无需外部宿主的素材 ID')
+    ap.add_argument('--default-music', help='项目未指定配乐时使用的本地文件')
     a = ap.parse_args()
     try:
         cfg = json.load(open(a.config, encoding='utf-8-sig'))
@@ -304,7 +305,11 @@ def main():
             problems.append(f'audio.{name}.enabled 要是 true 或 false')
         if track.get('enabled') is False:
             continue
-        source = src(track['path']) if track.get('path') else os.path.join(AUDIO, name + '.wav')
+        default_source = os.path.join(AUDIO, name + '.wav')
+        if name == 'music' and a.default_music and not track.get('path'):
+            default_source = a.default_music
+            notes.append('配乐：使用本地默认曲')
+        source = src(track['path']) if track.get('path') else default_source
         if not os.path.isfile(source):
             problems.append(f'audio.{name} 的音频不存在：{source}')
         ext = os.path.splitext(source)[1].lower()

@@ -54,7 +54,7 @@ Edit `examples/my-project/config.json`:
 | `brand.wordmark` / `brand.tagline` | Project name and one-line pitch |
 | `cards` | 7–31 cards, each with `title` and `sub`; use `front: "image"` with `image` for picture cards |
 | `featured` / `hero` | The six featured cards and the hero card that expands |
-| `background.preset` | Background ID; browse them in the [live demo](https://guanmo-ai.github.io/guanmo-studio/) |
+| `background.preset` | [Built-in background](docs/backgrounds.md) ID |
 
 Then check and render:
 
@@ -107,7 +107,7 @@ For an existing image and content-only changes, `npm run container -- --no-build
 
 The starter uses placeholder text without third-party images and disables both audio tracks. Copy `examples/starter/` into your own example directory and edit `config.json`. Asset paths are relative to that file.
 
-The Styled Starter uses the bundled original soundtrack and CC0 sound effects. To use your own BGM, place the file in your project's `assets/` directory and set `audio.music.path`, for example `assets/my-music.wav`. See the [audio settings](templates/card-carousel/references/config.md#音轨audio).
+The Styled Starter enables music and CC0 sound effects. To use your own BGM, place the file in your project's `assets/` directory and set `audio.music.path`, for example `assets/my-music.wav`. When no path is specified, the build uses `.local/card-carousel/default-music.wav` if present, then falls back to the bundled soundtrack. See the [audio settings](templates/card-carousel/references/config.md#音轨audio).
 
 To create a custom effects track, run `npm run sfx -- --out examples/my-project/assets/sfx.wav` to synthesize a 15-second effects track, then set `audio.sfx.path` to `assets/sfx.wav`. Use `--cues` to provide your own timings and sound choices. See the [sound effects guide](docs/sound-effects.md).
 
@@ -121,7 +121,7 @@ Inspect proof images and a continuous draft before final rendering. The editing 
 
 ## Style workbench
 
-`npm run studio` opens the background gallery. `npm run card-studio` opens the 30-palette card workbench. Clicking a palette previews it; adding it is a separate action. Multiple palettes are distributed evenly with a saved random seed. Saving writes a local selection file without changing official examples or rendering a video. Run `npm run update -- studio-demo --saved-style` to build proof frames with that selection; add `--draft` or `--final` for video output. This uses a separate project directory. The workbench can restore the saved selection without writing the file, and reports edits made while a save is in progress as unsaved changes.
+`npm run studio` opens the template gallery. Select a template to see its examples. `npm run card-studio` opens the 30-palette card workbench. Clicking a palette previews it; adding it is a separate action. Multiple palettes are distributed evenly with a saved random seed. Saving writes a local selection file without changing official examples or rendering a video. Run `npm run update -- studio-demo --saved-style` to build proof frames with that selection; add `--draft` or `--final` for video output. This uses a separate project directory. The workbench can restore the saved selection without writing the file, and reports edits made while a save is in progress as unsaved changes.
 
 ## Showcase
 

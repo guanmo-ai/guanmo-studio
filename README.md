@@ -56,7 +56,7 @@ cp -r examples/styled-starter examples/my-project
 | `brand.wordmark` / `brand.tagline` | 项目名称和一句话介绍 |
 | `cards` | 7—31 张卡片，每张写 `title`（标题）和 `sub`（副标题）；有图片时用 `front: "image"` 和 `image` |
 | `featured` / `hero` | 依次展示的 6 张精选卡，以及最后展开的主角卡 |
-| `background.preset` | 背景，可在 [在线体验](https://guanmo-ai.github.io/guanmo-studio/) 里挑选 |
+| `background.preset` | [内置背景](docs/backgrounds.md)的 ID |
 
 然后依次检查、出片：
 
@@ -131,11 +131,11 @@ npm run update -- starter --final   # 高清 MP4
 ## 浏览与选择样式
 
 ```bash
-npm run studio       # 背景画廊与模板示例
+npm run studio       # 浏览模板，点开详情看案例
 npm run card-studio  # 卡片样式工作台
 ```
 
-打开终端输出的本机地址。背景库支持分类、搜索、预览和原图下载。卡片工作台可用 30 组色卡试配版式、材质和光位。
+打开终端输出的本机地址。卡片工作台可用 30 组色卡试配版式、材质和光位。
 
 点色卡只单独预览，点击「加入这款样式」才加入使用列表。多种样式会按卡片数量尽量均分并随机打散，正反面保持同类；切换镜头不重新分配。「保存这套样式」写入本机 `.local/card-style-selection.json`，不会改写正式示例或自动生成视频。详细流程见 [样式工作台](docs/card-studio.md)。
 
@@ -163,7 +163,7 @@ npm run render -- build/my-project --out renders/my-project.mp4 --edit-pack
 
 - 背景：`background.preset` 使用背景目录 ID；自备图片用 `background.image`，二者择一
 - 卡片：`cards` 设置内容，`theme.cardLook` 独立选择结构与材质；`original` 为原版轻薄卡片
-- 音频：把自带 BGM 放进项目的 `assets/`，在配置中填写 `audio.music.path`（如 `assets/my-music.wav`）。启用配乐并省略路径时使用随包的原创合成配乐。详见[音轨配置](templates/card-carousel/references/config.md#音轨audio)。
+- 音频：把自带 BGM 放进项目的 `assets/`，在配置中填写 `audio.music.path`（如 `assets/my-music.wav`）。启用配乐并省略路径时优先读取 `.local/card-carousel/default-music.wav`。没有本地默认曲时使用随包的原创合成配乐。详见[音轨配置](templates/card-carousel/references/config.md#音轨audio)。
 - 音效：Styled Starter 自带音效。运行 `npm run sfx -- --out examples/my-project/assets/sfx.wav` 生成 WAV，填入 `audio.sfx.path` 即可混入成片。支持 [自定义镜头时间点](docs/sound-effects.md)。
 - 剪辑：`--edit-pack` 输出六段已合成的无声画面、启用的音轨、时间表与可搬移重建的源配置
 
@@ -173,7 +173,7 @@ npm run render -- build/my-project --out renders/my-project.mp4 --edit-pack
 
 ## 让 AI 使用
 
-在线体验或本地网页中，打开模板详情可以复制[完整制作提示词](templates/card-carousel/prompt.md)。复用当前程序卡面时，从 `examples/styled-starter/config.json` 开始。它保留最新卡背样式，默认使用随包的原创合成配乐和 CC0 音效。有项目原图时用 `cards[].front: "image"` 与 `image` 显示完整卡面。为不同项目使用不同目录，按提示词先核对仓库能力，再生成关键帧、草稿和高清成片。纯文字基础形式仍可使用 `examples/starter/config.json`。
+在线体验或本地网页中，打开模板详情可以复制[完整制作提示词](templates/card-carousel/prompt.md)。复用当前程序卡面时，从 `examples/styled-starter/config.json` 开始。它保留最新卡背样式，并启用默认配乐和 CC0 音效。有项目原图时用 `cards[].front: "image"` 与 `image` 显示完整卡面。为不同项目使用不同目录，按提示词先核对仓库能力，再生成关键帧、草稿和高清成片。纯文字基础形式仍可使用 `examples/starter/config.json`。
 
 内容替换通常只需修改配置与素材。动画节拍位于 `templates/card-carousel/assets/engine/choreo.js`，段落定义位于 `timeline.json`；修改时间编排时需同步维护。
 
@@ -187,7 +187,7 @@ npm run render -- build/my-project --out renders/my-project.mp4 --edit-pack
 
 创作者案例和随包素材出处见 [素材来源](docs/SOURCES.md)。示例成片规格和 SHA256 见 [案例清单](docs/example-videos.json)。
 
-[在线体验](https://guanmo-ai.github.io/guanmo-studio/) 由 `npm run site` 生成静态网站，推送到 `main` 后经 GitHub Pages 自动发布；在线版的卡片工作台只能预览，保存样式需在本地运行 `npm run card-studio`。
+[在线体验](https://guanmo-ai.github.io/guanmo-studio/) 展示模板，点开模板详情即可查看案例。网站由 `npm run site` 生成，推送到 `main` 后经 GitHub Pages 自动发布。
 
 [架构](docs/architecture.md) · [背景](docs/backgrounds.md) · [配色](docs/looks.md) · [平台实测](docs/platform-support.md)
 

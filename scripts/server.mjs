@@ -74,10 +74,17 @@ export async function serve(directory, port = 0, { selectionFile } = {}) {
         reply(200, { selection }); return;
       }
       if (!['GET', 'HEAD'].includes(req.method)) { res.setHeader('Allow', 'GET, HEAD'); reply(405, { error: '不支持的操作' }); return; }
+      // 本机预览案例放在构建目录，由同一套静态文件规则提供。
+      const localCaseCatalog = pathname === '/api/studio-cases';
+      if (localCaseCatalog) pathname = '/build/case-previews/catalog.json';
       const forbidden = file => path.relative(root, file).split(path.sep).some(part => part.startsWith('.') || blocked.has(part.toLowerCase()));
       const requested = path.resolve(root, '.' + (pathname.endsWith('/') ? pathname + 'index.html' : pathname));
       if (!inside(root, requested) || forbidden(requested)) { reply(403, { error: '禁止访问此文件' }); return; }
-      const file = await realpath(requested);
+      const file = await realpath(requested).catch(error => {
+        if (localCaseCatalog && error.code === 'ENOENT') return null;
+        throw error;
+      });
+      if (file === null) { reply(200, []); return; }
       if (!inside(root, file) || forbidden(file)) { reply(403, { error: '禁止访问此文件' }); return; }
       const info = await stat(file);
       if (!info.isFile()) { reply(404, { error: '未找到文件' }); return; }

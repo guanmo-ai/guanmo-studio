@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050506">
-  <meta name="description" content="观默的影像工作室。探索电影感背景与视频模板，为你的想法找到合适的画面。">
+  <meta name="description" content="浏览视频模板和创作案例，用自己的内容制作短片。">
   <title>Guanmo Studio · 影像工作室</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050506'/%3E%3Ccircle cx='16' cy='16' r='10' stroke='%23f5f5f7' fill='none'/%3E%3Cpath d='M12 11v10l9-5z' fill='%23f5f5f7'/%3E%3C/svg%3E">
   <link rel="preload" as="font" href="./fonts/geist-latin-wght-normal.woff2" type="font/woff2" crossorigin>
@@ -12,6 +12,10 @@
   <script type="module" src="./app.js"></script>
 </head>
 <body>
+  <div class="ambient-background" aria-hidden="true">
+    <span class="silk silk-upper"></span>
+    <span class="silk silk-lower"></span>
+  </div>
   <a class="ui-skip" href="#templates">跳到模板库</a>
   <header class="nav" id="nav">
     <div class="ui-container nav-inner">
@@ -19,21 +23,17 @@
         <svg class="brand-mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor"/><path d="M9.5 7.8v8.4l7-4.2z" fill="currentColor"/></svg>
         <span>Guanmo Studio</span>
       </a>
-      <nav class="nav-links" aria-label="主导航"><a href="#templates" aria-current="true">模板</a><a href="#atmospheres">背景</a><a href="./palettes/">色卡库</a><a href="./card-studio/">卡片样式</a><a href="https://github.com/guanmo-ai/guanmo-studio" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+      <nav class="nav-links" aria-label="主导航"><a href="#templates">模板</a></nav>
       <a class="follow-link" href="https://x.com/guanmo_ai" target="_blank" rel="noopener noreferrer">观默 <span aria-hidden="true">↗</span></a>
     </div>
   </header>
   <main id="main">
-    <section class="hero ui-container" aria-labelledby="hero-title">
-      <h1 id="hero-title">让内容，动起来。</h1>
-      <p class="hero-lede">选一个喜欢的视频模板，放进你的内容，创作一支属于自己的短片。免费开源，全程在本地完成。</p>
-      <div class="hero-actions"><a class="pill-button primary" href="https://github.com/guanmo-ai/guanmo-studio#readme" target="_blank" rel="noopener noreferrer">开始创作 <span aria-hidden="true">↗</span></a><a class="pill-button" href="./card-studio/">试试卡片样式</a></div>
-    </section>
     <section class="templates ui-container" id="templates" aria-labelledby="templates-title">
-      <div class="section-heading"><h2 id="templates-title">模板</h2></div>
+      <div class="section-heading"><h1 id="templates-title">模板</h1></div>
+      <p id="template-load-error" class="load-error" role="alert" hidden></p>
       <div class="template-grid" id="template-grid"></div>
     </section>
-    <section class="atmospheres ui-container" id="atmospheres" aria-labelledby="background-title">
+    <section class="atmospheres ui-container" id="atmospheres" aria-labelledby="background-title" hidden>
       <div class="background-heading">
         <div class="background-heading-text">
           <h2 id="background-title">背景库</h2>
@@ -60,8 +60,12 @@
 
   </main>
   <footer class="footer ui-container">
-    <div class="footer-repositories"><p>作者的其他仓库</p><div><a href="https://github.com/guanmo-ai/design-style" target="_blank" rel="noopener noreferrer">Design Style ↗</a><a href="https://github.com/guanmo-ai/awesome-ai-motion" target="_blank" rel="noopener noreferrer">Awesome AI Motion ↗</a><a href="https://github.com/guanmo-ai/awesome-agent-mcp" target="_blank" rel="noopener noreferrer">Awesome Agent MCP ↗</a></div></div>
-    <div class="footer-legal"><span>© <span id="year">2026</span> 观默</span><a href="https://x.com/guanmo_ai" target="_blank" rel="noopener noreferrer">@guanmo_ai ↗</a><a href="#main" aria-label="回到顶部">↑</a></div>
+    <div class="footer-legal">
+      <span>© <span id="year">2026</span> 观默</span>
+      <a href="https://x.com/guanmo_ai" target="_blank" rel="noopener noreferrer">@guanmo_ai ↗</a>
+      <a href="https://github.com/guanmo-ai/guanmo-studio#readme" target="_blank" rel="noopener noreferrer">开始创作 <span aria-hidden="true">↗</span></a>
+      <a href="#main" aria-label="回到顶部">↑</a>
+    </div>
   </footer>
   <dialog class="preview-dialog" id="preview-dialog" aria-labelledby="preview-title">
     <div class="dialog-bar"><div><h2 id="preview-title">背景预览</h2></div><button type="button" class="close-button" data-close="preview-dialog" aria-label="关闭预览"><span aria-hidden="true">×</span></button></div>
@@ -85,7 +89,7 @@
     </div>
     <div class="template-detail">
       <div class="template-film">
-        <div class="mode-switch template-examples" id="template-examples" role="group" aria-label="正式案例" hidden></div>
+        <div class="mode-switch template-examples" id="template-examples" role="group" aria-label="选择案例" hidden></div>
         <video id="template-video" controls playsinline preload="metadata"></video>
         <p class="preview-error" id="template-video-error" role="alert" hidden>视频暂时无法播放，请关闭后重试。</p>
       </div>
