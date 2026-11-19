@@ -127,7 +127,13 @@ button:disabled { cursor: wait; opacity: .55; }
 .pill-button { padding: 9px 18px; border-radius: 20px; background: var(--c-hover); font-size: 12px; }
 .load-error, .preview-error { padding: 14px; color: var(--c-error); font-size: 13px; }
 .footer { padding-bottom: 28px; }
-.footer-legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px clamp(12px, 3vw, 24px); padding-top: 20px; border-top: 1px solid var(--c-line); color: var(--c-fg-3); font-size: 11px; }
+.footer-projects { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px clamp(12px, 2vw, 24px); padding-top: 16px; border-top: 1px solid var(--c-line); color: var(--c-fg-2); font-size: 12px; }
+.footer-projects h2 { color: var(--c-fg-3); font-size: 11px; font-weight: inherit; }
+.footer-projects ul { display: flex; flex-wrap: wrap; gap: 2px clamp(12px, 2vw, 24px); }
+.footer-projects a { display: inline-block; padding-block: 4px; }
+.footer-projects a:hover { color: var(--c-fg); }
+.footer-projects a span { color: var(--c-fg-3); }
+.footer-legal { display: flex; flex-wrap: wrap; align-items: center; gap: 8px clamp(12px, 3vw, 24px); padding-top: 10px; color: var(--c-fg-3); font-size: 11px; }
 .footer-legal a:hover { color: var(--c-fg); }
 .footer-legal a:last-child { margin-left: auto; font-size: 20px; }
 dialog { padding: 22px; border: 1px solid var(--c-line); border-radius: 24px; max-height: 94dvh; background: #101011; color: var(--c-fg); overscroll-behavior: contain; box-shadow: 0 24px 100px #0006; }
