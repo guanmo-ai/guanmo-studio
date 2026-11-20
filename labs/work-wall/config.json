@@ -1,0 +1,629 @@
+{
+  "bpm": 120,
+  "theme": {
+    "stage": "#0f0c0b",
+    "board": "#171210"
+  },
+  "light": {
+    "key": 360
+  },
+  "wall": {
+    "tile": [
+      0.8,
+      1
+    ],
+    "gap": 0.09,
+    "radius": 0.035,
+    "rows": 13,
+    "cols": 26
+  },
+  "stages": {
+    "mix": {
+      "tiles": [
+        "assets/tiles/poster-001-bauhaus.jpg",
+        "assets/tiles/poster-002-swiss-style.jpg",
+        "assets/tiles/poster-003-constructivism.jpg",
+        "assets/tiles/poster-004-memphis.jpg",
+        "assets/tiles/poster-005-pop-art.jpg",
+        "assets/tiles/poster-008-risograph.jpg",
+        "assets/tiles/poster-009-neo-brutalism.jpg",
+        "assets/tiles/poster-01-bento-grid.jpg",
+        "assets/tiles/poster-013-art-deco.jpg",
+        "assets/tiles/poster-014-liquid-glass.jpg",
+        "assets/tiles/poster-015-futurism.jpg",
+        "assets/tiles/poster-017-mid-century-modern.jpg",
+        "assets/tiles/poster-018-diorama.jpg",
+        "assets/tiles/poster-019-low-poly.jpg",
+        "assets/tiles/poster-02-masonry.jpg",
+        "assets/tiles/poster-020-ascii-art.jpg",
+        "assets/tiles/poster-021-generative-art.jpg",
+        "assets/tiles/poster-022-point-cloud.jpg",
+        "assets/tiles/poster-023-liquid-chrome.jpg",
+        "assets/tiles/poster-024-ink-wash.jpg",
+        "assets/tiles/poster-025-plush.jpg",
+        "assets/tiles/poster-026-art-nouveau.jpg",
+        "assets/tiles/poster-027-marker.jpg",
+        "assets/tiles/poster-028-new-wave.jpg",
+        "assets/tiles/poster-029-dada.jpg",
+        "assets/tiles/poster-03-honeycomb.jpg",
+        "assets/tiles/cheat-001-bauhaus.jpg",
+        "assets/tiles/cheat-002-swiss-style.jpg",
+        "assets/tiles/cheat-003-constructivism.jpg",
+        "assets/tiles/cheat-004-memphis.jpg",
+        "assets/tiles/cheat-005-pop-art.jpg",
+        "assets/tiles/cheat-008-risograph.jpg",
+        "assets/tiles/cheat-009-neo-brutalism.jpg",
+        "assets/tiles/cheat-01-bento-grid.jpg",
+        "assets/tiles/cheat-013-art-deco.jpg",
+        "assets/tiles/cheat-014-liquid-glass.jpg",
+        "assets/tiles/cheat-015-futurism.jpg",
+        "assets/tiles/cheat-017-mid-century-modern.jpg",
+        "assets/tiles/cheat-018-diorama.jpg",
+        "assets/tiles/cheat-019-low-poly.jpg",
+        "assets/tiles/cheat-02-masonry.jpg",
+        "assets/tiles/cheat-020-ascii-art.jpg",
+        "assets/tiles/cheat-021-generative-art.jpg",
+        "assets/tiles/cheat-022-point-cloud.jpg",
+        "assets/tiles/cheat-023-liquid-chrome.jpg",
+        "assets/tiles/cheat-024-ink-wash.jpg",
+        "assets/tiles/cheat-025-plush.jpg",
+        "assets/tiles/cheat-026-art-nouveau.jpg",
+        "assets/tiles/cheat-027-marker.jpg",
+        "assets/tiles/cheat-028-new-wave.jpg",
+        "assets/tiles/cheat-029-dada.jpg",
+        "assets/tiles/cheat-03-honeycomb.jpg",
+        "assets/tiles/app-001-bauhaus.jpg",
+        "assets/tiles/app-002-swiss-style.jpg",
+        "assets/tiles/app-003-constructivism.jpg",
+        "assets/tiles/app-004-memphis.jpg",
+        "assets/tiles/app-005-pop-art.jpg",
+        "assets/tiles/app-008-risograph.jpg",
+        "assets/tiles/app-009-neo-brutalism.jpg",
+        "assets/tiles/app-01-bento-grid.jpg",
+        "assets/tiles/app-013-art-deco.jpg",
+        "assets/tiles/app-014-liquid-glass.jpg",
+        "assets/tiles/app-015-futurism.jpg",
+        "assets/tiles/app-017-mid-century-modern.jpg",
+        "assets/tiles/app-018-diorama.jpg",
+        "assets/tiles/app-019-low-poly.jpg",
+        "assets/tiles/app-02-masonry.jpg",
+        "assets/tiles/app-020-ascii-art.jpg",
+        "assets/tiles/app-021-generative-art.jpg",
+        "assets/tiles/app-022-point-cloud.jpg",
+        "assets/tiles/app-023-liquid-chrome.jpg",
+        "assets/tiles/app-024-ink-wash.jpg",
+        "assets/tiles/app-025-plush.jpg",
+        "assets/tiles/app-026-art-nouveau.jpg",
+        "assets/tiles/app-027-marker.jpg",
+        "assets/tiles/app-028-new-wave.jpg",
+        "assets/tiles/app-029-dada.jpg",
+        "assets/tiles/app-03-honeycomb.jpg",
+        "assets/tiles/film0-001-bauhaus.jpg",
+        "assets/tiles/film0-002-swiss-style.jpg",
+        "assets/tiles/film0-003-constructivism.jpg",
+        "assets/tiles/film0-004-memphis.jpg",
+        "assets/tiles/film0-005-pop-art.jpg",
+        "assets/tiles/film0-008-risograph.jpg",
+        "assets/tiles/film0-01-bento-grid.jpg",
+        "assets/tiles/film0-013-art-deco.jpg",
+        "assets/tiles/film0-014-liquid-glass.jpg",
+        "assets/tiles/film0-017-mid-century-modern.jpg",
+        "assets/tiles/film0-018-diorama.jpg",
+        "assets/tiles/film0-019-low-poly.jpg",
+        "assets/tiles/film0-02-masonry.jpg",
+        "assets/tiles/film0-020-ascii-art.jpg",
+        "assets/tiles/film0-021-generative-art.jpg",
+        "assets/tiles/film0-022-point-cloud.jpg",
+        "assets/tiles/film0-024-ink-wash.jpg",
+        "assets/tiles/film0-025-plush.jpg",
+        "assets/tiles/film0-026-art-nouveau.jpg",
+        "assets/tiles/film0-027-marker.jpg",
+        "assets/tiles/film0-028-new-wave.jpg",
+        "assets/tiles/film0-029-dada.jpg",
+        "assets/tiles/film0-03-honeycomb.jpg",
+        "assets/tiles/film1-001-bauhaus.jpg",
+        "assets/tiles/film1-002-swiss-style.jpg",
+        "assets/tiles/film1-003-constructivism.jpg",
+        "assets/tiles/film1-004-memphis.jpg",
+        "assets/tiles/film1-005-pop-art.jpg",
+        "assets/tiles/film1-008-risograph.jpg",
+        "assets/tiles/film1-01-bento-grid.jpg",
+        "assets/tiles/film1-013-art-deco.jpg",
+        "assets/tiles/film1-014-liquid-glass.jpg",
+        "assets/tiles/film1-017-mid-century-modern.jpg",
+        "assets/tiles/film1-018-diorama.jpg",
+        "assets/tiles/film1-019-low-poly.jpg",
+        "assets/tiles/film1-02-masonry.jpg",
+        "assets/tiles/film1-020-ascii-art.jpg",
+        "assets/tiles/film1-021-generative-art.jpg",
+        "assets/tiles/film1-022-point-cloud.jpg",
+        "assets/tiles/film1-024-ink-wash.jpg",
+        "assets/tiles/film1-025-plush.jpg",
+        "assets/tiles/film1-026-art-nouveau.jpg",
+        "assets/tiles/film1-027-marker.jpg",
+        "assets/tiles/film1-028-new-wave.jpg",
+        "assets/tiles/film1-029-dada.jpg",
+        "assets/tiles/film1-03-honeycomb.jpg"
+      ]
+    },
+    "film0": {
+      "tiles": [
+        "assets/tiles/film0-001-bauhaus.jpg",
+        "assets/tiles/film0-002-swiss-style.jpg",
+        "assets/tiles/film0-003-constructivism.jpg",
+        "assets/tiles/film0-004-memphis.jpg",
+        "assets/tiles/film0-005-pop-art.jpg",
+        "assets/tiles/film0-008-risograph.jpg",
+        "assets/tiles/film0-01-bento-grid.jpg",
+        "assets/tiles/film0-013-art-deco.jpg",
+        "assets/tiles/film0-014-liquid-glass.jpg",
+        "assets/tiles/film0-017-mid-century-modern.jpg",
+        "assets/tiles/film0-018-diorama.jpg",
+        "assets/tiles/film0-019-low-poly.jpg",
+        "assets/tiles/film0-02-masonry.jpg",
+        "assets/tiles/film0-020-ascii-art.jpg",
+        "assets/tiles/film0-021-generative-art.jpg",
+        "assets/tiles/film0-022-point-cloud.jpg",
+        "assets/tiles/film0-024-ink-wash.jpg",
+        "assets/tiles/film0-025-plush.jpg",
+        "assets/tiles/film0-026-art-nouveau.jpg",
+        "assets/tiles/film0-027-marker.jpg",
+        "assets/tiles/film0-028-new-wave.jpg",
+        "assets/tiles/film0-029-dada.jpg",
+        "assets/tiles/film0-03-honeycomb.jpg"
+      ]
+    },
+    "poster": {
+      "tiles": [
+        "assets/tiles/poster-001-bauhaus.jpg",
+        "assets/tiles/poster-002-swiss-style.jpg",
+        "assets/tiles/poster-003-constructivism.jpg",
+        "assets/tiles/poster-004-memphis.jpg",
+        "assets/tiles/poster-005-pop-art.jpg",
+        "assets/tiles/poster-008-risograph.jpg",
+        "assets/tiles/poster-009-neo-brutalism.jpg",
+        "assets/tiles/poster-01-bento-grid.jpg",
+        "assets/tiles/poster-013-art-deco.jpg",
+        "assets/tiles/poster-014-liquid-glass.jpg",
+        "assets/tiles/poster-015-futurism.jpg",
+        "assets/tiles/poster-017-mid-century-modern.jpg",
+        "assets/tiles/poster-018-diorama.jpg",
+        "assets/tiles/poster-019-low-poly.jpg",
+        "assets/tiles/poster-02-masonry.jpg",
+        "assets/tiles/poster-020-ascii-art.jpg",
+        "assets/tiles/poster-021-generative-art.jpg",
+        "assets/tiles/poster-022-point-cloud.jpg",
+        "assets/tiles/poster-023-liquid-chrome.jpg",
+        "assets/tiles/poster-024-ink-wash.jpg",
+        "assets/tiles/poster-025-plush.jpg",
+        "assets/tiles/poster-026-art-nouveau.jpg",
+        "assets/tiles/poster-027-marker.jpg",
+        "assets/tiles/poster-028-new-wave.jpg",
+        "assets/tiles/poster-029-dada.jpg",
+        "assets/tiles/poster-03-honeycomb.jpg"
+      ]
+    },
+    "cheat": {
+      "tiles": [
+        "assets/tiles/cheat-001-bauhaus.jpg",
+        "assets/tiles/cheat-002-swiss-style.jpg",
+        "assets/tiles/cheat-003-constructivism.jpg",
+        "assets/tiles/cheat-004-memphis.jpg",
+        "assets/tiles/cheat-005-pop-art.jpg",
+        "assets/tiles/cheat-008-risograph.jpg",
+        "assets/tiles/cheat-009-neo-brutalism.jpg",
+        "assets/tiles/cheat-01-bento-grid.jpg",
+        "assets/tiles/cheat-013-art-deco.jpg",
+        "assets/tiles/cheat-014-liquid-glass.jpg",
+        "assets/tiles/cheat-015-futurism.jpg",
+        "assets/tiles/cheat-017-mid-century-modern.jpg",
+        "assets/tiles/cheat-018-diorama.jpg",
+        "assets/tiles/cheat-019-low-poly.jpg",
+        "assets/tiles/cheat-02-masonry.jpg",
+        "assets/tiles/cheat-020-ascii-art.jpg",
+        "assets/tiles/cheat-021-generative-art.jpg",
+        "assets/tiles/cheat-022-point-cloud.jpg",
+        "assets/tiles/cheat-023-liquid-chrome.jpg",
+        "assets/tiles/cheat-024-ink-wash.jpg",
+        "assets/tiles/cheat-025-plush.jpg",
+        "assets/tiles/cheat-026-art-nouveau.jpg",
+        "assets/tiles/cheat-027-marker.jpg",
+        "assets/tiles/cheat-028-new-wave.jpg",
+        "assets/tiles/cheat-029-dada.jpg",
+        "assets/tiles/cheat-03-honeycomb.jpg"
+      ]
+    },
+    "app": {
+      "tiles": [
+        "assets/tiles/app-001-bauhaus.jpg",
+        "assets/tiles/app-002-swiss-style.jpg",
+        "assets/tiles/app-003-constructivism.jpg",
+        "assets/tiles/app-004-memphis.jpg",
+        "assets/tiles/app-005-pop-art.jpg",
+        "assets/tiles/app-008-risograph.jpg",
+        "assets/tiles/app-009-neo-brutalism.jpg",
+        "assets/tiles/app-01-bento-grid.jpg",
+        "assets/tiles/app-013-art-deco.jpg",
+        "assets/tiles/app-014-liquid-glass.jpg",
+        "assets/tiles/app-015-futurism.jpg",
+        "assets/tiles/app-017-mid-century-modern.jpg",
+        "assets/tiles/app-018-diorama.jpg",
+        "assets/tiles/app-019-low-poly.jpg",
+        "assets/tiles/app-02-masonry.jpg",
+        "assets/tiles/app-020-ascii-art.jpg",
+        "assets/tiles/app-021-generative-art.jpg",
+        "assets/tiles/app-022-point-cloud.jpg",
+        "assets/tiles/app-023-liquid-chrome.jpg",
+        "assets/tiles/app-024-ink-wash.jpg",
+        "assets/tiles/app-025-plush.jpg",
+        "assets/tiles/app-026-art-nouveau.jpg",
+        "assets/tiles/app-027-marker.jpg",
+        "assets/tiles/app-028-new-wave.jpg",
+        "assets/tiles/app-029-dada.jpg",
+        "assets/tiles/app-03-honeycomb.jpg"
+      ]
+    },
+    "film1": {
+      "tiles": [
+        "assets/tiles/film1-001-bauhaus.jpg",
+        "assets/tiles/film1-002-swiss-style.jpg",
+        "assets/tiles/film1-003-constructivism.jpg",
+        "assets/tiles/film1-004-memphis.jpg",
+        "assets/tiles/film1-005-pop-art.jpg",
+        "assets/tiles/film1-008-risograph.jpg",
+        "assets/tiles/film1-01-bento-grid.jpg",
+        "assets/tiles/film1-013-art-deco.jpg",
+        "assets/tiles/film1-014-liquid-glass.jpg",
+        "assets/tiles/film1-017-mid-century-modern.jpg",
+        "assets/tiles/film1-018-diorama.jpg",
+        "assets/tiles/film1-019-low-poly.jpg",
+        "assets/tiles/film1-02-masonry.jpg",
+        "assets/tiles/film1-020-ascii-art.jpg",
+        "assets/tiles/film1-021-generative-art.jpg",
+        "assets/tiles/film1-022-point-cloud.jpg",
+        "assets/tiles/film1-024-ink-wash.jpg",
+        "assets/tiles/film1-025-plush.jpg",
+        "assets/tiles/film1-026-art-nouveau.jpg",
+        "assets/tiles/film1-027-marker.jpg",
+        "assets/tiles/film1-028-new-wave.jpg",
+        "assets/tiles/film1-029-dada.jpg",
+        "assets/tiles/film1-03-honeycomb.jpg"
+      ]
+    }
+  },
+  "initialStage": "film0",
+  "backFace": "assets/tiles/back.jpg",
+  "waves": [
+    {
+      "at": -0.3,
+      "stage": "film1",
+      "origin": [
+        -12,
+        0
+      ],
+      "speed": 9
+    },
+    {
+      "at": 2,
+      "stage": "poster",
+      "origin": [
+        -5.4,
+        0
+      ],
+      "speed": 20,
+      "label": "风格海报",
+      "sub": "每期一张，一眼认出这种风格"
+    },
+    {
+      "at": 3,
+      "stage": "cheat",
+      "origin": [
+        -5.4,
+        0
+      ],
+      "speed": 20,
+      "label": "速查卡",
+      "sub": "颜色、字体、规则，数值都写上"
+    },
+    {
+      "at": 4,
+      "stage": "app",
+      "origin": [
+        -5.4,
+        0
+      ],
+      "speed": 20,
+      "label": "落到界面",
+      "sub": "这种风格做成 App 的样子"
+    },
+    {
+      "at": 5,
+      "stage": "film0",
+      "origin": [
+        -5.4,
+        0
+      ],
+      "speed": 20,
+      "label": "动效短片",
+      "sub": "每期 15—20 秒，代码全部开源"
+    },
+    {
+      "at": 9.72,
+      "stage": "mix",
+      "origin": [
+        0.45,
+        0
+      ],
+      "speed": 7,
+      "radial": true
+    },
+    {
+      "at": 13,
+      "stage": "back",
+      "origin": [
+        0,
+        0
+      ],
+      "speed": 14,
+      "radial": true
+    }
+  ],
+  "hero": {
+    "slot": [
+      13,
+      6
+    ],
+    "stage": "film0",
+    "face": "assets/tiles/hero-face.jpg",
+    "frames": {
+      "dir": "assets/hero",
+      "count": 222,
+      "fps": 60
+    },
+    "out": [
+      6,
+      7
+    ],
+    "back": [
+      8.75,
+      9.75
+    ],
+    "labelAt": 6.6,
+    "kicker": "025 · PLUSH",
+    "title": "毛绒",
+    "sub": ""
+  },
+  "hook": {
+    "kicker": "DESIGN.STYLE",
+    "lines": [
+      "25 种设计风格",
+      "一面墙看完"
+    ],
+    "lineAt": [
+      0,
+      0.5
+    ],
+    "sub": "每天拆解一种，全部开源",
+    "subAt": 1
+  },
+  "payoff": {
+    "title": "每一期都能带走",
+    "chips": [
+      "15 秒短片",
+      "4 张风格图",
+      "规则指南",
+      "设计令牌",
+      "AI 提示词",
+      "全部源码"
+    ]
+  },
+  "end": {
+    "wordmark": "Design.style",
+    "sub": "设计参考库 · 给人看，也给 AI 用",
+    "url": "github.com/guanmo-ai/design-style",
+    "credit": "观默 @guanmo_ai",
+    "seal": "观默"
+  },
+  "timeline": {
+    "hookOut": 1.8,
+    "heroOut": 6,
+    "payoff": 10.5,
+    "endIn": 13,
+    "stamp": 14,
+    "end": 15
+  },
+  "camera": [
+    {
+      "t": 0,
+      "pos": [
+        -10.4,
+        -1.5,
+        2.1
+      ],
+      "look": [
+        -5.6,
+        -0.8,
+        0
+      ],
+      "fov": 36,
+      "focus": 3.4,
+      "blur": 0.85
+    },
+    {
+      "t": 1,
+      "pos": [
+        -6.2,
+        -0.7,
+        2.7
+      ],
+      "look": [
+        -1.4,
+        -0.35,
+        0
+      ],
+      "fov": 35,
+      "focus": 4,
+      "blur": 0.7
+    },
+    {
+      "t": 2,
+      "pos": [
+        -1.2,
+        0.15,
+        6.3
+      ],
+      "look": [
+        0.25,
+        0,
+        0
+      ],
+      "fov": 36,
+      "focus": 6.4,
+      "blur": 0.15
+    },
+    {
+      "t": 4,
+      "pos": [
+        0.3,
+        -0.1,
+        6.7
+      ],
+      "look": [
+        0.4,
+        -0.05,
+        0
+      ],
+      "fov": 36,
+      "focus": 6.7,
+      "blur": 0.12
+    },
+    {
+      "t": 6,
+      "pos": [
+        0.9,
+        0,
+        6.4
+      ],
+      "look": [
+        0.45,
+        0,
+        0
+      ],
+      "fov": 36,
+      "focus": 6.4,
+      "blur": 0.12
+    },
+    {
+      "t": 8.75,
+      "pos": [
+        0.7,
+        0,
+        6
+      ],
+      "look": [
+        0.45,
+        0,
+        0
+      ],
+      "fov": 36,
+      "focus": 6,
+      "blur": 0.1
+    },
+    {
+      "t": 9.35,
+      "pos": [
+        0.55,
+        0.05,
+        8.6
+      ],
+      "look": [
+        0.4,
+        0,
+        0
+      ],
+      "fov": 35.5,
+      "focus": 8.6,
+      "blur": 0
+    },
+    {
+      "t": 9.95,
+      "pos": [
+        0.35,
+        0.12,
+        12.6
+      ],
+      "look": [
+        0.3,
+        0,
+        0
+      ],
+      "fov": 35,
+      "focus": 12.6,
+      "blur": 0
+    },
+    {
+      "t": 10.6,
+      "pos": [
+        0.15,
+        0.22,
+        18.4
+      ],
+      "look": [
+        0.1,
+        0,
+        0
+      ],
+      "fov": 34.5,
+      "focus": 18.4,
+      "blur": 0
+    },
+    {
+      "t": 11.4,
+      "pos": [
+        0,
+        0.3,
+        24.5
+      ],
+      "look": [
+        0,
+        0,
+        0
+      ],
+      "fov": 34,
+      "focus": 24.5,
+      "blur": 0.1
+    },
+    {
+      "t": 13,
+      "pos": [
+        -1,
+        0.2,
+        22.5
+      ],
+      "look": [
+        0,
+        0,
+        0
+      ],
+      "fov": 34,
+      "focus": 9,
+      "blur": 0.6
+    },
+    {
+      "t": 15,
+      "pos": [
+        -1.6,
+        0.1,
+        21.5
+      ],
+      "look": [
+        0,
+        0,
+        0
+      ],
+      "fov": 34,
+      "focus": 9,
+      "blur": 0.7
+    }
+  ]
+}

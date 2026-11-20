@@ -1,0 +1,12 @@
+assets/
+lib/
+fonts/
+src/img/
+src/video/
+src/full/
+src/tmp.mp4
+proofs/
+patch/
+*.mp4
+*.wav
+*.jpg
