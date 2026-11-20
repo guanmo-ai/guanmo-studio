@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Beat Slam</title>
+<style>
+@font-face{font-family:"Noto Sans SC";src:url("../fonts/NotoSansSC.otf");font-weight:100 900;font-display:block}
+@font-face{font-family:"Geist";src:url("../fonts/Geist.otf");font-weight:100 900;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url("../fonts/JetBrainsMono.otf");font-weight:100 800;font-display:block}
+@font-face{font-family:"Instrument Serif";src:url("../fonts/InstrumentSerif-Italic.otf");font-style:italic;font-display:block}
+html,body{margin:0;background:#000;overflow:hidden}
+#stage{position:relative;overflow:hidden;background:var(--dark);font-family:"Geist","Noto Sans SC",sans-serif;color:var(--cream)}
+#stage *{box-sizing:border-box}
+.layer{position:absolute;inset:0;will-change:transform,opacity}
+.center{display:flex;align-items:center;justify-content:center}
+.slam{font-weight:900;letter-spacing:-0.04em;line-height:.92;white-space:nowrap;text-align:center}
+.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.shot{position:absolute;border-radius:calc(var(--u)*1.6);overflow:hidden;box-shadow:0 calc(var(--u)*3) calc(var(--u)*8) rgba(0,0,0,.55),0 0 0 1px rgba(255,235,210,.10)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.chip{position:absolute;display:flex;gap:calc(var(--u)*1.2);align-items:baseline;padding:calc(var(--u)*1) calc(var(--u)*1.8);border-radius:999px;background:rgba(20,14,12,.82);backdrop-filter:blur(6px);white-space:nowrap}
+.chip b{font-weight:800}
+.chip i{font-style:normal;font-family:"JetBrains Mono",monospace;color:var(--hi)}
+.tile{position:absolute;border-radius:calc(var(--u)*1.6);background:var(--cream);color:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--u)*2.2)}
+.tile .big{font-weight:900;letter-spacing:-.04em;line-height:.9;white-space:nowrap;display:inline-block;align-self:flex-start}
+.tile .small{font-weight:600;opacity:.7;margin-top:calc(var(--u)*.8)}
+.callout{position:absolute;white-space:nowrap;font-weight:800;padding:calc(var(--u)*.9) calc(var(--u)*1.5);border-radius:calc(var(--u)*.8);background:var(--accent);color:#fff8f0}
+.dot{position:absolute;border-radius:50%;background:var(--accent);box-shadow:0 0 0 calc(var(--u)*.6) rgba(184,111,77,.35)}
+.line{position:absolute;height:2px;background:var(--accent);transform-origin:0 50%}
+.pill{display:inline-block;font-family:"JetBrains Mono",monospace;background:var(--cream);color:var(--dark);border-radius:999px;font-weight:600}
+.seal{display:inline-flex;align-items:center;justify-content:center;background:var(--seal);color:#fff3ea;font-weight:800;border-radius:calc(var(--u)*.6);writing-mode:vertical-rl}
+.progress{position:absolute;left:0;bottom:0;height:calc(var(--u)*.6);background:var(--accent)}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+// ===== 配置：一个模板 = 固定编排 + 可替换内容 =====
+const CONFIG = window.CONFIG || {
+  theme: { dark: '#1d1513', mid: '#2c2027', cream: '#f7e7d4', accent: '#b86f4d', hi: '#f4cba8', seal: '#b9483f' },
+  bpm: 120,
+  hook: ['你的项目', '缺一支', '宣传片？', '交给 AI'],          // 4 拍，第 0 帧就是第一句
+  shots: [                                                      // 8 拍蒙太奇：2 张慢、4 张快
+    { image: 'assets/demo-1-0.jpg', label: '开场展开', no: '01' },
+    { image: 'assets/demo-3-2.jpg', label: '精选轮转', no: '02' },
+    { image: 'assets/look-midnight.png', label: '深靛蓝', no: '03' },
+    { image: 'assets/demo-7-5.jpg', label: '主角展开', no: '04' },
+    { image: 'assets/look-copper.png', label: '烟铜色', no: '05' },
+    { image: 'assets/demo-14-6.jpg', label: '片尾落章', no: '06' },
+  ],
+  hero: {
+    image: 'assets/studio-front.png', title: '样式工作台', kicker: 'CARD STUDIO',
+    focus: { x: 0.40, y: 0.52, zoom: 1.3 },
+    callouts: [
+      { x: 0.84, y: 0.36, text: '30 组色卡' },
+      { x: 0.36, y: 0.30, text: '4 种版式' },
+      { x: 0.06, y: 0.20, text: '正面 · 背面 · 材质' },
+    ],
+  },
+  stats: [
+    { big: '15', unit: 's', small: '成片时长', count: true },
+    { big: '1080', unit: 'p', small: '高清画幅', count: true },
+    { big: '60', unit: 'fps', small: '逐帧导出', count: true },
+    { big: '0', unit: '', small: '付费模型' },
+  ],
+  statLine: '全部在你的电脑上完成',
+  cta: { title: 'Guanmo Studio', sub: '免费开源 · 选一个模板，做自己的短片', url: 'github.com/guanmo-ai/guanmo-studio', credit: '观默 @guanmo_ai', seal: '观默' },
+};
+
+// ===== 工具 =====
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 1920, H = +q.get('h') || 1080, U = Math.min(W, H) / 100, WIDE = W / H > 1.2;
+const B = 60 / CONFIG.bpm;                       // 一拍的秒数
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const outCubic = x => 1 - Math.pow(1 - x, 3);
+const outExpo = x => x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+const inOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const outBack = x => { const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const T = CONFIG.theme;
+const stage = document.getElementById('stage');
+Object.assign(stage.style, { width: W + 'px', height: H + 'px' });
+for (const [k, v] of Object.entries({ dark: T.dark, mid: T.mid, cream: T.cream, accent: T.accent, hi: T.hi, seal: T.seal, u: U + 'px' })) stage.style.setProperty('--' + k, v);
+let CUR = stage; const scene = () => { const g = document.createElement('div'); g.className = 'layer'; stage.appendChild(g); CUR = g; return g; };
+const el = (cls, html = '', parent = CUR) => { const d = document.createElement('div'); d.className = cls; d.innerHTML = html; parent.appendChild(d); return d; };
+const show = (node, on) => { node.style.display = on ? '' : 'none'; };
+// 合适字号：让一行字刚好占到给定宽度
+const fit = (text, maxW, maxH) => { const w = [...text].reduce((s, c) => s + (/[\x00-\xff]/.test(c) ? 0.56 : 1), 0); return Math.min(maxW / w, maxH); };
+
+// ===== 时间表（拍） =====
+const beat = n => n * B;
+const S = {
+  hookEnd: beat(4),            // 0–2s
+  montEnd: beat(12),           // 2–6s
+  heroEnd: beat(18),           // 6–9s
+  statEnd: beat(24),           // 9–12s
+  ctaEnd: beat(28),            // 12–14s
+  end: beat(30),               // 14–15s 回到开头，循环无缝
+};
+
+// ===== 场景 A：拍点大字 =====
+const gA = scene();
+const bgA = el('layer');
+const hookWords = CONFIG.hook.map(text => {
+  const n = el('layer center'); const s = el('slam', text, n);
+  s.style.fontSize = fit(text, W * (WIDE ? .78 : .86), H * .34) + 'px';
+  return { n, s };
+});
+const kickA = el('layer'); kickA.innerHTML = `<div class="kicker" style="position:absolute;left:${U*4}px;top:${U*4}px;font-size:${U*1.6}px;opacity:.75">${CONFIG.cta.title}</div>`;
+const hookPalette = [[T.dark, T.cream], [T.cream, T.dark], [T.dark, T.cream], [T.accent, '#fff8f0']];
+
+function sceneHook(t, loopIn) {
+  // loopIn：片尾回放第一句，保证首尾帧相同
+  const i = loopIn ? 0 : Math.min(3, Math.floor(t / B));
+  const local = loopIn ? 1 : t - beat(i);
+  const [bg, fg] = hookPalette[i];
+  bgA.style.background = bg;
+  hookWords.forEach((w, k) => show(w.n, k === i));
+  const w = hookWords[i];
+  // 第 0 帧必须完整可读：首句不做入场，其余句子 0.12s 内砸入
+  const p = i === 0 ? 1 : outExpo(prog(local, 0, .14));
+  const sc = lerp(1.35, 1, p);
+  const shake = i > 0 && local < .2 ? Math.sin(local * 90) * (1 - local / .2) * U * .5 : 0;
+  w.n.style.transform = `translate(${shake}px,0) scale(${sc})`;
+  w.n.style.opacity = 1;
+  w.s.style.color = fg;
+  // 慢慢推近，保持动感
+  w.s.style.transform = `scale(${1 + local * .05})`;
+  kickA.style.color = fg;
+}
+
+// ===== 场景 B：节拍蒙太奇 =====
+const gB = scene();
+const bgB = el('layer'); bgB.style.background = `radial-gradient(ellipse at 50% 120%, ${T.mid} 0%, ${T.dark} 62%)`;
+const bigNo = el('layer'); bigNo.innerHTML = `<div class="slam" style="position:absolute;right:${U*3}px;bottom:${-U*4}px;font-size:${U*40}px;color:rgba(247,231,212,.06)"></div>`;
+const shotEls = CONFIG.shots.map(s => {
+  const n = el('shot'); n.innerHTML = `<img src="${s.image}">`;
+  const c = el('chip'); c.innerHTML = `<i>${s.no}</i><b>${s.label}</b>`; c.style.fontSize = U * 2.6 + 'px';
+  return { n, c };
+});
+const montTimes = (() => { const d = [2, 2, 1, 1, 1, 1]; let a = S.hookEnd; return d.map(x => { const r = [a, a + beat(x)]; a += beat(x); return r; }); })();
+const shotW = WIDE ? W * .72 : W * .86, shotH = shotW * 9 / 16;
+
+function sceneMontage(t) {
+  const k = montTimes.findIndex(([a, b]) => t >= a && t < b);
+  shotEls.forEach((s, i) => { show(s.n, i === k); show(s.c, i === k); });
+  if (k < 0) return;
+  const [a, b] = montTimes[k], local = t - a, s = shotEls[k];
+  const enter = outExpo(prog(local, 0, .18));
+  const dir = k % 2 ? -1 : 1;
+  const x = (W - shotW) / 2 + dir * (1 - enter) * W * .18, y = (H - shotH) / 2 - U * 2;
+  const sc = lerp(.86, 1, enter) * (1 + prog(t, a, b) * .05);
+  Object.assign(s.n.style, { left: x + 'px', top: y + 'px', width: shotW + 'px', height: shotH + 'px', transform: `scale(${sc}) rotate(${dir * (1 - enter) * 4}deg)` });
+  const cp = outCubic(prog(local, .06, .26));
+  Object.assign(s.c.style, { left: (W - shotW) / 2 + U * 2 + 'px', top: y + shotH + U * 2.5 + 'px', opacity: cp, transform: `translateY(${(1 - cp) * U * 3}px)` });
+  bigNo.firstChild.textContent = CONFIG.shots[k].no;
+}
+
+// ===== 场景 C：主角推近 + 标注 =====
+const gC = scene();
+const bgC = el('layer'); bgC.style.background = T.dark;
+const heroWrap = el('shot'); heroWrap.innerHTML = `<img src="${CONFIG.hero.image}">`;
+const heroTitle = el('layer'); heroTitle.innerHTML = `<div style="position:absolute;left:${U*4}px;top:${U*3.5}px"><div class="kicker" style="font-size:${U*1.6}px;color:${T.hi}">${CONFIG.hero.kicker}</div><div class="slam" style="font-size:${U*7}px;text-align:left;margin-top:${U}px">${CONFIG.hero.title}</div></div>`;
+const callouts = CONFIG.hero.callouts.map(c => ({ c, dot: el('dot'), tag: el('callout', c.text) }));
+
+function sceneHero(t) {
+  const a = S.montEnd, local = t - a, f = CONFIG.hero.focus;
+  const enter = outExpo(prog(local, 0, .3));
+  const zp = inOut(prog(local, beat(.5), beat(4)));
+  const zoom = lerp(1, f.zoom, zp);
+  // 固定取景框：放大只发生在框内，不压标题
+  const fw = WIDE ? W * .74 : W * .9, fh = fw * 9 / 16;
+  const fl = (W - fw) / 2, ft = Math.max(U * 17, (H - fh) / 2 + U * 6);
+  const img = heroWrap.firstChild;
+  Object.assign(heroWrap.style, { left: fl + 'px', top: ft + 'px', width: fw + 'px', height: fh + 'px', transform: `scale(${lerp(.86, 1, enter)})`, opacity: enter });
+  const ox = (f.x - .5) * zp, oy = (f.y - .5) * zp;       // 焦点逐渐移到框中心
+  Object.assign(img.style, { transformOrigin: '50% 50%', transform: `scale(${zoom}) translate(${-ox * 100}%, ${-oy * 100}%)` });
+  const map = (x, y) => [fl + fw / 2 + ((x - .5) - ox) * zoom * fw, ft + fh / 2 + ((y - .5) - oy) * zoom * fh];
+  const tp = outCubic(prog(local, .1, .4));
+  heroTitle.style.opacity = tp; heroTitle.style.transform = `translateY(${(1 - tp) * U * 4}px)`;
+  callouts.forEach(({ c, dot, tag }, i) => {
+    const p = outBack(prog(local, beat(1.5 + i), beat(1.5 + i) + .3));
+    const [px0, py0] = map(c.x, c.y);
+    const px = clamp(px0, fl + U * 3, fl + fw - U * 3), py = clamp(py0, ft + U * 8, ft + fh - U * 3);
+    const d = U * 1.6;
+    Object.assign(dot.style, { left: px - d / 2 + 'px', top: py - d / 2 + 'px', width: d + 'px', height: d + 'px', transform: `scale(${p})` });
+    tag.style.fontSize = U * 3 + 'px';
+    const side = px > fl + fw * .55 ? -1 : 1;
+    Object.assign(tag.style, { left: px + side * U * 1.5 + 'px', top: py - U * 7 + 'px', opacity: clamp(p), transform: `translateX(${side < 0 ? '-100%' : '0'}) scale(${lerp(.6, 1, clamp(p))})`, transformOrigin: side < 0 ? '100% 100%' : '0 100%' });
+  });
+}
+
+// ===== 场景 D：数字冲击 =====
+const gD = scene();
+const bgD = el('layer'); bgD.style.background = T.dark;
+const statEls = CONFIG.stats.map(() => el('tile', '<div class="big"></div><div class="small"></div>'));
+const statLine = el('layer'); statLine.innerHTML = `<div class="slam" style="position:absolute;left:0;right:0;font-size:${fit(CONFIG.statLine, W * .7, U * 7)}px"></div>`;
+
+function sceneStats(t) {
+  const a = S.heroEnd, local = t - a, n = statEls.length;
+  const cols = WIDE ? n : 2, rows = Math.ceil(n / cols), gap = U * 2;
+  const tw = (W * (WIDE ? .86 : .84) - gap * (cols - 1)) / cols, th = WIDE ? tw * 1.05 : tw * .82;
+  const gx = (W - (tw * cols + gap * (cols - 1))) / 2, gy = (H - (th * rows + gap * (rows - 1))) / 2 - U * 5;
+  statEls.forEach((e, i) => {
+    const s = CONFIG.stats[i], start = beat(i);
+    const p = outBack(prog(local, start, start + .28));
+    const cnt = s.count ? Math.round(+s.big * outCubic(prog(local, start, start + B * .9))) : s.big;
+    e.children[0].innerHTML = `${cnt}<span style="font-size:.42em;letter-spacing:0">${s.unit}</span>`;
+    let fs = U * 15; e.children[0].style.fontSize = fs + 'px'; e.style.width = tw + 'px'; const room = tw - U * 4.4; const sw = e.children[0].scrollWidth; if (sw > room) e.children[0].style.fontSize = fs * room / sw + 'px';
+    e.children[1].textContent = s.small; e.children[1].style.fontSize = U * 2.4 + 'px';
+    const accent = i === n - 1;
+    e.style.background = accent ? T.accent : T.cream; e.style.color = accent ? '#fff8f0' : T.dark;
+    Object.assign(e.style, { left: gx + (i % cols) * (tw + gap) + 'px', top: gy + Math.floor(i / cols) * (th + gap) + 'px', width: tw + 'px', height: th + 'px', opacity: clamp(p * 3), transform: `translateY(${(1 - clamp(p)) * U * 10}px) scale(${lerp(.7, 1, p)})` });
+  });
+  const lp = outCubic(prog(local, beat(4), beat(4) + .3));
+  statLine.firstChild.textContent = CONFIG.statLine;
+  Object.assign(statLine.firstChild.style, { top: gy + th * rows + gap * (rows - 1) + U * 4 + 'px', opacity: lp, transform: `translateY(${(1 - lp) * U * 3}px)` });
+}
+
+// ===== 场景 E：行动号召 =====
+const gE = scene();
+const bgE = el('layer'); bgE.style.background = `radial-gradient(ellipse at 50% 110%, ${T.mid} 0%, ${T.dark} 60%)`;
+const cta = el('layer center'); const c = CONFIG.cta;
+cta.innerHTML = `<div style="text-align:center">
+  <div class="slam" style="font-size:${fit(c.title, W * .74, U * 13)}px">${c.title}</div>
+  <div style="font-weight:700;font-size:${U * 3}px;margin-top:${U * 2.4}px;opacity:.85">${c.sub}</div>
+  <div class="pill" style="font-size:${U * 2.6}px;padding:${U * 1.2}px ${U * 2.6}px;margin-top:${U * 3.6}px">${c.url}</div>
+  <div style="margin-top:${U * 3}px;font-size:${U * 2.2}px;display:flex;gap:${U * 1.4}px;align-items:center;justify-content:center;opacity:.85"><span>${c.credit}</span><span class="seal" style="font-size:${U * 1.5}px;width:${U * 3}px;height:${U * 4.4}px">${c.seal}</span></div>
+</div>`;
+
+function sceneCta(t, fadeOut) {
+  const local = t - S.statEnd, kids = cta.firstChild.children;
+  [...kids].forEach((k, i) => {
+    const p = outExpo(prog(local, i * .14, i * .14 + .4));
+    k.style.opacity = p; k.style.transform = `translateY(${(1 - p) * U * 5}px)`;
+  });
+  cta.style.transform = `scale(${1 + prog(local, 0, beat(4)) * .04 - fadeOut * .08})`;
+  cta.style.opacity = 1 - fadeOut;
+}
+
+CUR = stage;
+// ===== 进度条（推特用户能看到还剩多久，降低划走） =====
+const bar = el('progress');
+
+const groups = { A: gA, B: gB, C: gC, D: gD, E: gE };
+const only = k => Object.entries(groups).forEach(([n, g]) => show(g, n === k));
+
+function render(t) {
+  t = clamp(t, 0, S.end - 1e-6);
+  if (t < S.hookEnd) { only('A'); sceneHook(t, false); }
+  else if (t < S.montEnd) { only('B'); sceneMontage(t); }
+  else if (t < S.heroEnd) { only('C'); sceneHero(t); }
+  else if (t < S.statEnd) { only('D'); sceneStats(t); }
+  else if (t < S.end - beat(1)) { only('E'); sceneCta(t, 0); }
+  else { // 最后一拍：直接切回首句，首尾相接，循环播放时看不出接缝
+    only('A'); sceneHook(0, true);
+  }
+  bar.style.width = (t < S.end - beat(1) ? t / (S.end - beat(1)) : 0) * W + 'px';
+  bar.style.display = t < S.end - beat(1) ? '' : 'none';
+}
+
+window.__proto = { duration: S.end, seek: t => render(t), ready: (async () => { await document.fonts.load(`900 40px "Noto Sans SC"`); await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode().catch(() => {}))); render(0); return true; })() };
+</script>
+</body>
+</html>
