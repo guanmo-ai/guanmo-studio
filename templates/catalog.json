@@ -14,11 +14,13 @@
         {
           "name": "GIF 工厂 · 电影片头",
           "video": "examples/gif-factory-case/video.mp4",
+          "preview": "examples/gif-factory-case/web-preview.mp4",
           "poster": "examples/gif-factory-case/poster.jpg"
         },
         {
           "name": "Guanmo Studio · 卡片转盘",
           "video": "examples/studio-demo/video.mp4",
+          "preview": "examples/studio-demo/web-preview.mp4",
           "poster": "examples/studio-demo/poster.jpg"
         }
       ],
@@ -38,6 +40,7 @@
         {
           "name": "Guanmo Studio · 数字地平线",
           "video": "examples/digital-horizon/video.mp4",
+          "preview": "examples/digital-horizon/web-preview.mp4",
           "poster": "examples/digital-horizon/poster.jpg"
         }
       ],

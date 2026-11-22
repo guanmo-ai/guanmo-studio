@@ -77,6 +77,7 @@
       "paths": [
         "examples/studio-demo/poster.jpg",
         "examples/studio-demo/preview.webp",
+        "examples/studio-demo/web-preview.mp4",
         "examples/studio-demo/video.mp4"
       ],
       "license": "MIT",
@@ -88,17 +89,19 @@
       "id": "gif-factory-case-media",
       "paths": [
         "examples/gif-factory-case/poster.jpg",
+        "examples/gif-factory-case/web-preview.mp4",
         "examples/gif-factory-case/video.mp4"
       ],
       "license": "保留各自权利，维护者许可作网站案例展示",
       "status": "documented",
       "evidence": "examples/gif-factory-case/SOURCE.md",
-      "note": "原版成片与截帧封面，用于案例展示。配乐随成片呈现。"
+      "note": "原版成片、网页预览和截帧封面，用于案例展示。配乐随成片呈现。"
     },
     {
       "id": "digital-horizon-media",
       "paths": [
         "examples/digital-horizon/poster.jpg",
+        "examples/digital-horizon/web-preview.mp4",
         "examples/digital-horizon/video.mp4"
       ],
       "license": "MIT",
@@ -120,6 +123,9 @@
     "examples/studio-demo/poster.jpg": "d68a2914e57b98430925313a2c8d84aacb20bf92fd9e707c575a1d08bcb37c98",
     "examples/studio-demo/preview.webp": "a76869966a6d1d0dbe81dcf8d7a530a9a552d0f9d93dd280c5bb42a8ccb49716",
     "examples/digital-horizon/poster.jpg": "d4b480c94a83a3cef7051c2a84ee98be481e957801426d5fdd400e1ffb4c0b1e",
-    "examples/gif-factory-case/poster.jpg": "c4032ab085f48a8a81f89b199958958b002642964efbe609fe793ad4ce3737c6"
+    "examples/gif-factory-case/poster.jpg": "c4032ab085f48a8a81f89b199958958b002642964efbe609fe793ad4ce3737c6",
+    "examples/digital-horizon/web-preview.mp4": "fcf9a1a1cb91aa70b404a19dcf3e497d63c4c5aa58eb4ee92f5483b07d987bb5",
+    "examples/gif-factory-case/web-preview.mp4": "2f513fcde97f3ab61ac597007e82757ed3a7593bdcc5f47050e9b5c8868c6105",
+    "examples/studio-demo/web-preview.mp4": "f15a53c5f8c3249b95f6ffea0fb2b5d2fa26909f664967425c044b38f82159e4"
   }
 }

@@ -260,7 +260,7 @@ function renderThemes(initialTheme) {
 }
 
 function templateSpecs(template) {
-  return `${template.duration} 秒 · ${template.resolution} · ${template.fps} fps`;
+  return `${template.duration} 秒 · 输出 ${template.resolution} · ${template.fps} fps`;
 }
 
 async function showTemplate(template, examples) {
@@ -279,22 +279,24 @@ async function showTemplate(template, examples) {
     $('#template-video-error').hidden = true;
     templateVideo.setAttribute('aria-label', example.name);
     templateVideo.poster = asset(example.poster);
-    templateVideo.src = asset(example.video);
+    templateVideo.src = asset(example.preview || example.video);
   }
   templateExamples.replaceChildren(...exampleButtons);
   templateExamples.hidden = exampleButtons.length < 2;
   selectExample(0);
 
-  templatePrompt.value = '';
-  templatePrompt.placeholder = '正在加载提示词…';
-  templateCopy.disabled = true;
+  const promptText = template.promptText || '';
+  templatePrompt.value = promptText;
+  templatePrompt.placeholder = promptText ? '' : '正在加载提示词…';
+  templateCopy.disabled = !promptText;
   templatePromptStatus.hidden = true;
-  templateDialog.showModal();
-
   const request = new AbortController();
   templatePromptRequest = request;
+  templateDialog.showModal();
+  if (promptText) return;
+
   try {
-    const response = await fetch(asset(template.prompt), { cache: 'no-store', signal: request.signal });
+    const response = await fetch(asset(template.prompt), { signal: request.signal });
     if (!response.ok) throw new Error('提示词加载失败');
     const prompt = await response.text();
     if (request.signal.aborted) return;

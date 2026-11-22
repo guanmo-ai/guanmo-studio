@@ -61,13 +61,15 @@ try {
     assert.equal(await video.getAttribute('src'), server.url + 'examples/studio-demo/video.mp4?case=local');
     const gifFactoryCase = caseSelector.getByRole('button', { name: 'GIF 工厂 · 电影片头' });
     await gifFactoryCase.click();
-    assert.equal(await video.getAttribute('src'), server.url + 'examples/gif-factory-case/video.mp4');
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/gif-factory-case/web-preview.mp4');
     assert.equal(await video.getAttribute('poster'), server.url + 'examples/gif-factory-case/poster.jpg');
     const officialCase = caseSelector.getByRole('button', { name: 'Guanmo Studio · 卡片转盘' });
     await officialCase.click();
     assert.equal(await officialCase.getAttribute('aria-pressed'), 'true');
     assert.equal(await caseChoice.getAttribute('aria-pressed'), 'false');
-    assert.equal(await video.getAttribute('src'), server.url + 'examples/studio-demo/video.mp4');
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/studio-demo/web-preview.mp4');
+    assert.equal(await video.getAttribute('preload'), 'none');
+    await video.evaluate(async element => { element.muted = true; await element.play(); });
     await page.waitForFunction(() => {
       const video = document.querySelector('#template-video');
       return video.readyState >= 2 || video.error;
@@ -78,11 +80,10 @@ try {
       error: element.error?.message
     }));
     assert.equal(example.error, undefined);
-    assert.equal(example.src, '/examples/studio-demo/video.mp4');
-    assert.equal(example.width, 1920);
-    assert.equal(example.height, 1080);
+    assert.equal(example.src, '/examples/studio-demo/web-preview.mp4');
+    assert.equal(example.width, 1280);
+    assert.equal(example.height, 720);
     assert.ok(Math.abs(example.duration - 15) < 0.05);
-    await video.evaluate(async element => { element.muted = true; await element.play(); });
     await page.waitForFunction(() => document.querySelector('#template-video').currentTime > 0.25, undefined, { timeout: 10000 });
     await page.locator('#copy-template-prompt:enabled').waitFor();
     await page.locator('[data-close="template-dialog"]').click();
@@ -99,7 +100,7 @@ try {
     assert.equal(await trigger.isVisible(), false);
     assert.equal(await horizon.isVisible(), true);
     await horizon.click();
-    assert.equal(await video.getAttribute('src'), server.url + 'examples/digital-horizon/video.mp4');
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/digital-horizon/web-preview.mp4');
     await page.locator('#copy-template-prompt:enabled').waitFor();
     assert.equal(await page.getByRole('link', { name: '下载示例配置' }).count(), 0);
     await page.locator('[data-close="template-dialog"]').click();

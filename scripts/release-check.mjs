@@ -100,6 +100,7 @@ async function verifyExamples(manifest, catalog) {
     }
     if (example.source === 'creator-case') requireFile(example.sourceNote, '案例来源', /\.md$/i);
     else requireFile(example.config, '案例配置', /\.json$/i);
+    if (example.preview !== undefined) requireFile(example.preview, '案例预览视频', /\.mp4$/i);
     const info = await stat(path.join(repository, example.file));
     if (info.size <= 0 || info.size !== example.bytes) errors.push(`成片字节数与清单不符：${example.file}`);
     await verifyHash(example.file, example.sha256);
@@ -115,7 +116,9 @@ async function verifyExamples(manifest, catalog) {
     }
     for (const example of template.examples) {
       const entry = byFile.get(example?.video);
-      if (!entry || entry.poster !== example.poster) errors.push(`模板案例的视频与封面需对应案例清单：${example?.video}`);
+      if (!entry || entry.poster !== example.poster || entry.preview !== example.preview) {
+        errors.push(`模板案例的视频、封面与预览需对应案例清单：${example?.video}`);
+      }
       else displayed.add(example.video);
     }
   }

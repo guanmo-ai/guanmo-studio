@@ -1,8 +1,9 @@
 // 生成可直接托管的模板与案例展示页（GitHub Pages）。
 import path from 'node:path';
-import { cp, mkdir, mkdtemp, rm, writeFile, rename } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, realpath, rm, writeFile, rename } from 'node:fs/promises';
 import { repository } from './build.mjs';
 import { parseCli } from './cli.mjs';
+import { resolveProjectFile } from './film-metadata.mjs';
 
 const copied = ['web', 'assets', 'templates', 'examples'];
 const localPages = new Set(['web/card-studio', 'web/palettes']);
@@ -17,6 +18,14 @@ export async function buildSite(output = path.join(repository, 'build/site')) {
   const staging = await mkdtemp(path.join(path.dirname(out), 'site-'));
   try {
     for (const name of copied) await cp(path.join(repository, name), path.join(staging, name), { recursive: true, filter: include });
+    const catalogPath = path.join(staging, 'templates/catalog.json');
+    const catalog = JSON.parse(await readFile(catalogPath, 'utf8'));
+    const siteRoot = await realpath(staging);
+    await Promise.all(catalog.templates.map(async template => {
+      const prompt = await resolveProjectFile(siteRoot, template.prompt);
+      template.promptText = await readFile(prompt, 'utf8');
+    }));
+    await writeFile(catalogPath, JSON.stringify(catalog, null, 2) + '\n');
     await writeFile(path.join(staging, '.nojekyll'), '');
     await writeFile(path.join(staging, 'index.html'), `<!doctype html>
 <html lang="zh-CN">
