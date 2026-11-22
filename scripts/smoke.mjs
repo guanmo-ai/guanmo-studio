@@ -83,6 +83,27 @@ try {
     await page.locator('#copy-template-prompt:enabled').waitFor();
     await page.locator('[data-close="template-dialog"]').click();
     assert.equal(await caseSelector.isVisible(), false);
+    const filters = page.getByRole('group', { name: '模板分类' });
+    const allTemplates = filters.getByRole('button', { name: '全部' });
+    const fullTemplates = filters.getByRole('button', { name: '完整模板' });
+    const visualEffects = filters.getByRole('button', { name: '视效组件' });
+    const horizon = page.getByRole('button', { name: '查看数字地平线详情' });
+    assert.equal(await allTemplates.getAttribute('aria-pressed'), 'true');
+    assert.equal(await horizon.isVisible(), true);
+    await visualEffects.press('Enter');
+    assert.equal(await visualEffects.getAttribute('aria-pressed'), 'true');
+    assert.equal(await trigger.isVisible(), false);
+    assert.equal(await horizon.isVisible(), true);
+    await horizon.click();
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/digital-horizon/video.mp4');
+    await page.locator('[data-close="template-dialog"]').click();
+    await fullTemplates.click();
+    assert.equal(await fullTemplates.getAttribute('aria-pressed'), 'true');
+    assert.equal(await horizon.isVisible(), false);
+    assert.equal(await trigger.isVisible(), true);
+    await allTemplates.click();
+    assert.equal(await horizon.isVisible(), true);
+    assert.equal(await trigger.isVisible(), true);
     await page.screenshot({ path: path.join(evidence, 'showcase-desktop.png') });
     await page.setViewportSize({ width: 390, height: 844 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '首页手机布局溢出');
@@ -232,7 +253,7 @@ try {
         await rm(preserved,{force:true});await rm(preservedChecks,{recursive:true,force:true});
       }
     }
-    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ at: new Date().toISOString(), node: process.version, platform: process.platform, arch: process.arch, skipped: values.video && process.platform === 'win32' ? ['POSIX SIGINT signal test; Windows native console Ctrl+C requires manual verification'] : [], checks: ['showcase-desktop', 'showcase-mobile', 'case-selection', 'bundled-demo-playback', '30-palettes', 'preview-before-add', 'corrupt-storage-recovery', 'corrupt-saved-file-recovery', 'control-text-contrast', 'balanced-mix', 'isolated-save', 'save-edit-race', 'restore-saved-without-write', 'cards-mobile', 'starter-proof', 'missing-player-fails-fast', ...(values.video ? ['silent-15s-draft', 'proof-preserves-video-evidence', 'failed-encoder-keeps-previous', 'failed-render-keeps-evidence', 'abort-keeps-all-outputs', ...(process.platform === 'win32' ? [] : ['sigint-keeps-all-outputs'])] : [])], errors }, null, 2) + '\n');
+    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ at: new Date().toISOString(), node: process.version, platform: process.platform, arch: process.arch, skipped: values.video && process.platform === 'win32' ? ['POSIX SIGINT signal test; Windows native console Ctrl+C requires manual verification'] : [], checks: ['showcase-desktop', 'showcase-mobile', 'template-category-filters', 'case-selection', 'bundled-demo-playback', '30-palettes', 'preview-before-add', 'corrupt-storage-recovery', 'corrupt-saved-file-recovery', 'control-text-contrast', 'balanced-mix', 'isolated-save', 'save-edit-race', 'restore-saved-without-write', 'cards-mobile', 'starter-proof', 'missing-player-fails-fast', ...(values.video ? ['silent-15s-draft', 'proof-preserves-video-evidence', 'failed-encoder-keeps-previous', 'failed-render-keeps-evidence', 'abort-keeps-all-outputs', ...(process.platform === 'win32' ? [] : ['sigint-keeps-all-outputs'])] : [])], errors }, null, 2) + '\n');
     console.log(`浏览器与渲染冒烟检查通过：${evidence}`);
   }
 } catch (error) {

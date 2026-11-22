@@ -2,6 +2,7 @@
   "templates": [
     {
       "id": "card-carousel",
+      "category": "full-template",
       "name": "卡片转盘",
       "en": "CARD CAROUSEL",
       "description": "从一叠卡片出发，展开、旋转，再聚焦一个主角。让丰富的内容，在十五秒内有序登场。",
@@ -20,6 +21,7 @@
     },
     {
       "id": "digital-horizon",
+      "category": "visual-effect",
       "name": "数字地平线",
       "en": "DIGITAL HORIZON",
       "description": "字符沿琥珀色弧光向中央汇聚，两段文字依次淡入。适合产品揭晓和品牌片头。",

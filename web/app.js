@@ -23,6 +23,7 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let visibleSlides = [], activeSlide, mouseDrag, scrollFrame;
 let templatePromptRequest;
 let themes = [], current = 0, requestVersion = 0, activeFilter = 'all';
+const templateCategories = { all: '全部', 'full-template': '完整模板', 'visual-effect': '视效组件' };
 const thumbnail = theme => asset(`assets/backgrounds/previews/${theme.id}.webp`);
 
 async function readCatalog(path, label) {
@@ -327,7 +328,8 @@ templateCopy.addEventListener('click', async () => {
 
 function renderTemplates(templates, localCases) {
   const grid = $('#template-grid');
-  templates.forEach((template, index) => {
+  const cards = templates.map((template, index) => {
+    const category = template.category === 'visual-effect' ? 'visual-effect' : 'full-template';
     const localExamples = localCases.filter(example => example.templateId === template.id);
     const card = node('article', 'template-card');
     const trigger = node('button', 'template-trigger');
@@ -341,15 +343,41 @@ function renderTemplates(templates, localCases) {
     media.append(poster);
     const content = node('span', 'template-content');
     const info = node('span', 'template-info');
-    info.append(node('span', 'template-title', template.name), node('span', 'template-specs', templateSpecs(template)));
+    info.append(node('span', 'template-title', template.name), node('span', 'template-specs', `${templateCategories[category]} · ${templateSpecs(template)}`));
     const expand = node('span', 'template-expand', '↗');
     expand.setAttribute('aria-hidden', 'true');
     content.append(info, expand);
     trigger.append(media, content);
     trigger.addEventListener('click', () => showTemplate(template, [...localExamples, ...template.examples]));
     card.append(trigger);
-    grid.append(card);
+    return { card, category };
   });
+  grid.replaceChildren(...cards.map(({ card }) => card));
+
+  const filters = node('div', 'template-filters');
+  filters.setAttribute('role', 'group');
+  filters.setAttribute('aria-label', '模板分类');
+  const empty = node('p', 'template-empty', '暂无该类别的内容');
+  empty.hidden = cards.length > 0;
+  const result = node('p', 'ui-sr');
+  result.setAttribute('role', 'status');
+  const buttons = Object.entries(templateCategories).map(([category, label]) => {
+    const button = node('button', '', label);
+    button.type = 'button';
+    button.setAttribute('aria-controls', grid.id);
+    button.setAttribute('aria-pressed', String(category === 'all'));
+    button.addEventListener('click', () => {
+      buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      for (const entry of cards) entry.card.hidden = category !== 'all' && entry.category !== category;
+      const count = cards.filter(({ card }) => !card.hidden).length;
+      empty.hidden = count > 0;
+      result.textContent = `${label}，${count} 项`;
+    });
+    return button;
+  });
+  filters.append(...buttons);
+  grid.before(filters);
+  grid.after(empty, result);
 }
 
 document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {

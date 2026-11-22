@@ -198,7 +198,7 @@ npm run render -- build/my-project --out renders/my-project.mp4 --edit-pack
 
 创作者案例和随包素材出处见 [素材来源](docs/SOURCES.md)。示例成片规格和 SHA256 见 [案例清单](docs/example-videos.json)。
 
-[在线体验](https://guanmo-ai.github.io/guanmo-studio/) 展示模板，点开模板详情即可查看案例。网站由 `npm run site` 生成，推送到 `main` 后经 GitHub Pages 自动发布。
+[在线体验](https://guanmo-ai.github.io/guanmo-studio/) 可以按「完整模板」和「视效组件」筛选，点开卡片即可查看案例。网站由 `npm run site` 生成，推送到 `main` 后经 GitHub Pages 自动发布。
 
 [架构](docs/architecture.md) · [背景](docs/backgrounds.md) · [配色](docs/looks.md) · [平台实测](docs/platform-support.md)
 
