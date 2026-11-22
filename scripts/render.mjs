@@ -11,6 +11,7 @@ import { serve } from './server.mjs';
 import { exportEditPack } from './edit-pack.mjs';
 import { browserLaunchOptions } from './browser.mjs';
 import { readFilmMetadata } from './film-metadata.mjs';
+import { duration as horizonDuration, proofTimes as horizonProofs } from '../templates/digital-horizon/timing.js';
 
 export async function renderFilm(directory, { output, proofOnly = false, fps, editPack = false, draft = false, frame, signal, encoderCommand } = {}) {
   signal?.throwIfAborted();
@@ -79,9 +80,11 @@ export async function renderFilm(directory, { output, proofOnly = false, fps, ed
       const debug = gl.getExtension('WEBGL_debug_renderer_info');
       return { renderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER), fonts: document.fonts.status };
     });
-    const proofTimes = frame === undefined ? [0, 0.7, 2.3, 3.4, 6.1, 6.3, 6.37, 7.6, 10, 10.45, 11.6, 14.9] : [frame];
+    const proofTimes = meta.template === 'digital-horizon'
+      ? horizonProofs.map(time => time * meta.duration / horizonDuration)
+      : [0, 0.7, 2.3, 3.4, 6.1, 6.3, 6.37, 7.6, 10, 10.45, 11.6, 14.9];
     const proofs = [];
-    for (const time of proofTimes) {
+    for (const time of frame === undefined ? proofTimes : [frame]) {
       signal?.throwIfAborted();
       await page.evaluate(t => window.__studio.seek(t), time);
       const file = `frame-${time.toFixed(2)}.png`;
@@ -142,7 +145,7 @@ export async function renderFilm(directory, { output, proofOnly = false, fps, ed
       artifacts.push({ staged: temporaryVideo, target });
     }
     const elapsedSeconds = Number(((performance.now() - started) / 1000).toFixed(2));
-    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ project: meta.title, output: proofOnly ? null : target, mode: proofOnly ? 'proof-only' : 'full-render', quality: draft ? 'draft' : 'final', motionBlur: frame === undefined, width, height, fps, duration: meta.duration, elapsedSeconds, gpu, proofs, errors, consoleErrors }, null, 2) + '\n');
+    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ project: meta.title, output: proofOnly ? null : target, mode: proofOnly ? 'proof-only' : 'full-render', quality: draft ? 'draft' : 'final', motionBlur: meta.template === 'card-carousel' && frame === undefined, width, height, fps, duration: meta.duration, elapsedSeconds, gpu, proofs, errors, consoleErrors }, null, 2) + '\n');
     await commitArtifacts(artifacts, { signal });
     if (editPack) console.log(`剪辑素材已导出：${editTarget}`);
     console.log(proofOnly ? `关键帧已保存：${evidenceTarget}` : `成片已导出并核对规格：${target}`);

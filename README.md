@@ -72,7 +72,7 @@ npm run update -- my-project --final    # 高清成片
 
 ## 能做什么
 
-当前有 **1 个动画模板**：Card Carousel（卡片转盘）。
+卡片转盘的功能包括以下几项。
 
 - 15 秒、1920×1080、60fps；快速草稿为 960×540、30fps
 - 7—31 张图片或文字卡片，六张精选牌依次展示，一个主角展开
@@ -80,7 +80,17 @@ npm run update -- my-project --final    # 高清成片
 - 背景、卡片材质、内容、配乐和音效独立配置，音效可按镜头时间点在本地合成
 - 本地预览、逐帧导出与六段剪辑素材包
 
-项目处于 **0.1 预览阶段**。当前只支持这一种横版编排；竖版、其他时长、时间线编辑和多用户服务尚未实现。代码采用 MIT，随包素材的许可见 [素材清单](docs/asset-licenses.json)。
+项目处于 **0.1 预览阶段**。本地模板使用横版。代码采用 MIT，随包素材的许可见 [素材清单](docs/asset-licenses.json)。
+
+### 数字地平线
+
+数字和符号沿琥珀色弧光汇入地平线，两段文字依次淡入。适合短版产品揭晓和发布片尾。样片为 7 秒、1920×1080、60fps，带本地合成配乐。
+
+```bash
+npm run update -- digital-horizon --final
+```
+
+成片保存在 `renders/digital-horizon.mp4`。复制 [示例配置](examples/digital-horizon/config.json) 即可换成自己的文字、色调、字符和音轨。 [模板说明](templates/digital-horizon/SKILL.md)
 
 ## 平台支持
 
@@ -184,6 +194,7 @@ npm run render -- build/my-project --out renders/my-project.mp4 --edit-pack
 | Starter | [基础配置](examples/starter/config.json)，用于修改文案后快速出片 |
 | Styled Starter | [程序卡面配置](examples/styled-starter/config.json)，带默认配乐和音效 |
 | Studio Demo | [示例成片](examples/studio-demo/video.mp4) · [配置](examples/studio-demo/config.json) · [来源](examples/studio-demo/SOURCE.md) |
+| 数字地平线 | [示例成片](examples/digital-horizon/video.mp4) · [配置](examples/digital-horizon/config.json) · [制作提示词](templates/digital-horizon/prompt.md) · [来源](examples/digital-horizon/SOURCE.md) |
 
 创作者案例和随包素材出处见 [素材来源](docs/SOURCES.md)。示例成片规格和 SHA256 见 [案例清单](docs/example-videos.json)。
 

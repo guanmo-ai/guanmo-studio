@@ -1,6 +1,6 @@
 # 素材来源
 
-Studio Demo 的文案、程序卡面与背景由 Guanmo Studio 提供。示例和入口配置的具体出处见各自的 `SOURCE.md`。 [Studio Demo](../examples/studio-demo/SOURCE.md) · [背景](backgrounds.md)
+Studio Demo 的文案、程序卡面与背景由 Guanmo Studio 提供。「数字地平线」的样片和封面由模板代码生成。示例的具体出处见各自的 `SOURCE.md`。 [Studio Demo](../examples/studio-demo/SOURCE.md) · [数字地平线](../examples/digital-horizon/SOURCE.md) · [背景](backgrounds.md)
 
 ## 字体
 

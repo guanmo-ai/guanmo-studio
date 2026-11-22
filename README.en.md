@@ -66,7 +66,9 @@ npm run update -- my-project --final    # high-quality video
 
 **Let AI do it:** give the [production prompt](templates/card-carousel/prompt.md) and your project link to Claude Code, Codex, or another coding agent. It follows the [template guide](templates/card-carousel/SKILL.md) to pick content, edit the configuration, check frames, and export.
 
-**Preview release, v0.1.** One animation template, Card Carousel: 15 seconds, 1920×1080 at 60fps, with 7–31 image or text cards. Six featured cards lead into one expanded hero. Drafts render at 960×540 and 30fps. Backgrounds and palettes are options within the same template. Portrait video, other durations, a timeline editor, and multi-user hosting are not implemented.
+**Card Carousel** runs for 15 seconds at 1920×1080 and 60fps, with 7–31 image or text cards. Six featured cards lead into one expanded hero. Drafts render at 960×540 and 30fps. Choose a background and card palette in the project configuration.
+
+**Digital Horizon** pairs a glowing arc with falling glyphs and a two-part title reveal. Run `npm run update -- digital-horizon --final` to render the seven-second example. Copy the [example configuration](examples/digital-horizon/config.json) to change the text, color, glyphs, timing, and soundtrack. [Template guide in Chinese](templates/digital-horizon/SKILL.md)
 
 ## Platform support
 

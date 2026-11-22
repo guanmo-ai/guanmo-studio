@@ -108,6 +108,7 @@ async function verifyExamples(manifest, catalog) {
   for (const template of Array.isArray(catalog.templates) ? catalog.templates : []) {
     requireFile(template?.poster, '模板封面', /\.(?:jpe?g|png|webp)$/i);
     requireFile(template?.prompt, '模板提示词', /\.md$/i);
+    if (template?.config !== undefined) requireFile(template.config, '模板配置', /\.json$/i);
     if (!Array.isArray(template?.examples) || !template.examples.length) {
       errors.push(`模板缺少可播放案例：${template?.id}`);
       continue;

@@ -8,6 +8,7 @@ import { runPython } from './environment.mjs';
 import { assertOutputDirectory, commitArtifacts } from './artifacts.mjs';
 import { canonicalPath, containsPath } from './paths.mjs';
 import { parseCli } from './cli.mjs';
+import { assembleHorizon } from '../templates/digital-horizon/build.mjs';
 
 export const repository = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const localMusic = path.join(repository, '.local/card-carousel/default-music.wav');
@@ -51,16 +52,21 @@ async function snapshotSource(config, out, targetDirectory, defaultMusic) {
   if (existsSync(path.join(root, 'SOURCE.md'))) await copySource(path.join(root, 'SOURCE.md'), path.join(source, 'SOURCE.md'));
 }
 
-async function assembleFilm(input, output, targetDirectory) {
-  const config = path.resolve(input.toLowerCase().endsWith('.json') ? input : path.join(repository, 'examples', input, 'config.json'));
-  const name = path.basename(path.dirname(config));
-  const out = path.resolve(output || path.join(repository, 'build', name));
+async function assembleCarousel(config, out, targetDirectory, cfg) {
   const builder = path.join(repository, 'templates/card-carousel/scripts/build_film.py');
   const defaultMusic = existsSync(localMusic) ? localMusic : undefined;
   const musicArgs = defaultMusic ? ['--default-music', defaultMusic] : [];
   const result = runPython([builder, config, '--out', out, '--root', path.dirname(config), '--standalone', ...musicArgs], { cwd: repository });
   if (result.status !== 0) throw new Error(result.error ? `无法运行 Python：${result.error.message}。请运行 npm run doctor` : result.stdout + result.stderr);
   console.log(result.stdout.trim());
+  const film = JSON.parse(await readFile(path.join(out, 'film.json'), 'utf8'));
+  const timeline = JSON.parse(await readFile(path.join(repository, 'templates/card-carousel/timeline.json'), 'utf8'));
+  await writeFile(path.join(out, 'studio.json'), JSON.stringify({ template: 'card-carousel', title: cfg.brand.wordmark, width: 1920, height: 1080, ...timeline, audio: film.audio }, null, 2) + '\n');
+  await snapshotSource(config, out, targetDirectory, defaultMusic);
+  return path.join(out, 'main.js');
+}
+
+async function buildPlayer(out, entry, name) {
   await mkdir(path.join(out, 'fonts'), { recursive: true });
   await cp(path.join(repository, 'assets/fonts'), path.join(out, 'fonts'), { recursive: true });
   const fonts = [
@@ -79,34 +85,35 @@ async function assembleFilm(input, output, targetDirectory) {
 <body><main id="stage" data-composition-id="motion"><canvas id="gl" width="1920" height="1080"></canvas><div id="hud"></div></main><script type="module" src="./app.js"></script></body></html>`);
   const host = path.join(repository, 'scripts/player.mjs');
   await build({
-    stdin: { contents: `import { installHost, finishLoading } from ${JSON.stringify(host)}; installHost(); await import(${JSON.stringify(path.join(out, 'main.js'))}); await finishLoading();`, resolveDir: repository },
+    stdin: { contents: `import { installHost, finishLoading } from ${JSON.stringify(host)}; installHost(); await import(${JSON.stringify(entry)}); await finishLoading();`, resolveDir: repository },
     bundle: true, format: 'esm', target: 'es2022', outfile: path.join(out, 'app.js'), logLevel: 'warning', nodePaths: [path.join(repository, 'node_modules')],
   });
-  const cfg = await readConfig(config);
-  const film = JSON.parse(await readFile(path.join(out, 'film.json'), 'utf8'));
-  const timeline = JSON.parse(await readFile(path.join(repository, 'templates/card-carousel/timeline.json'), 'utf8'));
-  await writeFile(path.join(out, 'studio.json'), JSON.stringify({ template: 'card-carousel', title: cfg.brand.wordmark, width: 1920, height: 1080, ...timeline, audio: film.audio }, null, 2) + '\n');
-  await snapshotSource(config, out, targetDirectory, defaultMusic);
   await writeNotices(out);
-  console.log(`独立工程已构建：${out}`);
-  return out;
+}
+
+async function renameCarouselManifest(staging, out) {
+  const manifestName = path.basename(staging) + '.motion.json';
+  const manifest = JSON.parse(await readFile(path.join(staging, manifestName), 'utf8'));
+  const from = path.relative(repository, staging).split(path.sep).join('/');
+  const to = path.relative(repository, out).split(path.sep).join('/');
+  for (const group of ['filePaths', 'resourceFiles']) for (const key of Object.keys(manifest[group])) manifest[group][key] = manifest[group][key].replace(from + '/', to + '/');
+  await rm(path.join(staging, manifestName));
+  await writeFile(path.join(staging, path.basename(out) + '.motion.json'), JSON.stringify(manifest, null, 2) + '\n');
 }
 
 export async function buildFilm(input = 'starter', output) {
   const config = path.resolve(input.toLowerCase().endsWith('.json') ? input : path.join(repository, 'examples', input, 'config.json'));
-  const out = path.resolve(output || path.join(repository, 'build', path.basename(path.dirname(config))));
+  const name = path.basename(path.dirname(config));
+  const out = path.resolve(output || path.join(repository, 'build', name));
   await assertOutputDirectory(out, [repository, config], ['studio.json', 'film.json']);
+  const cfg = await readConfig(config);
+  const horizon = cfg?.template === 'digital-horizon';
   await mkdir(path.dirname(out), { recursive: true });
   const staging = await mkdtemp(path.join(path.dirname(out), 'studio-build-'));
   try {
-    await assembleFilm(config, staging, out);
-    const manifestName = path.basename(staging) + '.motion.json';
-    const manifest = JSON.parse(await readFile(path.join(staging, manifestName), 'utf8'));
-    const from = path.relative(repository, staging).split(path.sep).join('/');
-    const to = path.relative(repository, out).split(path.sep).join('/');
-    for (const group of ['filePaths', 'resourceFiles']) for (const key of Object.keys(manifest[group])) manifest[group][key] = manifest[group][key].replace(from + '/', to + '/');
-    await rm(path.join(staging, manifestName));
-    await writeFile(path.join(staging, path.basename(out) + '.motion.json'), JSON.stringify(manifest, null, 2) + '\n');
+    const entry = horizon ? await assembleHorizon(cfg, config, staging, out) : await assembleCarousel(config, staging, out, cfg);
+    await buildPlayer(staging, entry, name);
+    if (!horizon) await renameCarouselManifest(staging, out);
     await commitArtifacts([{ staged: staging, target: out }]);
     console.log(`可用工程：${out}`);
     return out;

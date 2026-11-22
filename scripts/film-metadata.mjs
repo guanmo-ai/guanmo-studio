@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import { containsPath } from './paths.mjs';
+import { durationRange } from '../templates/digital-horizon/timing.js';
 
 function invalid(field) {
   return new Error(`构建清单的 ${field} 无效，请用源配置重新运行 npm run build`);
@@ -10,10 +11,13 @@ export async function readFilmMetadata(directory) {
   let meta;
   try { meta = JSON.parse(await readFile(path.join(directory, 'studio.json'), 'utf8')); }
   catch (cause) { throw new Error('无法读取构建清单 studio.json，请用源配置运行 npm run build', { cause }); }
-  if (meta?.template !== 'card-carousel' || meta.width !== 1920 || meta.height !== 1080 || meta.duration !== 15 || meta.fps !== 60) {
+  const carousel = meta?.template === 'card-carousel' && meta.duration === 15;
+  const horizon = meta?.template === 'digital-horizon' && Number.isInteger(meta.duration)
+    && meta.duration >= durationRange[0] && meta.duration <= durationRange[1];
+  if ((!carousel && !horizon) || meta.width !== 1920 || meta.height !== 1080 || meta.fps !== 60) {
     throw invalid('模板或视频规格');
   }
-  if (!Array.isArray(meta.segments) || meta.segments.length !== 6) throw invalid('segments');
+  if (!Array.isArray(meta.segments) || meta.segments.length !== (horizon ? 3 : 6)) throw invalid('segments');
   const ids = new Set();
   let end = 0;
   for (const segment of meta.segments) {

@@ -83,6 +83,17 @@
       "status": "documented",
       "evidence": "examples/studio-demo/SOURCE.md",
       "note": "原创程序卡面、文案与动画。随附配乐、音效和字体保留各自许可。"
+    },
+    {
+      "id": "digital-horizon-media",
+      "paths": [
+        "examples/digital-horizon/poster.jpg",
+        "examples/digital-horizon/video.mp4"
+      ],
+      "license": "MIT",
+      "status": "documented",
+      "evidence": "examples/digital-horizon/SOURCE.md",
+      "note": "由模板渲染的原创画面、文案和合成配乐。字体保留各自许可。"
     }
   ],
   "sha256": {
@@ -96,6 +107,7 @@
     "assets/backgrounds/previews/studio-indigo.webp": "f951e0ddf5ccc5c7e42de0434928df7e2141ea8e0baf39a48f36cb1f5a57d21b",
     "assets/backgrounds/previews/studio-rose.webp": "f7ebe3aa6ad6caec83e3574aacf2d0c23550cc909d054611ea99967b7427cffb",
     "examples/studio-demo/poster.jpg": "d68a2914e57b98430925313a2c8d84aacb20bf92fd9e707c575a1d08bcb37c98",
-    "examples/studio-demo/preview.webp": "a76869966a6d1d0dbe81dcf8d7a530a9a552d0f9d93dd280c5bb42a8ccb49716"
+    "examples/studio-demo/preview.webp": "a76869966a6d1d0dbe81dcf8d7a530a9a552d0f9d93dd280c5bb42a8ccb49716",
+    "examples/digital-horizon/poster.jpg": "d4b480c94a83a3cef7051c2a84ee98be481e957801426d5fdd400e1ffb4c0b1e"
   }
 }

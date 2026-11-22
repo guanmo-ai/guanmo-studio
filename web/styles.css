@@ -177,6 +177,7 @@ dialog::backdrop { background: rgb(0 0 0 / .8); backdrop-filter: blur(16px); -we
 .template-prompt-header h3 { font-size: 14px; font-weight: 550; }
 .template-prompt-panel textarea { width: 100%; flex: 1; min-height: 180px; resize: none; padding: 12px; border: 0; border-radius: 8px; background: #0c0c0d; color: var(--c-fg-2); font: 12px/1.75 var(--f-sans); }
 #template-prompt-status { color: var(--c-fg-2); font-size: 12px; }
+#download-template-config { align-self: flex-start; color: var(--accent); font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 1000px) {
   .template-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

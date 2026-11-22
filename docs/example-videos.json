@@ -1,8 +1,8 @@
 {
-  "template": "card-carousel",
-  "templateNumber": "001",
   "approvedExamples": [
     {
+      "template": "card-carousel",
+      "templateNumber": "001",
       "example": "studio-demo",
       "name": "Guanmo Studio · 卡片转盘",
       "file": "examples/studio-demo/video.mp4",
@@ -20,6 +20,25 @@
       "soundEffects": "bundled-cc0",
       "background": "warm",
       "cardLook": "original"
+    },
+    {
+      "template": "digital-horizon",
+      "templateNumber": "002",
+      "example": "digital-horizon",
+      "name": "Guanmo Studio · 数字地平线",
+      "file": "examples/digital-horizon/video.mp4",
+      "poster": "examples/digital-horizon/poster.jpg",
+      "config": "examples/digital-horizon/config.json",
+      "source": "template-render",
+      "sha256": "5ba6d28c404c5806738d32035af4b32d0c78a09d072170b8e7b44352429d63b3",
+      "bytes": 3240815,
+      "width": 1920,
+      "height": 1080,
+      "fps": "60/1",
+      "duration": "7.000000",
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "music": "synthesized"
     }
   ]
 }

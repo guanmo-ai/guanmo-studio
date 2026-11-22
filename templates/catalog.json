@@ -17,6 +17,25 @@
         }
       ],
       "prompt": "templates/card-carousel/prompt.md"
+    },
+    {
+      "id": "digital-horizon",
+      "name": "数字地平线",
+      "en": "DIGITAL HORIZON",
+      "description": "字符沿琥珀色弧光向中央汇聚，两段文字依次淡入。适合产品揭晓和品牌片头。",
+      "duration": 7,
+      "resolution": "1920 × 1080",
+      "fps": 60,
+      "poster": "examples/digital-horizon/poster.jpg",
+      "examples": [
+        {
+          "name": "Guanmo Studio · 数字地平线",
+          "video": "examples/digital-horizon/video.mp4",
+          "poster": "examples/digital-horizon/poster.jpg"
+        }
+      ],
+      "config": "examples/digital-horizon/config.json",
+      "prompt": "templates/digital-horizon/prompt.md"
     }
   ]
 }

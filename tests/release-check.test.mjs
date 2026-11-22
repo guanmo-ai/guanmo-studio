@@ -29,7 +29,7 @@ async function withRelease(check) {
     for (const file of [video, poster, ...audio]) await write(file, sample);
     await write(config, {});
     await write(prompt, '模板提示词');
-    await write('templates/catalog.json', { templates: [{ poster, prompt, examples: [{ video, poster }] }] });
+    await write('templates/catalog.json', { templates: [{ poster, prompt, config, examples: [{ video, poster }] }] });
     await write('docs/example-videos.json', { approvedExamples: [{ file: video, poster, config, bytes: Buffer.byteLength(sample), sha256 }] });
     await write('docs/asset-licenses.json', {
       groups: [{ id: 'demo', paths: [video, poster, ...audio], status: 'documented', license: 'MIT', evidence: 'LICENSE' }],
@@ -69,5 +69,6 @@ test('发布检查拒绝隐藏目录中未登记的媒体和缺失的案例入�
     assert.ok(failed.stderr.includes('素材需要唯一许可记录：.github/media/sample.webm'));
     assert.ok(failed.stderr.includes('案例封面必须指向发布目录内的有效文件'));
     assert.ok(failed.stderr.includes('案例配置必须指向发布目录内的有效文件'));
+    assert.ok(failed.stderr.includes('模板配置必须指向发布目录内的有效文件'));
   });
 });

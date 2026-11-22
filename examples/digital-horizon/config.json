@@ -1,0 +1,15 @@
+{
+  "template": "digital-horizon",
+  "opening": "Turn your ideas into short films",
+  "title": "Guanmo Studio",
+  "color": "#ffa466",
+  "duration": 7,
+  "particles": {
+    "count": 520,
+    "seed": 31
+  },
+  "audio": {
+    "enabled": true,
+    "volume": 0.85
+  }
+}
