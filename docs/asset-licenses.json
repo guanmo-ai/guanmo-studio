@@ -85,6 +85,17 @@
       "note": "原创程序卡面、文案与动画。随附配乐、音效和字体保留各自许可。"
     },
     {
+      "id": "gif-factory-case-media",
+      "paths": [
+        "examples/gif-factory-case/poster.jpg",
+        "examples/gif-factory-case/video.mp4"
+      ],
+      "license": "保留各自权利，维护者许可作网站案例展示",
+      "status": "documented",
+      "evidence": "examples/gif-factory-case/SOURCE.md",
+      "note": "原版成片与截帧封面，用于案例展示。配乐随成片呈现。"
+    },
+    {
       "id": "digital-horizon-media",
       "paths": [
         "examples/digital-horizon/poster.jpg",
@@ -108,6 +119,7 @@
     "assets/backgrounds/previews/studio-rose.webp": "f7ebe3aa6ad6caec83e3574aacf2d0c23550cc909d054611ea99967b7427cffb",
     "examples/studio-demo/poster.jpg": "d68a2914e57b98430925313a2c8d84aacb20bf92fd9e707c575a1d08bcb37c98",
     "examples/studio-demo/preview.webp": "a76869966a6d1d0dbe81dcf8d7a530a9a552d0f9d93dd280c5bb42a8ccb49716",
-    "examples/digital-horizon/poster.jpg": "d4b480c94a83a3cef7051c2a84ee98be481e957801426d5fdd400e1ffb4c0b1e"
+    "examples/digital-horizon/poster.jpg": "d4b480c94a83a3cef7051c2a84ee98be481e957801426d5fdd400e1ffb4c0b1e",
+    "examples/gif-factory-case/poster.jpg": "c4032ab085f48a8a81f89b199958958b002642964efbe609fe793ad4ce3737c6"
   }
 }

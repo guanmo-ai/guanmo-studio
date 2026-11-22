@@ -14,4 +14,4 @@ Studio Demo 的文案、程序卡面与背景由 Guanmo Studio 提供。「数�
 
 ## 创作者案例
 
-Design Style 和《GIF 工厂·电影片头》是卡片转盘的创作者案例。两支原片、相关项目原图和原配乐由其权利人管理。本预览包用可分发的 Studio Demo 展示同一编排和工作台。 [Design Style 项目](https://github.com/guanmo-ai/design-style) · [GIF 工厂项目](https://github.com/WoYun520/gif-factory)
+《GIF 工厂 · 电影片头》是网站上的卡片转盘案例，原片与封面按案例展示。Studio Demo 提供可重建的随包示例。Design Style 是卡片转盘的早期创作者案例，相关原图和配乐分别归其权利人。 [GIF 工厂案例来源](../examples/gif-factory-case/SOURCE.md) · [Design Style 项目](https://github.com/guanmo-ai/design-style)

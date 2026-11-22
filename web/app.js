@@ -13,7 +13,6 @@ const templateExamples = $('#template-examples');
 const templatePrompt = $('#template-prompt');
 const templateCopy = $('#copy-template-prompt');
 const templatePromptStatus = $('#template-prompt-status');
-const templateConfig = $('#download-template-config');
 const carousel = $('#background-carousel');
 const track = $('#background-grid');
 const previousSlide = $('#carousel-previous');
@@ -290,9 +289,6 @@ async function showTemplate(template, examples) {
   templatePrompt.placeholder = '正在加载提示词…';
   templateCopy.disabled = true;
   templatePromptStatus.hidden = true;
-  templateConfig.hidden = !template.config;
-  if (template.config) templateConfig.href = asset(template.config);
-  else templateConfig.removeAttribute('href');
   templateDialog.showModal();
 
   const request = new AbortController();
@@ -330,7 +326,9 @@ function renderTemplates(templates, localCases) {
   const grid = $('#template-grid');
   const cards = templates.map((template, index) => {
     const category = template.category === 'visual-effect' ? 'visual-effect' : 'full-template';
-    const localExamples = localCases.filter(example => example.templateId === template.id);
+    const localExamples = localCases.filter(example =>
+      example.templateId === template.id && !template.examples.some(published => published.name === example.name)
+    );
     const card = node('article', 'template-card');
     const trigger = node('button', 'template-trigger');
     trigger.type = 'button';

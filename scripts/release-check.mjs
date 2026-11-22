@@ -98,7 +98,8 @@ async function verifyExamples(manifest, catalog) {
     if (requireFile(example.poster, '案例封面', /\.(?:jpe?g|png|webp)$/i) && (await stat(path.join(repository, example.poster))).size === 0) {
       errors.push(`案例封面为空：${example.poster}`);
     }
-    requireFile(example.config, '案例配置', /\.json$/i);
+    if (example.source === 'creator-case') requireFile(example.sourceNote, '案例来源', /\.md$/i);
+    else requireFile(example.config, '案例配置', /\.json$/i);
     const info = await stat(path.join(repository, example.file));
     if (info.size <= 0 || info.size !== example.bytes) errors.push(`成片字节数与清单不符：${example.file}`);
     await verifyHash(example.file, example.sha256);
@@ -108,7 +109,6 @@ async function verifyExamples(manifest, catalog) {
   for (const template of Array.isArray(catalog.templates) ? catalog.templates : []) {
     requireFile(template?.poster, '模板封面', /\.(?:jpe?g|png|webp)$/i);
     requireFile(template?.prompt, '模板提示词', /\.md$/i);
-    if (template?.config !== undefined) requireFile(template.config, '模板配置', /\.json$/i);
     if (!Array.isArray(template?.examples) || !template.examples.length) {
       errors.push(`模板缺少可播放案例：${template?.id}`);
       continue;

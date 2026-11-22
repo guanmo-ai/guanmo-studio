@@ -29,7 +29,7 @@ async function withRelease(check) {
     for (const file of [video, poster, ...audio]) await write(file, sample);
     await write(config, {});
     await write(prompt, '模板提示词');
-    await write('templates/catalog.json', { templates: [{ poster, prompt, config, examples: [{ video, poster }] }] });
+    await write('templates/catalog.json', { templates: [{ poster, prompt, examples: [{ video, poster }] }] });
     await write('docs/example-videos.json', { approvedExamples: [{ file: video, poster, config, bytes: Buffer.byteLength(sample), sha256 }] });
     await write('docs/asset-licenses.json', {
       groups: [{ id: 'demo', paths: [video, poster, ...audio], status: 'documented', license: 'MIT', evidence: 'LICENSE' }],
@@ -69,6 +69,22 @@ test('发布检查拒绝隐藏目录中未登记的媒体和缺失的案例入�
     assert.ok(failed.stderr.includes('素材需要唯一许可记录：.github/media/sample.webm'));
     assert.ok(failed.stderr.includes('案例封面必须指向发布目录内的有效文件'));
     assert.ok(failed.stderr.includes('案例配置必须指向发布目录内的有效文件'));
-    assert.ok(failed.stderr.includes('模板配置必须指向发布目录内的有效文件'));
+  });
+});
+
+test('只展示成片的创作者案例需要来源说明', async () => {
+  await withRelease(async ({ root, write, run }) => {
+    const sourceNote = 'examples/demo/SOURCE.md';
+    await write('docs/example-videos.json', {
+      approvedExamples: [{ file: video, poster, source: 'creator-case', sourceNote, bytes: Buffer.byteLength(sample), sha256 }],
+    });
+    await rm(path.join(root, config));
+    await write(sourceNote, '案例成片和封面来源');
+    const documented = run();
+    assert.equal(documented.status, 0, documented.stderr);
+    await rm(path.join(root, sourceNote));
+    const missing = run();
+    assert.equal(missing.status, 1);
+    assert.match(missing.stderr, /案例来源必须指向发布目录内的有效文件/);
   });
 });

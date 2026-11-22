@@ -59,6 +59,10 @@ try {
     assert.equal(await caseChoice.getAttribute('aria-pressed'), 'true');
     const video = page.locator('#template-video');
     assert.equal(await video.getAttribute('src'), server.url + 'examples/studio-demo/video.mp4?case=local');
+    const gifFactoryCase = caseSelector.getByRole('button', { name: 'GIF 工厂 · 电影片头' });
+    await gifFactoryCase.click();
+    assert.equal(await video.getAttribute('src'), server.url + 'examples/gif-factory-case/video.mp4');
+    assert.equal(await video.getAttribute('poster'), server.url + 'examples/gif-factory-case/poster.jpg');
     const officialCase = caseSelector.getByRole('button', { name: 'Guanmo Studio · 卡片转盘' });
     await officialCase.click();
     assert.equal(await officialCase.getAttribute('aria-pressed'), 'true');
@@ -96,6 +100,8 @@ try {
     assert.equal(await horizon.isVisible(), true);
     await horizon.click();
     assert.equal(await video.getAttribute('src'), server.url + 'examples/digital-horizon/video.mp4');
+    await page.locator('#copy-template-prompt:enabled').waitFor();
+    assert.equal(await page.getByRole('link', { name: '下载示例配置' }).count(), 0);
     await page.locator('[data-close="template-dialog"]').click();
     await fullTemplates.click();
     assert.equal(await fullTemplates.getAttribute('aria-pressed'), 'true');
