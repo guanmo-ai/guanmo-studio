@@ -104,9 +104,17 @@ try {
     await allTemplates.click();
     assert.equal(await horizon.isVisible(), true);
     assert.equal(await trigger.isVisible(), true);
+    const footerLayout = () => page.evaluate(() => {
+      const grid = document.querySelector('#template-grid').getBoundingClientRect();
+      const footer = document.querySelector('footer').getBoundingClientRect();
+      return { gap: footer.top - grid.bottom, tail: footer.bottom + scrollY - innerHeight };
+    });
+    const desktopFooter = await footerLayout();
+    assert.ok(desktopFooter.gap >= 150 && desktopFooter.tail >= -1, '桌面页脚应和模板卡片保持留白并靠近页面底部');
     await page.screenshot({ path: path.join(evidence, 'showcase-desktop.png') });
     await page.setViewportSize({ width: 390, height: 844 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), '首页手机布局溢出');
+    assert.ok((await footerLayout()).gap >= 80, '手机页脚应和模板卡片保持留白');
     await page.screenshot({ path: path.join(evidence, 'showcase-mobile.png') });
     await page.setViewportSize({ width: 1440, height: 1000 });
     // 为本轮创建独立预览目录，正式工作台正在使用的构建与选择保持原样。
@@ -253,7 +261,7 @@ try {
         await rm(preserved,{force:true});await rm(preservedChecks,{recursive:true,force:true});
       }
     }
-    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ at: new Date().toISOString(), node: process.version, platform: process.platform, arch: process.arch, skipped: values.video && process.platform === 'win32' ? ['POSIX SIGINT signal test; Windows native console Ctrl+C requires manual verification'] : [], checks: ['showcase-desktop', 'showcase-mobile', 'template-category-filters', 'case-selection', 'bundled-demo-playback', '30-palettes', 'preview-before-add', 'corrupt-storage-recovery', 'corrupt-saved-file-recovery', 'control-text-contrast', 'balanced-mix', 'isolated-save', 'save-edit-race', 'restore-saved-without-write', 'cards-mobile', 'starter-proof', 'missing-player-fails-fast', ...(values.video ? ['silent-15s-draft', 'proof-preserves-video-evidence', 'failed-encoder-keeps-previous', 'failed-render-keeps-evidence', 'abort-keeps-all-outputs', ...(process.platform === 'win32' ? [] : ['sigint-keeps-all-outputs'])] : [])], errors }, null, 2) + '\n');
+    await writeFile(path.join(evidence, 'report.json'), JSON.stringify({ at: new Date().toISOString(), node: process.version, platform: process.platform, arch: process.arch, skipped: values.video && process.platform === 'win32' ? ['POSIX SIGINT signal test; Windows native console Ctrl+C requires manual verification'] : [], checks: ['showcase-desktop', 'showcase-mobile', 'showcase-footer-spacing', 'template-category-filters', 'case-selection', 'bundled-demo-playback', '30-palettes', 'preview-before-add', 'corrupt-storage-recovery', 'corrupt-saved-file-recovery', 'control-text-contrast', 'balanced-mix', 'isolated-save', 'save-edit-race', 'restore-saved-without-write', 'cards-mobile', 'starter-proof', 'missing-player-fails-fast', ...(values.video ? ['silent-15s-draft', 'proof-preserves-video-evidence', 'failed-encoder-keeps-previous', 'failed-render-keeps-evidence', 'abort-keeps-all-outputs', ...(process.platform === 'win32' ? [] : ['sigint-keeps-all-outputs'])] : [])], errors }, null, 2) + '\n');
     console.log(`浏览器与渲染冒烟检查通过：${evidence}`);
   }
 } catch (error) {
